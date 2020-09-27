@@ -1,0 +1,41 @@
+version: "3.7"
+services: 
+    app:
+        build: 
+            args: 
+                user: pmk
+                uid: 1000
+            context: ./
+            dockerfile: Dockerfile
+        container_name: pmk-app
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes: 
+            - ./:/var/www
+    db:
+        image: mysql:8
+        container_name: mysql-db
+        restart: unless-stopped
+        environment: 
+            MYSQL_DATABASE: pmk-db
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USER: pmk
+            MYSQL_PASSWORD: password
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes: 
+            - dbdata:/var/lib/mysql
+        ports: 
+            - "6033:3306"
+    nginx:
+        image: nginx:alpine
+        container_name: pmk-nginx
+        restart: unless-stopped
+        ports: 
+            - "8000:80"
+        volumes: 
+            - ./:/var/www
+            - ./docker-compose/nginx:/etc/nginx/conf.d
+
+volumes: 
+    dbdata:
