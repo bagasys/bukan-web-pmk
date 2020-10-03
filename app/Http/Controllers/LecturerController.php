@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lecturer;
-use Illuminate\Http\Request;
+use App\Http\Requests\LecturerRequest;
 
 class LecturerController extends Controller
 {
@@ -31,20 +31,11 @@ class LecturerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\LecturerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LecturerRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'nid' => 'required|string',
-            'department' => 'required|string',
-            'sex' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-        ]);
-
         Lecturer::create([
             'name' => $request['name'],
             'nid' => $request['nid'],
@@ -67,7 +58,6 @@ class LecturerController extends Controller
      */
     public function show(Lecturer $lecturer)
     {
-
         return view('lecturer.show', compact('lecturer'));
     }
 
@@ -85,21 +75,12 @@ class LecturerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\LecturerRequest  $request
      * @param  \App\Models\Lecturer  $lecturer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lecturer $lecturer)
+    public function update(LecturerRequest $request, Lecturer $lecturer)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'nid' => 'required|string',
-            'department' => 'required|string',
-            'sex' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-        ]);
-
         $lecturer->name = $request['name'];
         $lecturer->nid = $request['nid'];
         $lecturer->department = $request['department'];
