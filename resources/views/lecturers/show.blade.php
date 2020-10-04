@@ -1,4 +1,4 @@
-@extends('lecturer.layout')
+@extends('lecturers.layout')
   
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
                 <h2> Show data dosen</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('lecturer.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('lecturers.index') }}"> Back</a>
             </div>
         </div>
     </div>

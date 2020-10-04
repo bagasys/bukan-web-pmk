@@ -15,7 +15,7 @@ class LecturerController extends Controller
     public function index()
     {
         $lecturers = Lecturer::all();
-        return view('lecturer.index', compact('lecturers'));
+        return view('lecturers.index', compact('lecturers'));
     }
 
     /**
@@ -25,7 +25,7 @@ class LecturerController extends Controller
      */
     public function create()
     {
-        return view('lecturer.create');
+        return view('lecturers.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class LecturerController extends Controller
             'phone' => $request['phone'],
         ]);
 
-        return redirect()->route('lecturer.index')
+        return redirect()->route('lecturers.index')
             ->with('success', 'Data dosen berhasil ditambahkan');
     }
 
@@ -58,7 +58,7 @@ class LecturerController extends Controller
      */
     public function show(Lecturer $lecturer)
     {
-        return view('lecturer.show', compact('lecturer'));
+        return view('lecturers.show', compact('lecturer'));
     }
 
     /**
@@ -69,7 +69,7 @@ class LecturerController extends Controller
      */
     public function edit(Lecturer $lecturer)
     {
-        return view('lecturer.edit', compact('lecturer'));
+        return view('lecturers.edit', compact('lecturer'));
     }
 
     /**
@@ -89,7 +89,7 @@ class LecturerController extends Controller
         $lecturer->phone = $request['phone'];
         $lecturer->save();
 
-        return redirect()->route('lecturer.index')
+        return redirect()->route('lecturers.index')
             ->with('success', 'Data dosen berhasil diubah');
     }
 
@@ -103,7 +103,7 @@ class LecturerController extends Controller
     {
         $lecturer->delete();
 
-        return redirect()->route('lecturer.index')
+        return redirect()->route('lecturers.index')
             ->with('success', 'Data dosen berhasil dihapus');
     }
 }
