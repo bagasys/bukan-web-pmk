@@ -23,5 +23,8 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+Route::get('/about', function () {
+    return view('salvation/about');
+});
 
 Route::resource('/lecturer', LecturerController::class);
