@@ -24,4 +24,4 @@ Route::get('/admin', function () {
 });
 
 
-Route::resource('/lecturer', LecturerController::class);
+Route::resource('/lecturers', LecturerController::class);

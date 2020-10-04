@@ -1,4 +1,4 @@
-@extends('lecturer.layout')
+@extends('lecturers.layout')
  
 @section('content')
     <div class="row">
@@ -7,7 +7,7 @@
                 <h2>Dosen PMK ITS</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('lecturer.create') }}"> Tambah data dosen</a>
+                <a class="btn btn-success" href="{{ route('lecturers.create') }}"> Tambah data dosen</a>
             </div>
         </div>
     </div>
@@ -33,11 +33,11 @@
             <td>{{ $lecturer->nid }}</td>
             <td>{{ $lecturer->department }}</td>
             <td>
-                <form action="{{ route('lecturer.destroy', $lecturer->id) }}" method="POST">
+                <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('lecturer.show',$lecturer->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('lecturers.show',$lecturer->id) }}">Show</a>
     
-                    <a class="btn btn-primary" href="{{ route('lecturer.edit',$lecturer->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('lecturers.edit',$lecturer->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
