@@ -20,4 +20,9 @@ class Lecturer extends Model
         'email',
         'phone',
     ];
+
+    public function smallGroup()
+    {
+        return $this->morphToMany(SmallGroup::class, 'small_groupable')->withPivot('is_leader');;
+    }
 }
