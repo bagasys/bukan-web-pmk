@@ -23,41 +23,38 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-//punya salvation
+//Landing Page
 Route::get('/about', function () {
-    return view('salvation/about');
+    return view('landing-page/about');
 });
 
 Route::get('/blog-single', function () {
-    return view('salvation/blog-single');
+    return view('landing-page/blog-single');
 });
 
 Route::get('/blog', function () {
-    return view('salvation/blog');
+    return view('landing-page/blog');
 });
 
 Route::get('/contact', function () {
-    return view('salvation/contact');
+    return view('landing-page/contact');
 });
 
 Route::get('/events', function () {
-    return view('salvation/events');
+    return view('landing-page/events');
 });
 
 Route::get('/index', function () {
-    return view('salvation/index');
-});
-
-Route::get('/main', function () {
-    return view('salvation/main');
+    return view('landing-page/index');
 });
 
 Route::get('/ministries', function () {
-    return view('salvation/ministries');
+    return view('landing-page/ministries');
 });
 
 Route::get('/sermons', function () {
-    return view('salvation/sermons');
+    return view('landing-page/sermons');
 });
 
+//Route lecturer
 Route::resource('/lecturer', LecturerController::class);
