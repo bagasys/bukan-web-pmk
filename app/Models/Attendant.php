@@ -21,4 +21,9 @@ class Attendant extends Model
         'nid',
         'email',
     ];
+
+    public function attendee()
+    {
+        return $this->morphTo();
+    }
 }
