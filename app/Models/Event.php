@@ -23,4 +23,10 @@ class Event extends Model
         'creator_id',
         'creator_type'
     ];
+
+    public function creator()
+    {
+        return $this->morphTo();
+    }
+
 }
