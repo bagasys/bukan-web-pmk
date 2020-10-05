@@ -68,7 +68,7 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{asset('salvation/images/bg_1.jpg')}});">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text align-items-end js-fullheight">
@@ -85,7 +85,7 @@
     <div class="row d-flex">
       <div class="col-md-6 col-lg-4 d-flex ftco-animate">
         <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+          <a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_1.jpg')}});">
           </a>
           <div class="text p-4">
            <div class="meta mb-2">
@@ -101,7 +101,7 @@
     </div>
     <div class="col-md-6 col-lg-4 d-flex ftco-animate">
       <div class="blog-entry align-self-stretch">
-        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+        <a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_2.jpg')}});">
         </a>
         <div class="text p-4">
          <div class="meta mb-2">
@@ -117,7 +117,7 @@
   </div>
   <div class="col-md-6 col-lg-4 d-flex ftco-animate">
     <div class="blog-entry align-self-stretch">
-      <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+      <a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_3.jpg')}});">
       </a>
       <div class="text p-4">
        <div class="meta mb-2">
@@ -133,7 +133,7 @@
 </div>
 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
   <div class="blog-entry align-self-stretch">
-    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+    <a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_4.jpg')}});">
     </a>
     <div class="text p-4">
      <div class="meta mb-2">
@@ -149,7 +149,7 @@
 </div>
 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
   <div class="blog-entry align-self-stretch">
-    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+    <a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_5.jpg')}});">
     </a>
     <div class="text p-4">
      <div class="meta mb-2">
@@ -165,7 +165,7 @@
 </div>
 <div class="col-md-6 col-lg-4 d-flex ftco-animate">
   <div class="blog-entry align-self-stretch">
-    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
+    <a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_6.jpg')}});">
     </a>
     <div class="text p-4">
      <div class="meta mb-2">
@@ -215,7 +215,7 @@
   <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
     <h2 class="footer-heading">Latest News</h2>
     <div class="block-21 mb-4 d-flex">
-      <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+      <a class="img mr-4 rounded" style="background-image: url({{asset('salvation/images/image_1.jpg')}});"></a>
       <div class="text">
         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
         <div class="meta">
@@ -226,7 +226,7 @@
       </div>
     </div>
     <div class="block-21 mb-4 d-flex">
-      <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+      <a class="img mr-4 rounded" style="background-image: url({{asset('salvation/images/image_2.jpg')}});"></a>
       <div class="text">
         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
         <div class="meta">

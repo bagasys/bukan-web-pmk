@@ -68,7 +68,7 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{asset('salvation/images/bg_1.jpg')}});">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-end">
@@ -84,7 +84,7 @@
  <div class="container">
   <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
     <div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate">
-     <a href="#" class="img" style="background-image: url(images/sermon-1.jpg);"></a>
+     <a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-1.jpg)}});"></a>
    </div>
    <div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
      <div class="text p-md-5">
@@ -106,7 +106,7 @@
 
 <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
   <div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate order-md-last">
-   <a href="#" class="img" style="background-image: url(images/sermon-2.jpg);"></a>
+   <a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-2.jpg)}});"></a>
  </div>
  <div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
    <div class="text p-md-5">
@@ -128,7 +128,7 @@
 
 <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
   <div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate">
-   <a href="#" class="img" style="background-image: url(images/sermon-3.jpg);"></a>
+   <a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-3.jpg)}});"></a>
  </div>
  <div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
    <div class="text p-md-5">
@@ -150,7 +150,7 @@
 
 <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
   <div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate order-md-last">
-   <a href="#" class="img" style="background-image: url(images/sermon-4.jpg);"></a>
+   <a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-4.jpg)}});"></a>
  </div>
  <div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
    <div class="text p-md-5">
@@ -172,7 +172,7 @@
 
 <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
   <div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate">
-   <a href="#" class="img" style="background-image: url(images/sermon-5.jpg);"></a>
+   <a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-5.jpg)}});"></a>
  </div>
  <div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
    <div class="text p-md-5">
@@ -228,7 +228,7 @@
   <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
     <h2 class="footer-heading">Latest News</h2>
     <div class="block-21 mb-4 d-flex">
-      <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+      <a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_1.jpg)}});"></a>
       <div class="text">
         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
         <div class="meta">
@@ -239,7 +239,7 @@
       </div>
     </div>
     <div class="block-21 mb-4 d-flex">
-      <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+      <a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_2.jpg)}});"></a>
       <div class="text">
         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
         <div class="meta">

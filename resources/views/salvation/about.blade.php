@@ -68,8 +68,8 @@
     </div>
   </nav>
   <!-- END nav -->
-  <!-- URL::asset('js/scrollTo.js'); -->
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: URL('/salvation/images/bg_1.jpg');">
+
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: URL({{asset('salvation/images/bg_1.jpg')}});">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end">
@@ -134,7 +134,7 @@
     <div class="container">
       <div class="row d-flex">
         <div class="col-md-6 d-flex">
-          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/about-3.jpg);">
+          <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:URL('/salvation/images/about-3.jpg');">
           </div>
         </div>
         <div class="col-md-6 pl-md-5 py-md-5">
@@ -224,7 +224,7 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="staff">
-            <div class="img" style="background-image: url({{asset('salvation/images/staff-2.jpg')}});"></div>
+            <div class="img" style="background-image: url('/salvation/images/staff-2.jpg');"></div>
             <div class="text text-2">
               <h3>Cedrick Brown</h3>
               <span>Bible Pastor</span>
@@ -233,7 +233,7 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="staff">
-            <div class="img" style="background-image: url({{asset('salvation/images/staff-3.jpg')}});"></div>
+            <div class="img" style="background-image: url('/salvation/images/staff-3.jpg');"></div>
             <div class="text text-3">
               <h3>John Wick</h3>
               <span>Bible Pastor</span>
@@ -242,7 +242,7 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="staff">
-            <div class="img" style="background-image: url({{asset('salvation/images/staff-4.jpg')}});"></div>
+            <div class="img" style="background-image: url('/salvation/images/staff-4.jpg');"></div>
             <div class="text text-4">
               <h3>Max Love</h3>
               <span>Bible Pastor</span>
@@ -267,7 +267,7 @@
           <div class="carousel-testimony owl-carousel">
             <div class="item">
               <div class="testimony-wrap d-md-flex">
-                <div class="user-img" style="background-image: url({{asset('salvation/images/person_1.jpg')}})">
+                <div class="user-img" style="background-image: url('/salvation/images/person_1.jpg')">
                 </div>
                 <div class="text pl-md-4">
                   <span class="quote d-flex align-items-center justify-content-center">
@@ -280,7 +280,7 @@
             </div>
             <div class="item">
               <div class="testimony-wrap d-md-flex">
-                <div class="user-img" style="background-image: url({{asset('salvation/images/person_2.jpg')}})">
+                <div class="user-img" style="background-image: url('/salvation/images/person_2.jpg')">
                 </div>
                 <div class="text pl-md-4">
                   <span class="quote d-flex align-items-center justify-content-center">
@@ -293,7 +293,7 @@
             </div>
             <div class="item">
               <div class="testimony-wrap d-md-flex">
-                <div class="user-img" style="background-image: url({{asset('salvation/images/person_3.jpg')}})">
+                <div class="user-img" style="background-image: url('/salvation/images/person_3.jpg')">
                 </div>
                 <div class="text pl-md-4">
                   <span class="quote d-flex align-items-center justify-content-center">
@@ -306,7 +306,7 @@
             </div>
             <div class="item">
               <div class="testimony-wrap d-md-flex">
-                <div class="user-img" style="background-image: url({{asset('salvation/images/person_4.jpg')}})">
+                <div class="user-img" style="background-image: url('/salvation/images/person_4.jpg')">
                 </div>
                 <div class="text pl-md-4">
                   <span class="quote d-flex align-items-center justify-content-center">
@@ -319,7 +319,7 @@
             </div>
             <div class="item">
               <div class="testimony-wrap d-md-flex">
-                <div class="user-img" style="background-image: url(salvation/images/person_1.jpg)">
+                <div class="user-img" style="background-image: url('/salvation/images/person_1.jpg')">
                 </div>
                 <div class="text pl-md-4">
                   <span class="quote d-flex align-items-center justify-content-center">
@@ -346,37 +346,37 @@
       </div>
       <div class="row no-gutters">
         <div class="col-md-3">
-          <a href="images/gallery-1.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(/salvation/images/gallery-1.jpg);">
+          <a href="images/gallery-1.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('/salvation/images/gallery-1.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
         <div class="col-md-3">
-          <a href="images/gallery-2.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-2.jpg);">
+          <a href="images/gallery-2.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('salvation/images/gallery-2.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
         <div class="col-md-3">
-          <a href="images/gallery-3.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-3.jpg);">
+          <a href="images/gallery-3.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('salvation/images/gallery-3.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
         <div class="col-md-3">
-          <a href="images/gallery-4.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-4.jpg);">
+          <a href="images/gallery-4.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('salvation/images/gallery-4.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
         <div class="col-md-6">
-          <a href="images/gallery-5.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-5.jpg);">
+          <a href="images/gallery-5.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('salvation/images/gallery-5.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
         <div class="col-md-3">
-          <a href="images/gallery-6.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-6.jpg);">
+          <a href="images/gallery-6.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('salvation/images/gallery-6.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
         <div class="col-md-3">
-          <a href="images/gallery-7.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-7.jpg);">
+          <a href="images/gallery-7.jpg" class="image-popup img gallery ftco-animate" style="background-image: url('salvation/images/gallery-7.jpg');">
             <span class="overlay"></span>
           </a>
         </div>
@@ -400,7 +400,7 @@
         <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
           <h2 class="footer-heading">Latest News</h2>
           <div class="block-21 mb-4 d-flex">
-            <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+            <a class="img mr-4 rounded" style="background-image: url('salvation/images/image_1.jpg');"></a>
             <div class="text">
               <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
               <div class="meta">
@@ -411,7 +411,7 @@
             </div>
           </div>
           <div class="block-21 mb-4 d-flex">
-            <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+            <a class="img mr-4 rounded" style="background-image: url('salvation/images/image_2.jpg');"></a>
             <div class="text">
               <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
               <div class="meta">
@@ -487,4 +487,3 @@
 
 </body>
 
-</html>

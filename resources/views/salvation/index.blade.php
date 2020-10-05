@@ -70,7 +70,7 @@
 	
 	<section class="hero-wrap js-fullheight">
 		<div class="home-slider js-fullheight owl-carousel">
-			<div class="slider-item js-fullheight" style="background-image:url(images/bg_1.jpg);">
+			<div class="slider-item js-fullheight" style="background-image:url({{asset(salvation/images/bg_1.jpg)}});">
 				<div class="overlay"></div>
 				<div class="container">
 					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -86,7 +86,7 @@
 				</div>
 			</div>
 
-			<div class="slider-item js-fullheight" style="background-image:url(images/bg_2.jpg);">
+			<div class="slider-item js-fullheight" style="background-image:url({{asset(salvation/images/bg_2.jpg)}});">
 				<div class="overlay"></div>
 				<div class="container">
 					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -157,7 +157,7 @@
 		<div class="container">
 			<div class="row d-flex">
 				<div class="col-md-6 d-flex">
-					<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(images/about-3.jpg);">
+					<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url({{asset(salvation/images/about-3.jpg)}});">
 					</div>
 				</div>
 				<div class="col-md-6 pl-md-5 py-md-5">
@@ -237,7 +237,7 @@
 			</div>
 			<div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
 				<div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate">
-					<a href="#" class="img" style="background-image: url(images/sermon-1.jpg);"></a>
+					<a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-1.jpg)}});"></a>
 				</div>
 				<div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
 					<div class="text p-md-5">
@@ -259,7 +259,7 @@
 
 			<div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
 				<div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate order-md-last">
-					<a href="#" class="img" style="background-image: url(images/sermon-2.jpg);"></a>
+					<a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-2.jpg)}});"></a>
 				</div>
 				<div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
 					<div class="text p-md-5">
@@ -281,7 +281,7 @@
 
 			<div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
 				<div class="col-md-6 d-flex align-items-stretch js-fullheight ftco-animate">
-					<a href="#" class="img" style="background-image: url(images/sermon-3.jpg);"></a>
+					<a href="#" class="img" style="background-image: url({{asset(salvation/images/sermon-3.jpg)}});"></a>
 				</div>
 				<div class="col-md-6 py-4 py-md-5 ftco-animate d-flex align-items-center">
 					<div class="text p-md-5">
@@ -317,7 +317,7 @@
 					<div class="carousel-testimony owl-carousel">
 						<div class="item">
 							<div class="testimony-wrap d-md-flex">
-								<div class="user-img" style="background-image: url(images/person_1.jpg)">
+								<div class="user-img" style="background-image: url({{asset(salvation/images/person_1.jpg)}})">
 								</div>
 								<div class="text pl-md-4">
 									<span class="quote d-flex align-items-center justify-content-center">
@@ -330,7 +330,7 @@
 						</div>
 						<div class="item">
 							<div class="testimony-wrap d-md-flex">
-								<div class="user-img" style="background-image: url(images/person_2.jpg)">
+								<div class="user-img" style="background-image: url({{asset(salvation/images/person_2.jpg)}})">
 								</div>
 								<div class="text pl-md-4">
 									<span class="quote d-flex align-items-center justify-content-center">
@@ -343,7 +343,7 @@
 						</div>
 						<div class="item">
 							<div class="testimony-wrap d-md-flex">
-								<div class="user-img" style="background-image: url(images/person_3.jpg)">
+								<div class="user-img" style="background-image: url({{asset(salvation/images/person_3.jpg)}})">
 								</div>
 								<div class="text pl-md-4">
 									<span class="quote d-flex align-items-center justify-content-center">
@@ -356,7 +356,7 @@
 						</div>
 						<div class="item">
 							<div class="testimony-wrap d-md-flex">
-								<div class="user-img" style="background-image: url(images/person_4.jpg)">
+								<div class="user-img" style="background-image: url({{asset(salvation/images/person_4.jpg)}})">
 								</div>
 								<div class="text pl-md-4">
 									<span class="quote d-flex align-items-center justify-content-center">
@@ -369,7 +369,7 @@
 						</div>
 						<div class="item">
 							<div class="testimony-wrap d-md-flex">
-								<div class="user-img" style="background-image: url(images/person_1.jpg)">
+								<div class="user-img" style="background-image: url({{asset(salvation/images/person_1.jpg)}})">
 								</div>
 								<div class="text pl-md-4">
 									<span class="quote d-flex align-items-center justify-content-center">
@@ -397,7 +397,7 @@
 			<div class="row d-flex">
 				<div class="col-md-6 col-lg-4 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+						<a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_1.jpg')}});">
 						</a>
 						<div class="text p-4">
 							<div class="meta mb-2">
@@ -413,7 +413,7 @@
 				</div>
 				<div class="col-md-6 col-lg-4 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+						<a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_2.jpg')}});">
 						</a>
 						<div class="text p-4">
 							<div class="meta mb-2">
@@ -429,7 +429,7 @@
 				</div>
 				<div class="col-md-6 col-lg-4 d-flex ftco-animate">
 					<div class="blog-entry align-self-stretch">
-						<a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+						<a href="blog-single.html" class="block-20" style="background-image: url({{asset('salvation/images/image_3.jpg')}});">
 						</a>
 						<div class="text p-4">
 							<div class="meta mb-2">
@@ -457,7 +457,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-1.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-1.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -473,7 +473,7 @@
 					</div>
 				</div>
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-2.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-2.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -489,7 +489,7 @@
 					</div>
 				</div>
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-3.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-3.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -518,37 +518,37 @@
 			</div>
 			<div class="row no-gutters">
 				<div class="col-md-3">
-					<a href="images/gallery-1.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-1.jpg);">
+					<a href="images/gallery-1.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-1.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
 				<div class="col-md-3">
-					<a href="images/gallery-2.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-2.jpg);">
+					<a href="images/gallery-2.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-2.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
 				<div class="col-md-3">
-					<a href="images/gallery-3.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-3.jpg);">
+					<a href="images/gallery-3.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-3.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
 				<div class="col-md-3">
-					<a href="images/gallery-4.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-4.jpg);">
+					<a href="images/gallery-4.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-4.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
 				<div class="col-md-6">
-					<a href="images/gallery-5.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-5.jpg);">
+					<a href="images/gallery-5.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-5.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
 				<div class="col-md-3">
-					<a href="images/gallery-6.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-6.jpg);">
+					<a href="images/gallery-6.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-6.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
 				<div class="col-md-3">
-					<a href="images/gallery-7.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(images/gallery-7.jpg);">
+					<a href="images/gallery-7.jpg" class="image-popup img gallery ftco-animate" style="background-image: url({{asset(salvation/images/gallery-7.jpg)}});">
 						<span class="overlay"></span>
 					</a>
 				</div>
@@ -572,7 +572,7 @@
 				<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
 					<h2 class="footer-heading">Latest News</h2>
 					<div class="block-21 mb-4 d-flex">
-						<a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+						<a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_1.jpg)}});"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">
@@ -583,7 +583,7 @@
 						</div>
 					</div>
 					<div class="block-21 mb-4 d-flex">
-						<a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+						<a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_2.jpg)}});"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">

@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
   <link rel="stylesheet" href="css/animate.css">
   
   <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -68,7 +67,7 @@
 </nav>
 <!-- END nav -->
 
-<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{asset('salvation/images/bg_1.jpg')}});">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text align-items-end js-fullheight">
@@ -85,7 +84,7 @@
     <div class="row">
       <div class="col-lg-8 ftco-animate">
        <p>
-        <img src="images/image_1.jpg" alt="" class="img-fluid">
+        <img src="{{asset('/salvation/images/image_1.jpg')}}" alt="" class="img-fluid">
       </p>
       <h2 class="mb-3">It is a long established fact a reader be distracted</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
@@ -93,7 +92,7 @@
       <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
       <p>Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
       <p>
-        <img src="images/image_2.jpg" alt="" class="img-fluid">
+        <img src="{{asset('/salvation/images/image_2.jpg')}}" alt="" class="img-fluid">
       </p>
       <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
       <p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro explicabo soluta commodi libero voluptatem similique id quidem? Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit inventore, quia laboriosam harum excepturi ea.</p>
@@ -110,7 +109,7 @@
       
       <div class="about-author d-flex p-4 bg-light">
         <div class="bio mr-5">
-          <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+          <img src="{{asset('/salvation/images/person_1.jpg')}}" alt="Image placeholder" class="img-fluid mb-4">
         </div>
         <div class="desc">
           <h3>George Washington</h3>
@@ -124,7 +123,7 @@
         <ul class="comment-list">
           <li class="comment">
             <div class="vcard bio">
-              <img src="images/person_1.jpg" alt="Image placeholder">
+              <img src="{{asset('/salvation/images/person_1.jpg')}}" alt="Image placeholder">
             </div>
             <div class="comment-body">
               <h3>John Doe</h3>
@@ -136,7 +135,7 @@
 
           <li class="comment">
             <div class="vcard bio">
-              <img src="images/person_1.jpg" alt="Image placeholder">
+              <img src="{{asset('/salvation/images/person_1.jpg')}}" alt="Image placeholder">
             </div>
             <div class="comment-body">
               <h3>John Doe</h3>
@@ -148,7 +147,7 @@
             <ul class="children">
               <li class="comment">
                 <div class="vcard bio">
-                  <img src="images/person_1.jpg" alt="Image placeholder">
+                  <img src="{{asset('/salvation/images/person_1.jpg')}}" alt="Image placeholder">
                 </div>
                 <div class="comment-body">
                   <h3>John Doe</h3>
@@ -161,7 +160,7 @@
                 <ul class="children">
                   <li class="comment">
                     <div class="vcard bio">
-                      <img src="images/person_1.jpg" alt="Image placeholder">
+                      <img src="{{asset('/salvation/images/person_1.jpg')}}" alt="Image placeholder">
                     </div>
                     <div class="comment-body">
                       <h3>John Doe</h3>
@@ -173,7 +172,7 @@
                     <ul class="children">
                       <li class="comment">
                         <div class="vcard bio">
-                          <img src="images/person_1.jpg" alt="Image placeholder">
+                          <img src="{{asset('/salvation/images/person_1.jpg)}}" alt="Image placeholder">
                         </div>
                         <div class="comment-body">
                           <h3>John Doe</h3>
@@ -191,7 +190,7 @@
 
           <li class="comment">
             <div class="vcard bio">
-              <img src="images/person_1.jpg" alt="Image placeholder">
+              <img src="{{asset('/salvation/images/person_1.jpg')}}" alt="Image placeholder">
             </div>
             <div class="comment-body">
               <h3>John Doe</h3>
@@ -256,7 +255,7 @@
       <div class="sidebar-box ftco-animate">
         <h3>Recent Blog</h3>
         <div class="block-21 mb-4 d-flex">
-          <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+          <a class="blog-img mr-4" style="background-image: url({{asset('salvation/images/image_1.jpg')}});"></a>
           <div class="text">
             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
             <div class="meta">
@@ -267,7 +266,7 @@
           </div>
         </div>
         <div class="block-21 mb-4 d-flex">
-          <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+          <a class="blog-img mr-4" style="background-image: url({{asset('salvation/images/image_2.jpg')}});"></a>
           <div class="text">
             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
             <div class="meta">
@@ -278,7 +277,7 @@
           </div>
         </div>
         <div class="block-21 mb-4 d-flex">
-          <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+          <a class="blog-img mr-4" style="background-image: url({{asset('salvation/images/image_3.jpg')}});"></a>
           <div class="text">
             <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
             <div class="meta">
@@ -329,7 +328,7 @@
   <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
     <h2 class="footer-heading">Latest News</h2>
     <div class="block-21 mb-4 d-flex">
-      <a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+      <a class="img mr-4 rounded" style="background-image: url({{asset('salvation/images/image_1.jpg')}});"></a>
       <div class="text">
         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
         <div class="meta">
@@ -340,7 +339,7 @@
       </div>
     </div>
     <div class="block-21 mb-4 d-flex">
-      <a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+      <a class="img mr-4 rounded" style="background-image: url({{asset('salvation/images/image_2.jpg')}});"></a>
       <div class="text">
         <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
         <div class="meta">

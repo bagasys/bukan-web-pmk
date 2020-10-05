@@ -68,7 +68,7 @@
 	</nav>
 	<!-- END nav -->
 	
-	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
+	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{asset('salvation/images/bg_1.jpg')}});">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-end js-fullheight">
@@ -84,7 +84,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-1.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-1.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-2.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-2.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -116,24 +116,7 @@
 					</div>
 				</div>
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-3.jpg);"></div>
-					<div class="text p-4 px-md-5 d-flex align-items-center">
-						<div class="desc">
-							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
-							<div class="meta">
-								<p>
-									<span><i class="fa fa-calendar mr-2"></i> Monday, 8:00 Am - Tuesday, 8:00 Pm</span>
-									<span><i class="fa fa-map-marker mr-2"></i> <a href="#">Salvation Church</a></span>
-									<span><i class="fa fa-building mr-2"></i> 203 Fake St. Mountain View, San Francisco, California, USA</span>
-								</p>
-							</div>
-							<p><a href="sermons.html" class="btn btn-primary">More Details</a></p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-4.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-3.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -150,7 +133,24 @@
 				</div>
 
 				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
-					<div class="img"style="background-image: url(images/event-5.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/event-4.jpg)}});"></div>
+					<div class="text p-4 px-md-5 d-flex align-items-center">
+						<div class="desc">
+							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
+							<div class="meta">
+								<p>
+									<span><i class="fa fa-calendar mr-2"></i> Monday, 8:00 Am - Tuesday, 8:00 Pm</span>
+									<span><i class="fa fa-map-marker mr-2"></i> <a href="#">Salvation Church</a></span>
+									<span><i class="fa fa-building mr-2"></i> 203 Fake St. Mountain View, San Francisco, California, USA</span>
+								</p>
+							</div>
+							<p><a href="sermons.html" class="btn btn-primary">More Details</a></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12 event-wrap d-md-flex ftco-animate">
+					<div class="img"style="background-image: url({{asset(salvation/images/event-5.jpg)}});"></div>
 					<div class="text p-4 px-md-5 d-flex align-items-center">
 						<div class="desc">
 							<h2 class="mb-4"><a href="sermons.html">Giving Hope to Our Spiritual Needs</a></h2>
@@ -185,7 +185,7 @@
 				<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
 					<h2 class="footer-heading">Latest News</h2>
 					<div class="block-21 mb-4 d-flex">
-						<a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+						<a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_1.jpg)}});"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">
@@ -196,7 +196,7 @@
 						</div>
 					</div>
 					<div class="block-21 mb-4 d-flex">
-						<a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+						<a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_2.jpg)}});"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">

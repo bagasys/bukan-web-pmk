@@ -68,7 +68,7 @@
 	</nav>
 	<!-- END nav -->
 	
-	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
+	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{asset('salvation/images/bg_1.jpg')}});">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-end js-fullheight">
@@ -84,7 +84,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 ministry ftco-animate">
-					<div class="img"style="background-image: url(images/ministry-1.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/ministry-1.jpg)}});"></div>
 					<div class="text p-4">
 						<h2 class="mb-4"><a href="sermons.html">Children's Ministry</a></h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 				<div class="col-md-4 ministry ftco-animate">
-					<div class="img"style="background-image: url(images/ministry-2.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/ministry-2.jpg)}});"></div>
 					<div class="text p-4">
 						<h2 class="mb-4"><a href="sermons.html">Women's Ministry</a></h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 				<div class="col-md-4 ministry ftco-animate">
-					<div class="img"style="background-image: url(images/ministry-3.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/ministry-3.jpg)}});"></div>
 					<div class="text p-4">
 						<h2 class="mb-4"><a href="sermons.html">Community Ministry</a></h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -109,7 +109,7 @@
 				</div>
 
 				<div class="col-md-4 ministry ftco-animate">
-					<div class="img"style="background-image: url(images/ministry-4.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/ministry-4.jpg)}});"></div>
 					<div class="text p-4">
 						<h2 class="mb-4"><a href="sermons.html">Prison Ministry</a></h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -118,7 +118,7 @@
 				</div>
 
 				<div class="col-md-4 ministry ftco-animate">
-					<div class="img"style="background-image: url(images/ministry-5.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/ministry-5.jpg)}});"></div>
 					<div class="text p-4">
 						<h2 class="mb-4"><a href="sermons.html">Family Ministry</a></h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -127,7 +127,7 @@
 				</div>
 
 				<div class="col-md-4 ministry ftco-animate">
-					<div class="img"style="background-image: url(images/ministry-6.jpg);"></div>
+					<div class="img"style="background-image: url({{asset(salvation/images/ministry-6.jpg)}});"></div>
 					<div class="text p-4">
 						<h2 class="mb-4"><a href="sermons.html">Music Ministry</a></h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -154,7 +154,7 @@
 				<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
 					<h2 class="footer-heading">Latest News</h2>
 					<div class="block-21 mb-4 d-flex">
-						<a class="img mr-4 rounded" style="background-image: url(images/image_1.jpg);"></a>
+						<a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_1.jpg)}});"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">
@@ -165,7 +165,7 @@
 						</div>
 					</div>
 					<div class="block-21 mb-4 d-flex">
-						<a class="img mr-4 rounded" style="background-image: url(images/image_2.jpg);"></a>
+						<a class="img mr-4 rounded" style="background-image: url({{asset(salvation/images/image_2.jpg)}});"></a>
 						<div class="text">
 							<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
 							<div class="meta">
