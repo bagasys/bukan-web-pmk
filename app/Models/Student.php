@@ -5,20 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lecturer extends Model
+class Student extends Model
 {
     use HasFactory;
 
-    protected $table = 'lecturers';
-
+    protected $table = 'students';
+    
     protected $fillable = [
         'name',
-        'nid',
-        'department',
-        'sex',
-        'address',
-        'email',
+        'nrp',
+        'current_address',
+        'origin_address',
         'phone',
+        'department',
+        'birthdate',
+        'year_entry',
+        'year_end',
+        'guardian_name',
+        'guardian_phone',
+        'sex',
     ];
 
     public function small_group()
