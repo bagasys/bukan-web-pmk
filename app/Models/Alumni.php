@@ -40,9 +40,9 @@ class Alumni extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    public function events()
+    public function meetings()
     {
-        return $this->morphMany(Event::class, 'creator');
+        return $this->morphMany(Meeting::class, 'creator');
     }
 
     public function attendedEvents()
