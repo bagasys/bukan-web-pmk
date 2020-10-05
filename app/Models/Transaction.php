@@ -27,4 +27,19 @@ class Transaction extends Model
         'amount',
         'note'
     ];
+
+    public function lecturer()
+    {
+        return $this->belongsTo(Lecturer::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+
+    public function alumni()
+    {
+        return $this->belongsTo(Alumni::class);
+    }
 }
