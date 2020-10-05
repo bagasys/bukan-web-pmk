@@ -15,7 +15,7 @@ class CreateLecturersTable extends Migration
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable()->unsigned();
             $table->string('name');
             $table->string('nid')->unique();
             $table->string('department');
@@ -23,7 +23,7 @@ class CreateLecturersTable extends Migration
             $table->string('address');
             $table->string('email')->unique();
             $table->string('phone');
-            
+
             $table->timestamps();
             $table->softDeletes();
 
