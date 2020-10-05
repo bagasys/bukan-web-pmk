@@ -15,7 +15,7 @@ class CreateAttendantsTable extends Migration
     {
         Schema::create('attendants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id');
+            $table->foreignId('meeting_id');
             $table->unsignedBigInteger('attendee_id')->nullable();
             $table->string('attendee_type')->nullable();
             $table->string('origin')->nullable();

@@ -45,7 +45,7 @@ class Alumni extends Model
         return $this->morphMany(Meeting::class, 'creator');
     }
 
-    public function attendedEvents()
+    public function attendedMeetings()
     {
         return $this->morphMany(Attendant::class, 'attendees');
     }

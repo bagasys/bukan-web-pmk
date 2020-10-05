@@ -12,7 +12,7 @@ class MeetingFactory extends Factory
      *
      * @var string
      */
-    protected $model = Event::class;
+    protected $model = Meeting::class;
 
     /**
      * Define the model's default state.
