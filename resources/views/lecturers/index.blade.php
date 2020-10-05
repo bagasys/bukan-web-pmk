@@ -14,7 +14,7 @@
 
             <div class="card-tools">
                 <div class="">
-                    <a class="btn btn-success" href="{{ route('lecturers.create') }}"> Tambah Data Dosen</a>
+                    <a class="btn btn-success" href="{{ route('lecturers.create') }}"> Tambah data dosen</a>
                 </div>
             </div>
         </div>
@@ -52,4 +52,4 @@
         </div>
     </div>
 
-
+@endsection
