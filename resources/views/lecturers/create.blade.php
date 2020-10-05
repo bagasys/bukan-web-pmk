@@ -81,23 +81,11 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="is_tpkk_admin" name="is_tpkk_admin">
                             <label class="form-check-label" for="is_tpkk_admin">Pengurus TPKK</label>
                         </div>
-
-
                     </div>
-                    <!-- /.card-body -->
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
