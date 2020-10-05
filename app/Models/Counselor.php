@@ -14,6 +14,11 @@ class Counselor extends Model
     protected $fillable = [
         'name',
         'nrp',
-        'nid',  
+        'nid',
     ];
+
+    public function counselings()
+    {
+        return $this->hasMany(Counseling::class);
+    }
 }
