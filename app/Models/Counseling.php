@@ -14,6 +14,11 @@ class Counseling extends Model
     protected $fillable = [
         'counselor_id',
         'counselee_name',
-        'counselee_contact',  
+        'counselee_contact',
     ];
+
+    public function counselor()
+    {
+        return $this->belongsTo(Counselor::class);
+    }
 }
