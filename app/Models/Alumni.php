@@ -5,21 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lecturer extends Model
+class Alumni extends Model
 {
     use HasFactory;
 
-    protected $table = 'lecturers';
+    protected $table = 'alumnis';
 
     protected $fillable = [
+        'user_id',
         'name',
-        'nid',
         'department',
+        'job',
         'sex',
         'address',
-        'email',
-        'phone',
+        'avatar',
+        'year_entry',
+        'year_exit',
+        'year_end',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function smallGroups()
     {
@@ -39,6 +47,6 @@ class Lecturer extends Model
 
     public function attendedMeetings()
     {
-        return $this->morphMany(Attendant::class, 'attendee');
+        return $this->morphMany(Attendant::class, 'attendees');
     }
 }
