@@ -19,6 +19,10 @@ class CreateCounselingsTable extends Migration
             $table->string('counselee_name');
             $table->string('counselee_contact');
             $table->timestamps();
+
+            $table->foreign('counselor_id')
+                ->references('id')
+                ->on('counselors');
         });
     }
 
