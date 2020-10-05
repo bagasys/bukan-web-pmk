@@ -10,7 +10,7 @@ class Student extends Model
     use HasFactory;
 
     protected $table = 'students';
-    
+
     protected $fillable = [
         'name',
         'nrp',
@@ -26,9 +26,24 @@ class Student extends Model
         'sex',
     ];
 
-    public function small_group()
+    public function smallGroups()
     {
         return $this->morphToMany(SmallGroup::class, 'small_groupable')
             ->withPivot('is_leader')->withTimestamps();
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function events()
+    {
+        return $this->morphMany(Event::class, 'creator');
+    }
+
+    public function attendedEvents()
+    {
+        return $this->morphMany(Attendant::class, 'attendee');
     }
 }
