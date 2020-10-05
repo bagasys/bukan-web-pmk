@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-md-9">
-            <div class="col-md-9">
+
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
@@ -88,6 +88,6 @@
                 <!-- /.nav-tabs-custom -->
             </div>
             <!-- /.col -->
-        </div>
+      
     </div>
 @endsection
