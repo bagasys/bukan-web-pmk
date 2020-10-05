@@ -19,4 +19,9 @@ class OrganizationalRecord extends Model
         'year_end',
         'category'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
