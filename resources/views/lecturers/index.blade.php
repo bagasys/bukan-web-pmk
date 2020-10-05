@@ -34,9 +34,8 @@
                 <tbody>
                 @foreach ($lecturers as $lecturer)
                     <tr>
-                        <td>{{ $lecturer->id }}</td>
-                        <td>{{ $lecturer->name }}</td>
                         <td>{{ $lecturer->nid }}</td>
+                        <td>{{ $lecturer->name }}</td>
                         <td>{{ $lecturer->department }}</td>
                         <td>
                             <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
