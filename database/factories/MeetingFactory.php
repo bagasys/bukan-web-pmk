@@ -28,7 +28,7 @@ class MeetingFactory extends Factory
             'start' => $this->faker->dateTime(),
             'end' => $this->faker->dateTime(),
             'slug' => $this->faker->unique()->word(),
-            'attendant_count',
+            'attendant_count' => 1,
             'report' => $this->faker->paragraph(), 
             'creator_id',
             'creator_type',
