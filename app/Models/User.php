@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Alumni::class);
     }
+
+    public function organizationalRecords()
+    {
+        return $this->hasMany(OrganizationalRecord::class);
+    }
 }
