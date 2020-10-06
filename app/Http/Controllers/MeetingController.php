@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\MeetingRequest;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
 
@@ -32,10 +33,10 @@ class MeetingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param \app\Http\Requests\MeetingRequest
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(MeetingRequest $request)
     {
         $request['reservationtime'] = explode(' - ', $request['reservationtime']);
         $request['start'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][0]));
@@ -67,8 +68,8 @@ class MeetingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Meeting $meeting
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit(Meeting $meeting)
     {
@@ -78,11 +79,11 @@ class MeetingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param \app\Http\Requests\MeetingRequest
+     * @param  Meeting $meeting
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Meeting $meeting)
+    public function update(MeetingRequest $request, Meeting $meeting)
     {
         $request['reservationtime'] = explode(' - ', $request['reservationtime']);
         $request['start'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][0]));
@@ -102,7 +103,7 @@ class MeetingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Meeting $meeting
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Meeting $meeting)
