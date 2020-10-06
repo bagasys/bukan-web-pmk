@@ -20,11 +20,11 @@ class CreateMeetingsTable extends Migration
             $table->string('type');
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->string('slug');
-            $table->integer('attendant_count');
-            $table->text('report');
-            $table->unsignedBigInteger('creator_id');
-            $table->string('creator_type');
+            $table->string('slug')->nullable()->unasigned();
+            $table->integer('attendant_count')->default(0);
+            $table->text('report')->nullable();
+            $table->unsignedBigInteger('creator_id')->nullable()->unasigned();
+            $table->string('creator_type')->nullable()->unasigned();
             $table->timestamps();
 
         });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 
 class MeetingController extends Controller
@@ -14,7 +15,8 @@ class MeetingController extends Controller
      */
     public function index()
     {
-        //
+        $meetings = Meeting::all();
+        return view('meetings.index', compact('meetings'));
     }
 
     /**
@@ -24,62 +26,90 @@ class MeetingController extends Controller
      */
     public function create()
     {
-        //
+        return view('meetings.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $request['reservationtime'] = explode(' - ', $request['reservationtime']);
+        $request['start'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][0]));
+        $request['end'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][1]));
+
+        Meeting::create([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'type' => $request['type'],
+            'start' => $request['start'],
+            'end' => $request['end'],
+        ]);
+
+        return redirect()->route('meetings.index')
+            ->with('success', 'Meeting berhasil dibuat');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Meeting $meeting
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Meeting $meeting)
     {
-        //
+        return view('meetings.show', compact('meeting'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Meeting $meeting)
     {
-        //
+        return view('meetings.edit', compact('meeting'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Meeting $meeting)
     {
-        //
+        $request['reservationtime'] = explode(' - ', $request['reservationtime']);
+        $request['start'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][0]));
+        $request['end'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][1]));
+
+        $meeting->title = $request['title'];
+        $meeting->description = $request['description'];
+        $meeting->type = $request['type'];
+        $meeting->start = $request['start'];
+        $meeting->end = $request['end'];
+
+        $meeting->save();
+        return redirect()->route('meetings.index')
+            ->with('success', 'Meeting Berhasil Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Meeting $meeting)
     {
-        //
+        $meeting->delete();
+
+        return redirect()->route('meetings.index')
+            ->with('success', 'Meeting berhasil dihapus');
     }
 }
