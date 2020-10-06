@@ -16,5 +16,4 @@ return (new MattAllan\LaravelCodeStyle\Config())
     )
     ->setRules([
         '@Laravel' => true,
-        'no_unused_imports' => false,
     ]);
