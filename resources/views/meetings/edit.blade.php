@@ -84,7 +84,6 @@
             }
         })
     </script>
-
     {{--    <script>--}}
     {{--        function doSomething(e){--}}
     {{--            alert(e.target.value);--}}
@@ -93,8 +92,6 @@
     {{--        var $el = $('#reservationtime');--}}
     {{--        $el.on('change', doSomething);--}}
     {{--    </script>--}}
-
-
 @endpush
 
 
