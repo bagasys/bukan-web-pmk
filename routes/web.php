@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
-use App\Models\Lecturer;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin');
@@ -29,5 +26,3 @@ Route::prefix('admin')->group(function () {
     Route::resource('/lecturers', LecturerController::class);
     Route::resource('/meetings', MeetingController::class);
 });
-
-

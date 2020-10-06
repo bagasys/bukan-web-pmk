@@ -21,12 +21,11 @@ class Meeting extends Model
         'attendant_count',
         'report',
         'creator_id',
-        'creator_type'
+        'creator_type',
     ];
 
     public function creator()
     {
         return $this->morphTo();
     }
-
 }
