@@ -2,6 +2,7 @@
 
 use App\Models\Lecturer;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\CounselorController;
@@ -30,4 +31,5 @@ Route::prefix('admin')->group(function () {
     Route::resource('/lecturers', LecturerController::class);
     Route::resource('/meetings', MeetingController::class);
     Route::resource('/counselors', CounselorController::class);
+    Route::resource('/alumnis', AlumniController::class);
 });
