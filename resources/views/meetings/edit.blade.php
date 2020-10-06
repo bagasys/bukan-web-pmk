@@ -1,9 +1,5 @@
 @extends('adminlte.master')
-
-
 @section('content')
-
-
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-primary">
@@ -18,25 +14,37 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="title">Nama Acara</label>
-                                    <input type="text" class="form-control" id="title" name="title"
+                                    <input type="text"
+                                           class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" id="title"
+                                           name="title"
                                            placeholder="Masukkan Nama Acara" value="{{$meeting->title}}" required>
+                                    @error('title')
+                                    <span class="error invalid-feedback">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="description">Deskripsi</label>
-                                    <input type="text" class="form-control" id="description" name="description"
-                                           placeholder="Masukkan Deskripsi Acara" value="{{$meeting->description}}" required>
+                                    <input type="text" class="form-control {{$errors->has('description') ? 'is-invalid' : ''}}" id="description" name="description"
+                                           placeholder="Masukkan Deskripsi Acara" value="{{$meeting->description}}"
+                                           required>
+                                    @error('description')
+                                    <span class="error invalid-feedback">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="type">Type</label>
-                                    <input type="text" name="type" id="type" class="form-control"
-                                           placeholder="Masukkan Tipe Acara"  value="{{$meeting->type}}"required>
+                                    <input type="text" name="type" id="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}"
+                                           placeholder="Masukkan Tipe Acara" value="{{$meeting->type}}" required>
+                                    @error('type')
+                                        <span class="error invalid-feedback">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
-
                             <div class="col-sm-12">
                                 <!-- Date and time range -->
                                 <div class="form-group">
@@ -52,8 +60,6 @@
                                 </div>
                                 <!-- /.form group -->
                             </div>
-
-
                         </div>
 
                     </div>

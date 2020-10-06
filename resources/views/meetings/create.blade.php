@@ -18,6 +18,7 @@
                                            name="title"
                                            placeholder="Masukkan Nama Acara"
                                            value="{{old('title')}}"
+                                           required
                                     >
                                     @error('title')
                                     <span class="error invalid-feedback">{{$message}}</span>
@@ -28,7 +29,7 @@
                                 <div class="form-group">
                                     <label for="description">Deskripsi</label>
                                     <input type="text" class="form-control {{$errors->has('description') ? 'is-invalid' : ''}}" id="description" name="description"
-                                           placeholder="Masukkan Deskripsi Acara" value="{{old('description')}}">
+                                           placeholder="Masukkan Deskripsi Acara" value="{{old('description')}}" required>
                                     @error('description')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
@@ -38,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="type">Type</label>
                                     <input type="text" name="type" id="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}"
-                                           placeholder="Masukkan Tipe Acara" value="{{old('type')}}">
+                                           placeholder="Masukkan Tipe Acara" value="{{old('type')}}" required>
                                     @error('type')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
