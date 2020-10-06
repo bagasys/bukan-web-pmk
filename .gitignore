@@ -10,6 +10,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.php_cs.cache
 .idea/bukan-web-pmk.iml
 .idea/codeStyles/codeStyleConfig.xml
 .idea/modules.xml
