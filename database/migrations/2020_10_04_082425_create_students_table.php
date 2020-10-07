@@ -27,7 +27,7 @@ class CreateStudentsTable extends Migration
             $table->integer('year_end');
             $table->string('guardian_name');
             $table->string('guardian_phone');
-            $table->enum('sex', ['male', 'female']);
+            $table->string('sex');
 
             $table->timestamps();
             $table->softDeletes();

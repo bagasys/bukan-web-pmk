@@ -41,6 +41,7 @@ class StudentController extends Controller
             'name' => $request['name'],
             'nrp' => $request['nrp'],
             'origin_address' => $request['origin_address'],
+            'current_address' => $request['current_address'],
             'phone' => $request['phone'],
             'department' => $request['department'],
             'birthdate' => $request['birthdate'],

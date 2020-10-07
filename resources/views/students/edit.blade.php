@@ -35,7 +35,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Edit Data Dosen </h3>
                 </div>
-                <form role="form" method="POST" action="{{ route('lecturers.update',$lecturer->id) }}">
+                <form role="form" method="POST" action="{{ route('students.update',$student->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
