@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alumni;
-use Illuminate\Http\Request;
 use App\Http\Requests\AlumniRequest;
+use App\Models\Alumni;
 
 class AlumniController extends Controller
 {
@@ -16,6 +15,7 @@ class AlumniController extends Controller
     public function index()
     {
         $alumnis = Alumni::all();
+
         return view('alumnis.index', compact('alumnis'));
     }
 

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Counselor;
-use Illuminate\Http\Request;
 use App\Http\Requests\CounselorRequest;
+use App\Models\Counselor;
 
 class CounselorController extends Controller
 {
@@ -16,6 +15,7 @@ class CounselorController extends Controller
     public function index()
     {
         $counselors = Counselor::all();
+
         return view('counselors.index', compact('counselors'));
     }
 

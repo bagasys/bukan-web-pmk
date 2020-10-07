@@ -1,17 +1,14 @@
 <?php
 
-
-use App\Models\Lecturer;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumniController;
-use App\Http\Controllers\MeetingController;
-use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\CounselorController;
-
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Route;
 
 /*
