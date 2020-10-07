@@ -37,6 +37,8 @@ class TransactionController extends Controller
      */
     public function store(TransactionRequest $request)
     {
+
+
             $imgName = null;
             if($request->hasFile('proof')) {
                 $img = $request->file('proof');
@@ -102,7 +104,7 @@ class TransactionController extends Controller
      */
     public function update(TransactionRequest $request, Transaction $transaction)
     {
-        dd($request);
+
         $imgName = null;
         if($request->hasFile('proof')) {
             $img = $request->file('proof');
@@ -123,7 +125,7 @@ class TransactionController extends Controller
         $transaction->note = $request['note'];
         $transaction->save();
 
-        return redirect()->route('transaction.index')
+        return redirect()->route('transactions.index')
             ->with('success', 'Data transaksi berhasil diubah');
     }
 

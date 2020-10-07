@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class TransactionRequest extends FormRequest
@@ -23,6 +24,8 @@ class TransactionRequest extends FormRequest
      */
     public function rules()
     {
+
+
         $rules = [
             'sender_name' => 'required|string',
             'sender_account' => 'required|string',
@@ -34,10 +37,10 @@ class TransactionRequest extends FormRequest
             'verified_date' => 'nullable|string',
             'amount' => 'required|numeric',
             'note' => 'required|string',
+            'proof' => 'required|mimes:jpg,jpeg,png|max:2048'
         ];
-        if(!$this->has('id')){
-            $rules['proof'] = 'required|mimes:jpg,jpeg,png|max:2048';
-        }
+
+
         return $rules;
     }
 }
