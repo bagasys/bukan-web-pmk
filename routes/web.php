@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\StudentController;
 use App\Models\Lecturer;
 
 /*
@@ -28,6 +29,7 @@ Route::prefix('admin')->group(function () {
     });
     Route::resource('/lecturers', LecturerController::class);
     Route::resource('/meetings', MeetingController::class);
+    Route::resource('/students', MeetingController::class);
 });
 
 
