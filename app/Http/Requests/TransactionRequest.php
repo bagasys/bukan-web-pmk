@@ -35,11 +35,12 @@ class TransactionRequest extends FormRequest
             'verified_date' => 'nullable|string',
             'amount' => 'required|numeric',
             'note' => 'required|string',
-
         ];
+
         if(request()->isMethod('post')) {
            $rules += ['proof' => 'required|mimes:jpg,jpeg,png|max:2048'];
         }
+
         return $rules;
     }
 }
