@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lecturer;
-use Illuminate\Http\Request;
+use App\Http\Requests\LecturerRequest;
 
 class LecturerController extends Controller
 {
@@ -15,7 +15,7 @@ class LecturerController extends Controller
     public function index()
     {
         $lecturers = Lecturer::all();
-        return view('lecturer.index', compact('lecturers'));
+        return view('lecturers.index', compact('lecturers'));
     }
 
     /**
@@ -25,26 +25,17 @@ class LecturerController extends Controller
      */
     public function create()
     {
-        return view('lecturer.create');
+        return view('lecturers.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\LecturerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LecturerRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'nid' => 'required|string',
-            'department' => 'required|string',
-            'sex' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-        ]);
-
         Lecturer::create([
             'name' => $request['name'],
             'nid' => $request['nid'],
@@ -55,7 +46,7 @@ class LecturerController extends Controller
             'phone' => $request['phone'],
         ]);
 
-        return redirect()->route('lecturer.index')
+        return redirect()->route('lecturers.index')
             ->with('success', 'Data dosen berhasil ditambahkan');
     }
 
@@ -67,8 +58,7 @@ class LecturerController extends Controller
      */
     public function show(Lecturer $lecturer)
     {
-
-        return view('lecturer.show', compact('lecturer'));
+        return view('lecturers.show', compact('lecturer'));
     }
 
     /**
@@ -79,27 +69,18 @@ class LecturerController extends Controller
      */
     public function edit(Lecturer $lecturer)
     {
-        return view('lecturer.edit', compact('lecturer'));
+        return view('lecturers.edit', compact('lecturer'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\LecturerRequest  $request
      * @param  \App\Models\Lecturer  $lecturer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lecturer $lecturer)
+    public function update(LecturerRequest $request, Lecturer $lecturer)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'nid' => 'required|string',
-            'department' => 'required|string',
-            'sex' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-        ]);
-
         $lecturer->name = $request['name'];
         $lecturer->nid = $request['nid'];
         $lecturer->department = $request['department'];
@@ -108,7 +89,7 @@ class LecturerController extends Controller
         $lecturer->phone = $request['phone'];
         $lecturer->save();
 
-        return redirect()->route('lecturer.index')
+        return redirect()->route('lecturers.index')
             ->with('success', 'Data dosen berhasil diubah');
     }
 
@@ -122,7 +103,7 @@ class LecturerController extends Controller
     {
         $lecturer->delete();
 
-        return redirect()->route('lecturer.index')
+        return redirect()->route('lecturers.index')
             ->with('success', 'Data dosen berhasil dihapus');
     }
 }
