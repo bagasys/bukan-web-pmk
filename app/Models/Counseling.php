@@ -12,7 +12,6 @@ class Counseling extends Model
     protected $table = 'counselings';
 
     protected $fillable = [
-        'counselor_id',
         'counselee_name',
         'counselee_contact',
     ];
