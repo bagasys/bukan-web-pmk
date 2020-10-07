@@ -26,7 +26,7 @@ class CreateTransactionsTable extends Migration
             $table->string('status');
             $table->string('verified_by')->nullable();
             $table->dateTime('verified_date')->nullable();
-            $table->string('proof');
+            $table->string('proof')->nullable();
             $table->integer('amount');
             $table->string('note');
             $table->timestamps();
