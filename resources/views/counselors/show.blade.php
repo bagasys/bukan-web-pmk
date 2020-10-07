@@ -1,17 +1,18 @@
 @extends('adminlte.master')
 
 @section('content')
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Dosen PMK ITS</h1>
+                <h1>Konselor PMK ITS</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dosen</li>
+                    <li class="breadcrumb-item active">Konselor</li>
                 </ol>
             </div>
         </div>
@@ -26,8 +27,7 @@
                 <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle" src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="User profile picture">
                 </div>
-                <h3 class="profile-username text-center">{{$lecturer->name}}</h3>
-                <p class="text-muted text-center">{{$lecturer->is_tpkk_admin ? 'Dosen Pengurus TPKK' : 'Dosen'}}</p>
+                <h3 class="profile-username text-center">{{$counselor->name}}</h3>
             </div>
             <!-- /.card-body -->
         </div>
@@ -58,31 +58,15 @@
 
                                 <tr>
                                     <td>NID</td>
-                                    <td>{{ $lecturer->nid }}</td>
+                                    <td>{{ $counselor->nid }}</td>
+                                </tr>
+                                <tr>
+                                    <td>NRP</td>
+                                    <td>{{ $counselor->nrp }}</td>
                                 </tr>
                                 <tr>
                                     <td>Nama</td>
-                                    <td>{{ $lecturer->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Department</td>
-                                    <td>{{ $lecturer->department }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td>{{ $lecturer->sex }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td>{{ $lecturer->address }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td>{{ $lecturer->email }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nomor Telepon</td>
-                                    <td>{{ $lecturer->phone }}</td>
+                                    <td>{{ $counselor->name }}</td>
                                 </tr>
                             </tbody>
                         </table>

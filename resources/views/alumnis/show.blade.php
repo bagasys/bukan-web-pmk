@@ -1,17 +1,18 @@
 @extends('adminlte.master')
 
 @section('content')
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Dosen PMK ITS</h1>
+                <h1>Alumni PMK ITS</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dosen</li>
+                    <li class="breadcrumb-item active">Alumni</li>
                 </ol>
             </div>
         </div>
@@ -26,8 +27,7 @@
                 <div class="text-center">
                     <img class="profile-user-img img-fluid img-circle" src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="User profile picture">
                 </div>
-                <h3 class="profile-username text-center">{{$lecturer->name}}</h3>
-                <p class="text-muted text-center">{{$lecturer->is_tpkk_admin ? 'Dosen Pengurus TPKK' : 'Dosen'}}</p>
+                <h3 class="profile-username text-center">{{$alumni->name}}</h3>
             </div>
             <!-- /.card-body -->
         </div>
@@ -57,32 +57,40 @@
                             <tbody>
 
                                 <tr>
-                                    <td>NID</td>
-                                    <td>{{ $lecturer->nid }}</td>
-                                </tr>
-                                <tr>
                                     <td>Nama</td>
-                                    <td>{{ $lecturer->name }}</td>
+                                    <td>{{ $alumni->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Department</td>
-                                    <td>{{ $lecturer->department }}</td>
+                                    <td>{{ $alumni->department }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pekerjaan</td>
+                                    <td>{{ $alumni->job }}</td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Kelamin</td>
-                                    <td>{{ $lecturer->sex }}</td>
+                                    <td>{{ $alumni->sex }}</td>
                                 </tr>
                                 <tr>
                                     <td>Alamat</td>
-                                    <td>{{ $lecturer->address }}</td>
+                                    <td>{{ $alumni->address }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
-                                    <td>{{ $lecturer->email }}</td>
+                                    <td>Avatar</td>
+                                    <td>{{ $alumni->avatar }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nomor Telepon</td>
-                                    <td>{{ $lecturer->phone }}</td>
+                                    <td>Tahun Masuk</td>
+                                    <td>{{ $alumni->year_entry }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun Keluar</td>
+                                    <td>{{ $alumni->year_exit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun Meninggal</td>
+                                    <td>{{ $alumni->year_end }}</td>
                                 </tr>
                             </tbody>
                         </table>

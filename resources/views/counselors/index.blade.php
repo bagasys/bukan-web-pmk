@@ -12,12 +12,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Dosen PMK ITS</h1>
+                <h1>Konselor PMK ITS</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dosen</li>
+                    <li class="breadcrumb-item active">Konselor</li>
                 </ol>
             </div>
         </div>
@@ -28,7 +28,7 @@
     <div class="card-header">
         <div class="card-tools">
             <div class="">
-                <a class="btn btn-success" href="{{ route('lecturers.create') }}"> Tambah data dosen</a>
+                <a class="btn btn-success" href="{{ route('counselors.create') }}"> Tambah data konselor</a>
             </div>
         </div>
     </div>
@@ -40,22 +40,22 @@
                 <tr>
                     <th>NID</th>
                     <th>Nama</th>
-                    <th>Department</th>
+                    <th>NRP</th>
                     <th style="width: 280px">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($lecturers as $lecturer)
+                @foreach ($counselors as $counselor)
                 <tr>
-                    <td>{{ $lecturer->nid }}</td>
-                    <td>{{ $lecturer->name }}</td>
-                    <td>{{ $lecturer->department }}</td>
+                    <td>{{ $counselor->nid }}</td>
+                    <td>{{ $counselor->nrp }}</td>
+                    <td>{{ $counselor->name }}</td>
                     <td>
-                        <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
+                        <form action="{{ route('counselors.destroy', $counselor->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a class="btn btn-info" href="{{ route('lecturers.show',$lecturer->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('lecturers.edit',$lecturer->id) }}">Edit</a>
+                            <a class="btn btn-info" href="{{ route('counselors.show',$counselor->id) }}">Show</a>
+                            <a class="btn btn-primary" href="{{ route('counselors.edit',$counselor->id) }}">Edit</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>

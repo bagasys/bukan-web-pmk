@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumni;
 use Illuminate\Http\Request;
+use App\Http\Requests\AlumniRequest;
 
 class AlumniController extends Controller
 {
@@ -14,7 +15,8 @@ class AlumniController extends Controller
      */
     public function index()
     {
-        //
+        $alumnis = Alumni::all();
+        return view('alumnis.index', compact('alumnis'));
     }
 
     /**
@@ -24,7 +26,7 @@ class AlumniController extends Controller
      */
     public function create()
     {
-        //
+        return view('alumnis.create');
     }
 
     /**
@@ -33,9 +35,22 @@ class AlumniController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlumniRequest $request)
     {
-        //
+        alumni::create([
+            'name' => $request['name'],
+            'department' => $request['department'],
+            'job' => $request['job'],
+            'sex' => $request['sex'],
+            'address' => $request['address'],
+            'avatar' => $request['avatar'],
+            'year_entry' => $request['year_entry'],
+            'year_exit' => $request['year_exit'],
+            'year_end' => $request['year_end'],
+        ]);
+
+        return redirect()->route('alumnis.index')
+            ->with('success', 'Data alumni berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +61,7 @@ class AlumniController extends Controller
      */
     public function show(Alumni $alumni)
     {
-        //
+        return view('alumnis.show', compact('alumni'));
     }
 
     /**
@@ -57,7 +72,7 @@ class AlumniController extends Controller
      */
     public function edit(Alumni $alumni)
     {
-        //
+        return view('alumnis.edit', compact('alumni'));
     }
 
     /**
@@ -67,9 +82,21 @@ class AlumniController extends Controller
      * @param  \App\Models\Alumni  $alumni
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumni $alumni)
+    public function update(AlumniRequest $request, Alumni $alumni)
     {
-        //
+        $alumni->name = $request['name'];
+        $alumni->department = $request['department'];
+        $alumni->job = $request['job'];
+        $alumni->sex = $request['sex'];
+        $alumni->address = $request['address'];
+        $alumni->avatar = $request['avatar'];
+        $alumni->year_entry = $request['year_entry'];
+        $alumni->year_exit = $request['year_exit'];
+        $alumni->year_end = $request['year_end'];
+        $alumni->save();
+
+        return redirect()->route('alumnis.index')
+            ->with('success', 'Data alumni berhasil diubah');
     }
 
     /**
@@ -80,6 +107,9 @@ class AlumniController extends Controller
      */
     public function destroy(Alumni $alumni)
     {
-        //
+        $alumni->delete();
+
+        return redirect()->route('alumnis.index')
+            ->with('success', 'Data alumni berhasil dihapus');
     }
 }
