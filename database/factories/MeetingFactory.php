@@ -22,14 +22,14 @@ class MeetingFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(3), 
+            'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
             'type' => $this->faker->word(),
             'start' => $this->faker->dateTime(),
             'end' => $this->faker->dateTime(),
             'slug' => $this->faker->unique()->word(),
             'attendant_count' => 1,
-            'report' => $this->faker->paragraph(), 
+            'report' => $this->faker->paragraph(),
             'creator_id',
             'creator_type',
         ];

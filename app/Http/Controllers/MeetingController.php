@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Requests\MeetingRequest;
 use App\Models\Meeting;
+
 use Illuminate\Http\Request;
 
 class MeetingController extends Controller

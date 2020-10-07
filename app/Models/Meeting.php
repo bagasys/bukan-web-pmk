@@ -21,7 +21,7 @@ class Meeting extends Model
         'attendant_count',
         'report',
         'creator_id',
-        'creator_type'
+        'creator_type',
     ];
     /**
      * @var false|mixed|string
@@ -31,5 +31,4 @@ class Meeting extends Model
     {
         return $this->morphTo();
     }
-
 }

@@ -25,7 +25,7 @@ class Transaction extends Model
         'verified_date',
         'proof',
         'amount',
-        'note'
+        'note',
     ];
 //
 //    protected $casts = [

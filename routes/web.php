@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
 use App\Models\Lecturer;
@@ -22,8 +23,6 @@ use App\Models\Transaction;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -67,3 +66,4 @@ Route::get('/ministries', function () {
 Route::get('/sermons', function () {
     return view('landing-page/sermons');
 });
+

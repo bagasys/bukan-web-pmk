@@ -17,7 +17,7 @@ class OrganizationalRecord extends Model
         'position',
         'year_start',
         'year_end',
-        'category'
+        'category',
     ];
 
     public function user()
