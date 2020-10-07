@@ -37,7 +37,7 @@ class TransactionRequest extends FormRequest
             'note' => 'required|string',
 
         ];
-        if(request()->isMethod('put')) {
+        if(request()->isMethod('post')) {
            $rules += ['proof' => 'required|mimes:jpg,jpeg,png|max:2048'];
         }
         return $rules;
