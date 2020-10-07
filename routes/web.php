@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Lecturer;
+use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,7 @@ Route::prefix('admin')->group(function () {
     });
     Route::resource('/lecturers', LecturerController::class);
     Route::resource('/meetings', MeetingController::class);
+    Route::resource('/transactions', TransactionController::class);
 });
 
 

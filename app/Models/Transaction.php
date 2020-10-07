@@ -28,6 +28,11 @@ class Transaction extends Model
         'note'
     ];
 
+    protected $casts = [
+        'send_date' => 'datetime:d-m-y',
+        'verified_date' => 'datetime:d-m-y', 
+    ];
+
     public function lecturer()
     {
         return $this->belongsTo(Lecturer::class);
@@ -41,5 +46,14 @@ class Transaction extends Model
     public function alumni()
     {
         return $this->belongsTo(Alumni::class);
+    }
+
+    public function getProofAttribute($value)
+    {
+        if($value){
+            return asset('storage/transactions/' . $value);
+        } else {
+            return asset('/images/default-avatar.jpeg');
+        }
     }
 }
