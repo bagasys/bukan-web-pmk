@@ -29,7 +29,5 @@ Route::prefix('admin')->group(function () {
     });
     Route::resource('/lecturers', LecturerController::class);
     Route::resource('/meetings', MeetingController::class);
-    Route::resource('/students', MeetingController::class);
+    Route::resource('/students', StudentController::class);
 });
-
-
