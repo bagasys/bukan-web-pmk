@@ -27,11 +27,11 @@ class Transaction extends Model
         'amount',
         'note'
     ];
-
-    protected $casts = [
-        'send_date' => 'datetime:d-m-y',
-        'verified_date' => 'datetime:d-m-y', 
-    ];
+//
+//    protected $casts = [
+//        'send_date' => 'date',
+//        'verified_date' => 'date',
+//    ];
 
     public function lecturer()
     {

@@ -36,8 +36,7 @@ class TransactionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(TransactionRequest $request)
-    {   
-        // try {
+    {
             $imgName = null;
             if($request->hasFile('proof')) {
                 $img = $request->file('proof');
@@ -45,8 +44,6 @@ class TransactionController extends Controller
                 $imgName = time() . str_replace(' ','',$request['sender_name']) . '.' . $ext;
                 $imgPath = $img->storeAs('public/transactions', $imgName);
             }
-
-            $request['send_date'] = date('Y-m-d'  ,strtotime($request['send_date']));
 
             $transaction = Transaction::create([
                 'sender_name' => $request['sender_name'],
@@ -61,16 +58,18 @@ class TransactionController extends Controller
                 'amount' => $request['amount'],
                 'note' => $request['note'],
             ]);
-            
-        // } catch (\Exception $exception) {
-        //     $errcode = $exception->getMessage();
-        //     return redirect()->back()->with('fail', 'Gagal: Terjadi kesalahan!' . $errcode);
-        // }
 
-        
+
+
         return redirect()->route('transactions.index')
             ->with('success', 'Data transaksi berhasil ditambahkan');
     }
+
+    // try {
+    // } catch (\Exception $exception) {
+    //     $errcode = $exception->getMessage();
+    //     return redirect()->back()->with('fail', 'Gagal: Terjadi kesalahan!' . $errcode);
+    // }
 
     /**
      * Display the specified resource.
