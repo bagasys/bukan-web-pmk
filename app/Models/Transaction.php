@@ -50,8 +50,8 @@ class Transaction extends Model
 
     public function getProofAttribute($value)
     {
-        if($value){
-            return asset('storage/transactions/' . $value);
+        if ($value) {
+            return asset('storage/transactions/'.$value);
         } else {
             return asset('/images/default-avatar.jpeg');
         }

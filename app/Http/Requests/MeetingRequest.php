@@ -27,7 +27,7 @@ class MeetingRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'required|string',
             'type' => 'required|string',
-            'reservationtime' => 'required|string'
+            'reservationtime' => 'required|string',
         ];
     }
 }

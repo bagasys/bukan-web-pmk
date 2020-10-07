@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
 use App\Http\Requests\TransactionRequest;
-use Illuminate\Http\Request;
+use App\Models\Transaction;
 
 class TransactionController extends Controller
 {
@@ -16,6 +15,7 @@ class TransactionController extends Controller
     public function index()
     {
         $transactions = Transaction::all();
+
         return view('transactions.index', compact('transactions'));
     }
 
@@ -37,17 +37,15 @@ class TransactionController extends Controller
      */
     public function store(TransactionRequest $request)
     {
+        $imgName = null;
+        if ($request->hasFile('proof')) {
+            $img = $request->file('proof');
+            $ext = $img->getClientOriginalExtension();
+            $imgName = time().str_replace(' ', '', $request['sender_name']).'.'.$ext;
+            $imgPath = $img->storeAs('public/transactions', $imgName);
+        }
 
-
-            $imgName = null;
-            if($request->hasFile('proof')) {
-                $img = $request->file('proof');
-                $ext = $img->getClientOriginalExtension();
-                $imgName = time() . str_replace(' ','',$request['sender_name']) . '.' . $ext;
-                $imgPath = $img->storeAs('public/transactions', $imgName);
-            }
-
-            $transaction = Transaction::create([
+        $transaction = Transaction::create([
                 'sender_name' => $request['sender_name'],
                 'sender_account' => $request['sender_account'],
                 'send_date' => $request['send_date'],
@@ -60,8 +58,6 @@ class TransactionController extends Controller
                 'amount' => $request['amount'],
                 'note' => $request['note'],
             ]);
-
-
 
         return redirect()->route('transactions.index')
             ->with('success', 'Data transaksi berhasil ditambahkan');
@@ -104,12 +100,11 @@ class TransactionController extends Controller
      */
     public function update(TransactionRequest $request, Transaction $transaction)
     {
-
         $imgName = null;
-        if($request->hasFile('proof')) {
+        if ($request->hasFile('proof')) {
             $img = $request->file('proof');
             $ext = $img->getClientOriginalExtension();
-            $imgName = time() . str_replace(' ','',$request['sender_name']) . '.' . $ext;
+            $imgName = time().str_replace(' ', '', $request['sender_name']).'.'.$ext;
             $imgPath = $img->storeAs('public/transactions', $imgName);
         }
         $transaction->sender_name = $request['sender_name'];

@@ -37,10 +37,9 @@ class StudentRequest extends FormRequest
             'guardian_phone' => 'required',
             'sex' => 'required',
         ];
-
     }
 
-    /**
+    /*
      * Get custom attributes for validator errors.
      *
      * @return array

@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class TransactionRequest extends FormRequest
@@ -37,8 +36,8 @@ class TransactionRequest extends FormRequest
             'note' => 'required|string',
         ];
 
-        if(request()->isMethod('post')) {
-           $rules += ['proof' => 'required|mimes:jpg,jpeg,png|max:2048'];
+        if (request()->isMethod('post')) {
+            $rules += ['proof' => 'required|mimes:jpg,jpeg,png|max:2048'];
         }
 
         return $rules;

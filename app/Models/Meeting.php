@@ -23,10 +23,10 @@ class Meeting extends Model
         'creator_id',
         'creator_type',
     ];
+
     /**
      * @var false|mixed|string
      */
-
     public function creator()
     {
         return $this->morphTo();

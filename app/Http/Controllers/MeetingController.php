@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MeetingRequest;
 use App\Models\Meeting;
 
-use Illuminate\Http\Request;
-
 class MeetingController extends Controller
 {
     /**
@@ -17,6 +15,7 @@ class MeetingController extends Controller
     public function index()
     {
         $meetings = Meeting::all();
+
         return view('meetings.index', compact('meetings'));
     }
 
@@ -39,8 +38,8 @@ class MeetingController extends Controller
     public function store(MeetingRequest $request)
     {
         $request['reservationtime'] = explode(' - ', $request['reservationtime']);
-        $request['start'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][0]));
-        $request['end'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][1]));
+        $request['start'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][0]));
+        $request['end'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][1]));
 
         Meeting::create([
             'title' => $request['title'],
@@ -86,8 +85,8 @@ class MeetingController extends Controller
     public function update(MeetingRequest $request, Meeting $meeting)
     {
         $request['reservationtime'] = explode(' - ', $request['reservationtime']);
-        $request['start'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][0]));
-        $request['end'] = date('Y-m-d H:i:s'  ,strtotime($request['reservationtime'][1]));
+        $request['start'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][0]));
+        $request['end'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][1]));
 
         $meeting->title = $request['title'];
         $meeting->description = $request['description'];
@@ -96,6 +95,7 @@ class MeetingController extends Controller
         $meeting->end = $request['end'];
 
         $meeting->save();
+
         return redirect()->route('meetings.index')
             ->with('success', 'Meeting Berhasil Diubah');
     }

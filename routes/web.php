@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
-use App\Models\Lecturer;
-use App\Models\Transaction;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +63,3 @@ Route::get('/ministries', function () {
 Route::get('/sermons', function () {
     return view('landing-page/sermons');
 });
-
