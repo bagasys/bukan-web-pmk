@@ -24,8 +24,8 @@ class CreateTransactionsTable extends Migration
             $table->string('receiver_account');
             $table->string('wallet');
             $table->string('status');
-            $table->string('verified_by');
-            $table->dateTime('verified_date');
+            $table->string('verified_by')->nullable();
+            $table->dateTime('verified_date')->nullable();
             $table->string('proof');
             $table->integer('amount');
             $table->string('note');
