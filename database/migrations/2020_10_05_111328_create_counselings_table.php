@@ -15,7 +15,7 @@ class CreateCounselingsTable extends Migration
     {
         Schema::create('counselings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('counselor_id');
+            $table->foreignId('counselor_id')->nullable()->unsigned();
             $table->string('counselee_name');
             $table->string('counselee_contact');
             $table->timestamps();

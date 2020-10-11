@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Counseling;
-use Illuminate\Http\Request;
+use App\Http\Requests\CounselingRequest;
 
 class CounselingController extends Controller
 {
@@ -14,7 +14,8 @@ class CounselingController extends Controller
      */
     public function index()
     {
-        //
+        $counselings = Counseling::all();
+        return view('counselings.index', compact('counselings'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CounselingController extends Controller
      */
     public function create()
     {
-        //
+        return view('counselings.create');
     }
 
     /**
@@ -33,9 +34,15 @@ class CounselingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CounselingRequest $request)
     {
-        //
+        Counseling::create([
+            'counselee_name' => $request['counselee_name'],
+            'counselee_contact' => $request['counselee_contact'],
+        ]);
+
+        return redirect()->route('counselings.index')
+            ->with('success', 'Data counseling berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +53,7 @@ class CounselingController extends Controller
      */
     public function show(Counseling $counseling)
     {
-        //
+        return view('counselings.show', compact('counseling'));
     }
 
     /**
@@ -57,7 +64,7 @@ class CounselingController extends Controller
      */
     public function edit(Counseling $counseling)
     {
-        //
+        return view('counselings.edit', compact('counseling'));
     }
 
     /**
@@ -67,9 +74,14 @@ class CounselingController extends Controller
      * @param  \App\Models\Counseling  $counseling
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Counseling $counseling)
+    public function update(CounselingRequest $request, Counseling $counseling)
     {
-        //
+        $counseling->counselee_name = $request['counselee_name'];
+        $counseling->counselee_contact = $request['counselee_contact'];
+        $counseling->save();
+
+        return redirect()->route('counselings.index')
+            ->with('success', 'Data counseling berhasil diubah');
     }
 
     /**
@@ -80,6 +92,9 @@ class CounselingController extends Controller
      */
     public function destroy(Counseling $counseling)
     {
-        //
+        $counseling->delete();
+
+        return redirect()->route('counselings.index')
+            ->with('success', 'Data counseling berhasil dihapus');
     }
 }
