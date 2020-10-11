@@ -10,15 +10,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-.idea/bukan-web-pmk.iml
-.idea/codeStyles/codeStyleConfig.xml
-.idea/modules.xml
-.idea/php.xml
-.idea/phpunit.xml
-.idea/vcs.xml
-.idea/workspace.xml
-.idea/dataSources.local.xml
-.idea/dataSources.xml
-.idea/dataSources/7d1736e9-1071-4ab5-a4bb-0624c1a87dec.xml
-.idea/dataSources/7d1736e9-1071-4ab5-a4bb-0624c1a87dec/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
-
+.php_cs.cache
+.idea/*

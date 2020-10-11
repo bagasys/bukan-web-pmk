@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CounselorRequest;
 use App\Models\Counselor;
-use Illuminate\Http\Request;
 
 class CounselorController extends Controller
 {
@@ -14,7 +14,9 @@ class CounselorController extends Controller
      */
     public function index()
     {
-        //
+        $counselors = Counselor::all();
+
+        return view('counselors.index', compact('counselors'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CounselorController extends Controller
      */
     public function create()
     {
-        //
+        return view('counselors.create');
     }
 
     /**
@@ -33,9 +35,16 @@ class CounselorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CounselorRequest $request)
     {
-        //
+        Counselor::create([
+            'name' => $request['name'],
+            'nrp' => $request['nrp'],
+            'nid' => $request['nid'],
+        ]);
+
+        return redirect()->route('counselors.index')
+            ->with('success', 'Data konselor berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +55,7 @@ class CounselorController extends Controller
      */
     public function show(Counselor $counselor)
     {
-        //
+        return view('counselors.show', compact('counselor'));
     }
 
     /**
@@ -57,7 +66,7 @@ class CounselorController extends Controller
      */
     public function edit(Counselor $counselor)
     {
-        //
+        return view('counselors.edit', compact('counselor'));
     }
 
     /**
@@ -67,9 +76,15 @@ class CounselorController extends Controller
      * @param  \App\Models\Counselor  $counselor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Counselor $counselor)
+    public function update(CounselorRequest $request, Counselor $counselor)
     {
-        //
+        $counselor->name = $request['name'];
+        $counselor->nrp = $request['nrp'];
+        $counselor->nid = $request['nid'];
+        $counselor->save();
+
+        return redirect()->route('counselors.index')
+            ->with('success', 'Data konselor berhasil diubah');
     }
 
     /**
@@ -80,6 +95,9 @@ class CounselorController extends Controller
      */
     public function destroy(Counselor $counselor)
     {
-        //
+        $counselor->delete();
+
+        return redirect()->route('counselors.index')
+            ->with('success', 'Data konselor berhasil dihapus');
     }
 }
