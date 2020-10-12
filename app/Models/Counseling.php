@@ -14,6 +14,7 @@ class Counseling extends Model
     protected $fillable = [
         'counselee_name',
         'counselee_contact',
+        'counselor_id',
     ];
 
     public function counselor()

@@ -1,15 +1,13 @@
 <?php
 
-use App\Models\Lecturer;
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
-use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +36,9 @@ Route::prefix('admin')->group(function () {
     Route::resource('/students', StudentController::class);
     Route::resource('/transactions', TransactionController::class);
 });
+
+Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
+Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
 
 //Landing Page
 Route::get('/about', function () {
