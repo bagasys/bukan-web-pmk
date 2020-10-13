@@ -75,12 +75,12 @@ class PrayerRequestController extends Controller
      * @param  \App\Models\PrayerRequest  $prayerRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(PrayerRequestRequest $request, PrayerRequest $prayer)
+    public function update(PrayerRequestRequest $request, PrayerRequest $prayerRequest)
     {
-        $prayer->name = $request['name'];
-        $prayer->prayer_content = $request['prayer_content'];
-        $prayer->status = $request['status'];
-        $prayer->save();
+        $prayerRequest->name = $request['name'];
+        $prayerRequest->prayer_content = $request['prayer_content'];
+        $prayerRequest->status = $request['status'];
+        $prayerRequest->save();
 
         return redirect()->route('prayerRequests.index')
             ->with('success', 'Data request doa berhasil diubah');
