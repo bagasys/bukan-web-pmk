@@ -3,17 +3,16 @@
 namespace App\Exports;
 
 use App\Models\Student;
-use Maatwebsite\Excel\Events\AfterSheet;
-use PhpOffice\PhpSpreadsheet\Style\Fill;
-use Maatwebsite\Excel\Concerns\WithEvents;
-use Maatwebsite\Excel\Concerns\WithMapping;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Events\AfterSheet;
 use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
 
 class StudentExport implements FromCollection, WithHeadings, WithEvents, WithMapping
 {
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -22,7 +21,7 @@ class StudentExport implements FromCollection, WithHeadings, WithEvents, WithMap
         return Student::get([
             'name', 'nrp', 'current_address', 'origin_address',
             'phone', 'department', 'birthdate',
-            'year_entry', 'year_end', 'guardian_name', 'guardian_phone', 'sex'
+            'year_entry', 'year_end', 'guardian_name', 'guardian_phone', 'sex',
         ]);
     }
 
