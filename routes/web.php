@@ -7,6 +7,7 @@ use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\PrayerRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/alumnis', AlumniController::class);
     Route::resource('/students', StudentController::class);
     Route::resource('/transactions', TransactionController::class);
+    Route::resource('/prayerRequests', PrayerRequestController::class);
 });
 
 Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
