@@ -5,9 +5,9 @@ use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\PrayerRequestController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\PrayerRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +29,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin');
     });
+    // Route::get('/login', function() {
+    //     return view('auth.login');
+    // });
+    // Route::get('/register', function() {
+    //     return view('auth.register');
+    // });
     Route::resource('/lecturers', LecturerController::class);
     Route::resource('/meetings', MeetingController::class);
     Route::resource('/counselings', CounselingController::class);
