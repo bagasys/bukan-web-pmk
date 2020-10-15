@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Counseling;
 use App\Http\Requests\CounselingRequest;
+use App\Models\Counseling;
+use App\Models\Counselor;
 
 class CounselingController extends Controller
 {
@@ -15,6 +16,7 @@ class CounselingController extends Controller
     public function index()
     {
         $counselings = Counseling::all();
+
         return view('counselings.index', compact('counselings'));
     }
 
@@ -25,7 +27,9 @@ class CounselingController extends Controller
      */
     public function create()
     {
-        return view('counselings.create');
+        $counselors = Counselor::all();
+
+        return view('counselings.create', compact('counselors'));
     }
 
     /**
@@ -39,6 +43,7 @@ class CounselingController extends Controller
         Counseling::create([
             'counselee_name' => $request['counselee_name'],
             'counselee_contact' => $request['counselee_contact'],
+            'counselor_id' => $request['counselor_id'],
         ]);
 
         return redirect()->route('counselings.index')
@@ -64,7 +69,9 @@ class CounselingController extends Controller
      */
     public function edit(Counseling $counseling)
     {
-        return view('counselings.edit', compact('counseling'));
+        $counselors = Counselor::all();
+
+        return view('counselings.edit', compact('counseling', 'counselors'));
     }
 
     /**
@@ -78,6 +85,7 @@ class CounselingController extends Controller
     {
         $counseling->counselee_name = $request['counselee_name'];
         $counseling->counselee_contact = $request['counselee_contact'];
+        $counseling->counselor_id = $request['counselor_id'];
         $counseling->save();
 
         return redirect()->route('counselings.index')

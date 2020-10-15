@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentExport;
 use App\Http\Requests\StudentRequest;
+use App\Imports\StudentImport;
 use App\Models\Student;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Session;
 
 class StudentController extends Controller
 {
@@ -117,5 +122,36 @@ class StudentController extends Controller
 
         return redirect()->route('students.index')
             ->with('success', 'Data mahasiswa berhasil dihapus');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new StudentExport, 'mahasiswa.xlsx');
+    }
+
+    public function import_excel(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx',
+        ]);
+
+        // menangkap file excel
+        $file = $request->file('file');
+
+        // membuat nama file unik
+        $nama_file = rand().$file->getClientOriginalName();
+
+        // upload ke folder file_siswa di dalam folder public
+        $file->move('file_mahasiswa', $nama_file);
+
+        // import data
+        Excel::import(new StudentImport, public_path('/file_mahasiswa/'.$nama_file));
+
+        // notifikasi dengan session
+        Session::flash('sukses', 'Data Mahasiswa Berhasil Diimport!');
+
+        // alihkan halaman kembali
+        return redirect('/admin/students');
     }
 }
