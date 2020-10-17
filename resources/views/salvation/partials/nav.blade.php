@@ -36,6 +36,29 @@
                 <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
                 <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
                 <li class="nav-item cta"><a href="contact" class="nav-link">Donate</a></li>
+                @auth
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{'Welcome, '.Auth::user()->name }} 
+                        {{-- @if(Auth::user()->avatar)
+                        <img src="{{asset('/storage/images/'.Auth::user()->avatar)}}" alt="avatar" width="40"> 
+                        @endif
+                        <span class="caret"></span> --}}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
