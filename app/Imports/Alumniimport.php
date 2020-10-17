@@ -2,10 +2,11 @@
 
 namespace App\Imports;
 
-use App\Alumni;
+use App\Models\Alumni;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class Alumniimport implements ToModel
+class Alumniimport implements ToModel, WithHeadingRow
 {
     /**
      * @param array $row
@@ -15,7 +16,15 @@ class Alumniimport implements ToModel
     public function model(array $row)
     {
         return new Alumni([
-            //
+            'name' => $row['name'],
+            'department' => $row['department'],
+            'job' => $row['job'],
+            'sex' => $row['sex'],
+            'address' => $row['address'],
+            'avatar' => $row['avatar'],
+            'year_entry' => $row['year_entry'],
+            'year_exit' => $row['year_exit'],
+            'year_end' => $row['year_end'],
         ]);
     }
 }

@@ -5,9 +5,9 @@ use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\PrayerRequestController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\PrayerRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +41,14 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
 Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
+Route::get('/alumnis/export_excel', [AlumniController::class, 'export_excel']);
+Route::post('/alumnis/import_excel', [AlumniController::class, 'import_excel']);
+Route::get('/counselors/export_excel', [CounselorController::class, 'export_excel']);
+Route::post('/counselors/import_excel', [CounselorController::class, 'import_excel']);
+Route::get('/counselings/export_excel', [CounselingController::class, 'export_excel']);
+Route::post('/counselings/import_excel', [CounselingController::class, 'import_excel']);
+Route::get('/lecturers/export_excel', [LecturerController::class, 'export_excel']);
+Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel']);
 
 //Landing Page
 Route::get('/about', function () {

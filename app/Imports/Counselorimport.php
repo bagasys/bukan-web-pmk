@@ -2,10 +2,11 @@
 
 namespace App\Imports;
 
-use App\Counselor;
+use App\Models\Counselor;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class Counselorimport implements ToModel
+class Counselorimport implements ToModel, WithHeadingRow
 {
     /**
      * @param array $row
@@ -15,7 +16,9 @@ class Counselorimport implements ToModel
     public function model(array $row)
     {
         return new Counselor([
-            //
+            'name' => $row['name'],
+            'nrp' => $row['nrp'],
+            'nid' => $row['nid'],
         ]);
     }
 }
