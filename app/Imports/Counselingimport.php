@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Counseling;
+use App\Models\Counselor;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -15,7 +16,9 @@ class Counselingimport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        // $row['counselor_id'] = Counseling::find(1)->counselor()->where('name',$row['counselor_name']);
+        $counselor = Counselor::where('name', $row['counselor_name'])->first();
+        $row['counselor_id'] = $counselor->id;
+
         return new Counseling([
             'counselee_name' => $row['counselee_name'],
             'counselee_contact' => $row['counselee_contact'],
