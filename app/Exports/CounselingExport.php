@@ -28,7 +28,7 @@ class CounselingExport implements FromCollection, WithHeadings, WithEvents, With
         return [
             'counselee_name',
             'counselee_contact',
-            'counselor_id',
+            'counselor_name',
         ];
     }
 
@@ -56,7 +56,7 @@ class CounselingExport implements FromCollection, WithHeadings, WithEvents, With
         return [
             $row->counselee_name,
             $row->counselee_contact,
-            $row->counselor_id,
+            $row->counselor->name,
         ];
     }
 }
