@@ -51,10 +51,10 @@
                     <td>{{ $prayerRequest->prayer_content }}</td>
                     <td>{{ $prayerRequest->status }}</td>
                     <td>
-                        <form action="{{ route('prayerRequests.destroy', $prayerRequest->id) }}" method="POST">
+                        <form action="{{ route('prayer-requests.destroy', $prayerRequest->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <a class="btn btn-primary" href="{{ route('prayerRequests.edit',$prayerRequest->id) }}">Edit</a>
+                            <a class="btn btn-primary" href="{{ route('prayer-requests.edit',$prayerRequest->id) }}">Edit</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>

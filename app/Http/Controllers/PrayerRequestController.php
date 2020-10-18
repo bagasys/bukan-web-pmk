@@ -15,7 +15,10 @@ class PrayerRequestController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('permission:publish articles|edit articles');
+        $this->middleware('permission:view prayer request')->only('index');
+        $this->middleware('permission:add prayer request')->only('create');
+        $this->middleware('permission:view prayer request')->only('view');
+        $this->middleware('permission:edit prayer request')->only('edit');
     }
 
     public function index()
