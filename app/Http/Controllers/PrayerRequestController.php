@@ -15,11 +15,12 @@ class PrayerRequestController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware(['auth', 'role:bph dope']);
+        $this->middleware('permission:publish articles|edit articles');
     }
 
     public function index()
     {
+
         $prayerRequests = PrayerRequest::all();
 
         return view('prayerRequests.index', compact('prayerRequests'));
