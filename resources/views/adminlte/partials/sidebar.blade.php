@@ -7,111 +7,111 @@
 
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-3">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
+      <!-- Sidebar Menu -->
+      <nav class="mt-3">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-            <h2 class="text-center font-weight-bold mb-4"><span style="color:red;"><i class="nav-icon fas fa-cross "></i>PMK</span> <span style="color:#3366ff;">ITS</span></h2>
-            <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fa fa-users"></i>
-                <p>
-                  User
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./../../admin/lecturers" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dosen</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./../../admin/students" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Mahasiswa</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./../../admin/alumnis" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ALumni</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./../../admin/counselors" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Konselor</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+          <h2 class="text-center font-weight-bold mb-4"><span style="color:red;"><i class="nav-icon fas fa-cross "></i>PMK</span> <span style="color:#3366ff;">ITS</span></h2>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                User
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route ('lecturers.index')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dosen</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./../../admin/students" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mahasiswa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./../../admin/alumnis" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ALumni</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./../../admin/counselors" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Konselor</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fa fa-handshake"></i>
-                <p>
-                  Acara
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./../../admin/counselings" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Konseling</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./../../admin/meetings" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Meeting</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="prayerRequests" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pray Request</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-handshake"></i>
+              <p>
+                Acara
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./../../admin/counselings" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Konseling</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./../../admin/meetings" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Meeting</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="prayerRequests" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pray Request</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fa fa-money-check-alt"></i>
-                <p>
-                  Keuangan
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-money-check-alt"></i>
+              <p>
+                Keuangan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
 
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./../../admin/transactions" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Transaksi</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./../../admin/transactions" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Transaksi</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </aside>
 
 </aside>
