@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                <li class="nav-item active"><a href="about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="ministries" class="nav-link">Ministries</a></li>
                 <li class="nav-item"><a href="sermons" class="nav-link">Sermons</a></li>
                 <li class="nav-item"><a href="events" class="nav-link">Events</a></li>
@@ -59,6 +59,9 @@
                         </div>
                     </li>
                 @endauth
+                @guest
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                @endguest
             </ul>
         </div>
     </div>
