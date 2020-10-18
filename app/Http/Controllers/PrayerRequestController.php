@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PrayerRequestRequest;
 use App\Models\PrayerRequest;
+use Spatie\Permission\Models\Role;
 
 class PrayerRequestController extends Controller
 {
@@ -12,9 +13,15 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        // $this->middleware(['auth', 'role:bph dope']);
+    }
+
     public function index()
     {
         $prayerRequests = PrayerRequest::all();
+
         return view('prayerRequests.index', compact('prayerRequests'));
     }
 
