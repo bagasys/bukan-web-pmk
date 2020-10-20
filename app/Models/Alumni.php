@@ -49,4 +49,9 @@ class Alumni extends Model
     {
         return $this->morphMany(Attendant::class, 'attendees');
     }
+
+    public function profileId()
+    {
+        return $this->morphOne('App\Models\ProfileId', 'model');
+    }
 }
