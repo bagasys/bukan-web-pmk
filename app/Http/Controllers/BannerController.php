@@ -14,7 +14,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        $banners = Banner::all();
+
+        return view('banners.index', compact('banners'));
     }
 
     /**
@@ -35,7 +37,23 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imgName = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $ext = $img->getClientOriginalExtension();
+            $imgName = time().str_replace(' ', '', $request['title'].'.'.$ext);
+            $imgPath = $img->storeAs('public/banners', $imgName);
+        }
+
+        $banner = Banner::create([
+            'image' => $imgName,
+            'title' => $request['title'],
+            'subtitle' => $request['subtitle'],
+            'description' => $request['description'],
+        ]);
+
+        return redirect()->route('banners.index')
+            ->with('success', 'Banner berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +64,7 @@ class BannerController extends Controller
      */
     public function show(Banner $banner)
     {
-        //
+        return view('banners.show', compact('banner'));
     }
 
     /**
@@ -57,7 +75,7 @@ class BannerController extends Controller
      */
     public function edit(Banner $banner)
     {
-        //
+        return view('banners.edit', compact('banner'));
     }
 
     /**
@@ -69,7 +87,22 @@ class BannerController extends Controller
      */
     public function update(Request $request, Banner $banner)
     {
-        //
+        $imgName = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $ext = $img->getClientOriginalExtension();
+            $imgName = time().str_replace(' ', '', $request['title'].'.'.$ext);
+            $imgPath = $img->storeAs('public/banners', $imgName);
+        }
+
+        $banner->image = $imgName;
+        $banner->title = $request['title'];
+        $banner->subtitle = $request['subtitle'];
+        $banner->description = $request['description'];
+        $banner->save();
+
+        return redirect()->route('banners.index')
+            ->with('success', 'Banner berhasil diubah');
     }
 
     /**
@@ -80,6 +113,9 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner)
     {
-        //
+        $banner->delete();
+
+        return redirect()->route('banners.index')
+            ->with('success', 'Banner berhasil dihapus');
     }
 }

@@ -15,15 +15,14 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-primary">
-                <form role="form" method="POST" action="{{ route('banners.update', $banner->id)  }}" enctype="multipart/form-data">
+                <form role="form" method="POST" action="{{ route('banners.store')  }}" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control {{$errors->has('sender_name') ? 'is-invalid' : ''}}" id="title" name="title"
+                                    <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" id="title" name="title"
                                            placeholder="Masukkan judul" value="{{old('title')}}">
                                     @error('title')
                                     <span class="error invalid-feedback">{{$message}}</span>

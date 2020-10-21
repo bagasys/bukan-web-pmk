@@ -69,7 +69,9 @@ Route::get('/events', function () {
 });
 
 Route::get('/index', function () {
-    return view('landing-page/index');
+    $banners = \App\Models\Banner::all();
+
+    return view('landing-page/index', compact('banners'));
 });
 
 Route::get('/ministries', function () {

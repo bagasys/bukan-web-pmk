@@ -17,9 +17,9 @@
         <div class="col-sm-12">
             <div class="card ">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Data Transaksi </h3>
+                    <h3 class="card-title">Edit Data Banner </h3>
                 </div>
-                <form role="form" method="POST" action="{{ route('transactions.update',$transaction->id) }}"
+                <form role="form" method="POST" action="{{ route('banners.update', $banner->id) }}"
                       enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -28,7 +28,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="title">Title</label>
-                                    <input type="text" class="form-control {{$errors->has('sender_name') ? 'is-invalid' : ''}}" id="title" name="title"
+                                    <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" id="title" name="title"
                                            placeholder="Masukkan judul" value="{{$banner->title}}">
                                     @error('title')
                                     <span class="error invalid-feedback">{{$message}}</span>
@@ -67,6 +67,7 @@
                                     @enderror
                                 </div>
                             </div>
+                            <img src="{{$banner->image}}" width="100px">
                         </div>
 
                         <div class="card-footer">
