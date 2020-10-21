@@ -15,7 +15,6 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->unsigned();
             $table->string('name');
             $table->string('nrp')->unique();
             $table->string('current_address');
@@ -31,10 +30,6 @@ class CreateStudentsTable extends Migration
 
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
         });
     }
 

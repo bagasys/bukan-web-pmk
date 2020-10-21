@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PrayerRequestRequest;
 use App\Models\PrayerRequest;
+use Spatie\Permission\Models\Role;
 
 class PrayerRequestController extends Controller
 {
@@ -12,9 +13,19 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('permission:view prayer request')->only('index');
+        $this->middleware('permission:add prayer request')->only('create');
+        $this->middleware('permission:view prayer request')->only('view');
+        $this->middleware('permission:edit prayer request')->only('edit');
+    }
+
     public function index()
     {
+
         $prayerRequests = PrayerRequest::all();
+
         return view('prayerRequests.index', compact('prayerRequests'));
     }
 

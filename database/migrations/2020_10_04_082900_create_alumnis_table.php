@@ -15,7 +15,7 @@ class CreateAlumnisTable extends Migration
     {
         Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->unsigned();;
+            $table->string('username');
             $table->string('name');
             $table->string('department');
             $table->string('job');
@@ -27,9 +27,6 @@ class CreateAlumnisTable extends Migration
             $table->integer('year_end');
             $table->timestamps();
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users');
         });
     }
 
