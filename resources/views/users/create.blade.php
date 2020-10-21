@@ -13,16 +13,16 @@
                 @csrf  
                 <div class="form-group">
                     <label>Users</label>
-                    <select class="duallistbox" multiple="multiple">
-                    @foreach($users as $user)
-                        <option>{{$user->email}}</option>    
-                    @endforeach
-                    </select>
+                        <select name="user_id" class="form-control">
+                        @foreach($users as $user)
+                            <option value="{{$user->id}}">{{$user->email}}</option>    
+                        @endforeach
+                        </select>
                     <label>Roles</label>
-                    <select class="duallistbox" multiple="multiple">
-                    @foreach($roles as $role)
-                        <option>{{$role->name}}</option>    
-                    @endforeach
+                        <select multiple="multiple" name="role_id[]" class="form-control">
+                        @foreach($roles as $role)
+                            <option value="{{$role->id}}">{{$role->name}}</option>    
+                        @endforeach
                     </select>
                 </div>
                 <div class="card-footer">
