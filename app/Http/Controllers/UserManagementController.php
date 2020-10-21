@@ -31,16 +31,9 @@ class UserManagementController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
-
         $user = User::find($request->user_id);
         // $role = Role::find($request->role_id);
-        if ($request->role_id) {
-            foreach ($request->role_id as $role) {
-                $user->assignRole($role);
-            }
-        }
-
+        $user->assignRole($request->role_id);
         return redirect()->route('users.index')
             ->with('success', 'User berhasil dimodifikasi');
     }
