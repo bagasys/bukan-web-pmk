@@ -43,8 +43,7 @@
                     <li class="nav-item"><a class="nav-link active" href="#data-diri" data-toggle="tab">Data
                             Diri</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#riwayat" data-toggle="tab">Riwayat</a>
-                    </li>
+
                 </ul>
             </div><!-- /.card-header -->
             <div class="card-body">
@@ -61,38 +60,37 @@
                                     <td>{{ $lecturer->nid }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nama</td>
-                                    <td>{{ $lecturer->name }}</td>
-                                </tr>
-                                <tr>
                                     <td>Department</td>
                                     <td>{{ $lecturer->department }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>{{ $lecturer->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Kelamin</td>
                                     <td>{{ $lecturer->sex }}</td>
                                 </tr>
+                                @can('view detail lecturer')
                                 <tr>
                                     <td>Alamat</td>
                                     <td>{{ $lecturer->address }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
-                                    <td>{{ $lecturer->email }}</td>
-                                </tr>
-                                <tr>
                                     <td>Nomor Telepon</td>
                                     <td>{{ $lecturer->phone }}</td>
                                 </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{ $lecturer->email }}</td>
+                                </tr>
+                                @endcan
                             </tbody>
                         </table>
 
                     </div>
                     <!-- /.tab-pane -->
-                    <div class="tab-pane" id="riwayat">
-                        Vijay Gonna Finish This!
-                    </div>
-                    <!-- /.tab-pane -->
+
 
                 </div>
                 <!-- /.tab-content -->

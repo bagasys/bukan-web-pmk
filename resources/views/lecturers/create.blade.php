@@ -46,6 +46,23 @@
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Dosen" required>
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="sex" value="laki-laki"
+                                               id="laki-laki">
+                                        <label class="form-check-label" for="laki-laki">Laki-Laki</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="sex" value="perempuan"
+                                               id="perempuan">
+                                        <label class="form-check-label" for="perempuan">Perempuan</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="nid">NID</label>

@@ -12,6 +12,17 @@ use Session;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:view student')->only('index');
+        $this->middleware('permission:add student')->only('create');
+        $this->middleware('permission:view student')->only('view');
+        $this->middleware('permission:edit student')->only('edit');
+        $this->middleware('permission:edit student')->only('import_excel');
+        $this->middleware('permission:delete student')->only('delete');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

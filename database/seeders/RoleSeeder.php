@@ -150,6 +150,77 @@ class RoleSeeder extends Seeder
         $edit_small_group = Permission::create(['name' => 'edit small group', 'guard_name' => 'web']);
         $delete_small_group = Permission::create(['name' => 'delete small group', 'guard_name' => 'web']);
 
+        // Give Role Permission
+        /*
+            Ketua
+        */
+        $ketua->givePermissionTo($view_student);
+        $ketua->givePermissionTo($view_detail_student);
+        $ketua->givePermissionTo($view_lecturer);
+        $ketua->givePermissionTo($view_detail_lecturer);
+        $ketua->givePermissionTo($view_alumni);
+        $ketua->givePermissionTo($view_detail_alumni);
+        $ketua->givePermissionTo($view_event);
+        $ketua->givePermissionTo($view_detail_event);
+        $ketua->givePermissionTo($view_transaction);
+        $ketua->givePermissionTo($view_counseling);
+        $ketua->givePermissionTo($view_detail_counseling);
+        $ketua->givePermissionTo($view_prayer_request);
+        $ketua->givePermissionTo($view_detail_prayer_request);
+        $ketua->givePermissionTo($view_small_group);
+        $ketua->givePermissionTo($view_detail_small_group);
+
+        /*
+            Bendahara
+        */
+        $bendahara->givePermissionTo($view_student);
+        $bendahara->givePermissionTo($view_detail_student);
+        $bendahara->givePermissionTo($view_lecturer);
+        $bendahara->givePermissionTo($view_detail_lecturer);
+        $bendahara->givePermissionTo($view_alumni);
+        $bendahara->givePermissionTo($view_detail_alumni);
+        $bendahara->givePermissionTo($view_event);
+        $bendahara->givePermissionTo($view_detail_event);
+        $bendahara->givePermissionTo($view_transaction);
+        $bendahara->givePermissionTo($add_transaction);
+        $bendahara->givePermissionTo($edit_transaction);
+        $bendahara->givePermissionTo($view_counseling);
+        $bendahara->givePermissionTo($view_detail_counseling);
+        $bendahara->givePermissionTo($view_prayer_request);
+        $bendahara->givePermissionTo($view_detail_prayer_request);
+        $bendahara->givePermissionTo($view_small_group);
+        $bendahara->givePermissionTo($view_detail_small_group);
+
+        /*
+            Sekretaris
+        */
+        $sekretaris->givePermissionTo($view_student);
+        $sekretaris->givePermissionTo($view_detail_student);
+        $sekretaris->givePermissionTo($view_lecturer);
+        $sekretaris->givePermissionTo($view_detail_lecturer);
+        $sekretaris->givePermissionTo($view_alumni);
+        $sekretaris->givePermissionTo($view_detail_alumni);
+        $sekretaris->givePermissionTo($view_event);
+        $sekretaris->givePermissionTo($view_detail_event);
+        $sekretaris->givePermissionTo($view_transaction);
+        $sekretaris->givePermissionTo($view_counseling);
+        $sekretaris->givePermissionTo($view_detail_counseling);
+        $sekretaris->givePermissionTo($view_prayer_request);
+        $sekretaris->givePermissionTo($view_detail_prayer_request);
+        $sekretaris->givePermissionTo($view_small_group);
+        $sekretaris->givePermissionTo($view_detail_small_group);
+
+        /*
+            Bph pemuridan
+        */
+        $bph_pemuridan->givePermissionTo($view_student);
+        $bph_pemuridan->givePermissionTo($view_detail_student);
+        $bph_pemuridan->givePermissionTo($view_small_group);
+        $bph_pemuridan->givePermissionTo($view_detail_small_group);
+
+        /*
+            Bph dope
+        */
         $bph_dope->givePermissionTo($view_student);
         $bph_dope->givePermissionTo($view_detail_student);
         $bph_dope->givePermissionTo($view_prayer_request);
