@@ -1,1 +1,1 @@
-<?php
+@extends('adminlte.master')

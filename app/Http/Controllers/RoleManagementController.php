@@ -13,6 +13,15 @@ class RoleManagementController extends Controller
         $this->middleware(['auth', 'role:super admin']);
     }
 
+    public function index() {
+
+        $roles = Role::all();
+
+
+        return view('roles.index', compact('roles'));
+    }
+
+
     public function update(Request $request)
     {
         $role = Role::find($request->role_id);

@@ -8,6 +8,7 @@ use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\RoleManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/students', StudentController::class);
     Route::resource('/transactions', TransactionController::class);
     Route::resource('/prayer-requests', PrayerRequestController::class);
+    Route::resource('/roles', RoleManagementController::class);
 });
 
 Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
