@@ -17,39 +17,21 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-users"></i>
               <p>
-                User
+                User Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route ('lecturers.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dosen</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route ('students.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mahasiswa</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route ('alumnis.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ALumni</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route ('counselors.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Konselor</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                    <a href="{{route ('lecturers.index')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>User Management</p>
+                    </a>
+                </li>
             </ul>
           </li>
         </ul>
-      
+
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
@@ -57,11 +39,35 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-handshake"></i>
               <p>
-                Acara
+                Data
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route ('lecturers.index')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Dosen</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route ('students.index')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Mahasiswa</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route ('alumnis.index')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>ALumni</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route ('counselors.index')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Konselor</p>
+                    </a>
+                </li>
               <li class="nav-item">
                 <a href="{{route ('counselings.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -83,7 +89,7 @@
             </ul>
           </li>
         </ul>
-    
+
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
