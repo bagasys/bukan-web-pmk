@@ -17,7 +17,7 @@ class RoleManagementController extends Controller
     {
         $pageNumber = $request->query('page');
         $roles = Role::paginate(5, ['*'], 'page', $pageNumber);
-        
+
         return view('roles.index', compact('roles'));
     }
 
@@ -44,6 +44,7 @@ class RoleManagementController extends Controller
     {
         $role = Role::create(['name' => $request->name]);
         $role->syncPermissions($request->permission_ids);
+
         return redirect()->route('roles.index')
             ->with('success', 'Role berhasil dimodifikasi');
     }
@@ -67,15 +68,13 @@ class RoleManagementController extends Controller
      */
     public function edit(Role $role)
     {
-
         $selected_permissions = $role->permissions;
         $unselected_permissions = Permission::all()->diff($selected_permissions);
-
 
         return view('roles.edit')->with([
             'role' => $role,
             'selected_permissions' => $selected_permissions,
-            'unselected_permissions' => $unselected_permissions
+            'unselected_permissions' => $unselected_permissions,
         ]);
     }
 
@@ -88,11 +87,12 @@ class RoleManagementController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        if($role->name != $request->name) {
+        if ($role->name != $request->name) {
             $role->name = $request->name;
             $role->save();
         }
         $role->syncPermissions($request->permission_ids);
+
         return redirect()->route('roles.index')
             ->with('success', 'Role berhasil diubah.');
     }
@@ -107,6 +107,7 @@ class RoleManagementController extends Controller
     {
         $role = Role::findById($id);
         $role->delete();
+
         return redirect()->route('roles.index')
             ->with('success', 'Role berhasil dihapus.');
     }
