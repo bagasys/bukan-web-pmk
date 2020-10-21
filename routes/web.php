@@ -52,9 +52,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/users/create', [UserManagementController::class, 'create'])->name('users.create');
     Route::post('/users', [UserManagementController::class, 'store'])->name('users.store');
 
-    Route::get('/roles', [RoleManagementController::class, 'index'])->name('roles.index');
-    Route::get('/roles/create', [RoleManagementController::class, 'create'])->name('roles.create');
-    Route::get('/roles', [RoleManagementController::class, 'create'])->name('roles.create');
+    // Route::get('/roles', [RoleManagementController::class, 'index'])->name('roles.index');
+    // Route::get('/roles/create', [RoleManagementController::class, 'create'])->name('roles.create');
+    // Route::get('/roles', [RoleManagementController::class, 'create'])->name('roles.create');
 
     Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
     Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
