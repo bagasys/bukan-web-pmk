@@ -2,10 +2,11 @@
 
 namespace App\Imports;
 
-use App\Meeting;
+use App\Models\Meeting;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class Meetingimport implements ToModel
+class Meetingimport implements ToModel, WithHeadingRow
 {
     /**
      * @param array $row
@@ -15,7 +16,11 @@ class Meetingimport implements ToModel
     public function model(array $row)
     {
         return new Meeting([
-            //
+            'title' => $row['title'],
+            'description' => $row['description'],
+            'type' => $row['type'],
+            'start' => $row['start'],
+            'end' => $row['end'],
         ]);
     }
 }

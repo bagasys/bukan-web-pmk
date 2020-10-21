@@ -49,6 +49,12 @@ Route::get('/counselings/export_excel', [CounselingController::class, 'export_ex
 Route::post('/counselings/import_excel', [CounselingController::class, 'import_excel']);
 Route::get('/lecturers/export_excel', [LecturerController::class, 'export_excel']);
 Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel']);
+Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel']);
+Route::post('/meetings/import_excel', [MeetingController::class, 'import_excel']);
+Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel']);
+Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel']);
+Route::get('/transactions/export_excel', [TransactionController::class, 'export_excel']);
+Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel']);
 
 //Landing Page
 Route::get('/about', function () {
