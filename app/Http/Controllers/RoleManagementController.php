@@ -17,7 +17,7 @@ class RoleManagementController extends Controller
     {
         $pageNumber = $request->query('page');
         $roles = Role::paginate(5, ['*'], 'page', $pageNumber);
-        
+
         return view('roles.index', compact('roles'));
     }
 
