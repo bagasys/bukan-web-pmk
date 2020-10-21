@@ -9,10 +9,9 @@
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                        <a href="https://www.instagram.com/pmk_its/" target="_blank" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                        <a href="https://line.me/ti/p/~@cox6942k" target="_blank" class="d-flex align-items-center justify-content-center"><span class="fab fa-line">Line</span></a>
+                        {{-- <a href="https://line.me/ti/p/~@cox6942k" target="_blank" class="d-flex align-items-center justify-content-center"><span class="fab fa-youtube">UTube</span></a> --}}
                     </p>
                 </div>
             </div>
