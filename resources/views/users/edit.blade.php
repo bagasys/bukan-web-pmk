@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>User</h1>
+                    <h1>Edit User: {{$user->email}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,9 +33,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Create new user</h3>
-                </div>
+
                 <form role="form" method="POST" action="{{ route('users.update', $user->id)  }}">
                     @csrf
                     @method('PUT')
