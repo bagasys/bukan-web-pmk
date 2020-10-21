@@ -32,11 +32,9 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
-
     </div>
 
     <div class="col-md-9">
-
         <div class="card">
             <div class="card-header p-2">
                 <ul class="nav nav-pills">
@@ -47,11 +45,8 @@
             </div><!-- /.card-header -->
             <div class="card-body">
                 <div class="tab-content">
-
                     <div class="active tab-pane" id="data-diri">
-
                         <table class="table">
-
                             <tbody>
                                 <tr>
                                     <td>Department</td>
@@ -93,17 +88,12 @@
 
                     </div>
                     <!-- /.tab-pane -->
-
-
                 </div>
-                <!-- /.tab-content -->
-
                 <!-- /.tab-content -->
             </div><!-- /.card-body -->
         </div>
         <!-- /.nav-tabs-custom -->
     </div>
     <!-- /.col -->
-
 </div>
 @endsection
