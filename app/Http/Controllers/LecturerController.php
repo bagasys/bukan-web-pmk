@@ -7,6 +7,15 @@ use App\Models\Lecturer;
 
 class LecturerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:view lecturer')->only('index');
+        $this->middleware('permission:add lecturer')->only('create');
+        $this->middleware('permission:view detail lecturer')->only('show');
+        $this->middleware('permission:edit lecturer')->only('edit');
+        $this->middleware('permission:delete lecturer')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
