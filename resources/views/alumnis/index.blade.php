@@ -40,6 +40,8 @@
                 <tr>
                     <th>Nama</th>
                     <th>Department</th>
+                    <th>Tahun Masuk</th>
+                    <th>Tahun Lulus</th>
                     <th style="width: 280px">Action</th>
                 </tr>
             </thead>
@@ -48,6 +50,8 @@
                 <tr>
                     <td>{{ $alumni->name }}</td>
                     <td>{{ $alumni->department }}</td>
+                    <td>{{ $alumni->year_entry }}</td>
+                    <td>{{ $alumni->year_exit }}</td>
                     <td>
                         <form action="{{ route('alumnis.destroy', $alumni->id) }}" method="POST">
                             @csrf
