@@ -75,7 +75,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route ('prayerRequests.index')}}" class="nav-link">
+                <a href="{{route ('prayer-requests.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pray Request</p>
                 </a>
