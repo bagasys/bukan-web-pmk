@@ -8,11 +8,7 @@ use Spatie\Permission\Models\Role;
 
 class PrayerRequestController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function __construct()
     {
         $this->middleware('permission:view prayer request')->only('index');
@@ -20,6 +16,14 @@ class PrayerRequestController extends Controller
         $this->middleware('permission:view prayer request')->only('view');
         $this->middleware('permission:edit prayer request')->only('edit');
     }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
 
     public function index()
     {

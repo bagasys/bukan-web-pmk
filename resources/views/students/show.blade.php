@@ -44,8 +44,7 @@
                             <li class="nav-item"><a class="nav-link active" href="#data-diri" data-toggle="tab">Data
                                     Diri</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="#riwayat" data-toggle="tab">Riwayat</a>
-                            </li>
+
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
@@ -62,58 +61,58 @@
                                             <td>{{ $student->nrp }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Nama</td>
-                                            <td>{{ $student->name }}</td>
-                                        </tr>
-                                        <tr>
                                             <td>Department</td>
                                             <td>{{ $student->department }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenis Kelamin</td>
-                                            <td>{{ $student->sex }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat saat ini</td>
-                                            <td>{{ $student->current_address }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat asal</td>
-                                            <td>{{ $student->origin_address }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nomor Telepon</td>
-                                            <td>{{ $student->phone }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanggal lahir</td>
-                                            <td>{{ $student->birthdate }}</td>
                                         </tr>
                                         <tr>
                                             <td>Tahun masuk</td>
                                             <td>{{ $student->year_entry }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Tahun lulus</td>
-                                            <td>{{ $student->year_end }}</td>
+                                            <td>Nama</td>
+                                            <td>{{ $student->name }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Nama PKK</td>
-                                            <td>{{ $student->guardian_name }}</td>
+                                            <td>Jenis Kelamin</td>
+                                            <td>{{ $student->sex }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Nomor Telepon PKK</td>
-                                            <td>{{ $student->guardian_phone }}</td>
+                                            <td>Tanggal lahir</td>
+                                            <td>{{ $student->birthdate }}</td>
                                         </tr>
+                                        @can('view detail student')
+                                            <tr>
+                                                <td>Alamat asal</td>
+                                                <td>{{ $student->origin_address }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alamat saat ini</td>
+                                                <td>{{ $student->current_address }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nomor Telepon</td>
+                                                <td>{{ $student->phone }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tahun lulus</td>
+                                                <td>{{ $student->year_end }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Wali</td>
+                                                <td>{{ $student->guardian_name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nomor Telepon Wali</td>
+                                                <td>{{ $student->guardian_phone }}</td>
+                                            </tr>
+                                        @endcan
+
                                         </tbody>
                                     </table>
 
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="riwayat">
-                                Vijay Gonna Finish This!
-                            </div>
-                            <!-- /.tab-pane -->
+
 
                         </div>
                         <!-- /.tab-content -->

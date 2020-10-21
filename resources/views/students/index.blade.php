@@ -42,44 +42,47 @@
         </div>
         @endif
 
-        <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
-            IMPORT EXCEL
-        </button>
 
-        <!-- Import Excel -->
-        <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <form method="post" action="/students/import_excel" enctype="multipart/form-data">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
-                        </div>
-                        <div class="modal-body">
+        @can('edit student')
+            <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
+                IMPORT EXCEL
+            </button>
 
-                            {{ csrf_field() }}
-
-                            <label>Pilih file excel</label>
-                            <div class="form-group">
-                                <input type="file" name="file" required="required">
+            <a href="/students/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+            <!-- Import Excel -->
+            <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form method="post" action="/students/import_excel" enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
                             </div>
+                            <div class="modal-body">
 
+                                {{ csrf_field() }}
+
+                                <label>Pilih file excel</label>
+                                <div class="form-group">
+                                    <input type="file" name="file" required="required">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Import</button>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Import</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-
-        <a href="/students/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
+        @endcan
 
         <div class="card-tools">
-            <div class="">
-                <a class="btn btn-success" href="{{ route('students.create') }}"> Tambah data mahasiswa</a>
-            </div>
+            @can('add student')
+                <div class="">
+                    <a class="btn btn-success" href="{{ route('students.create') }}"> Tambah data mahasiswa</a>
+                </div>
+            @endcan
         </div>
     </div>
 
@@ -91,6 +94,7 @@
                     <th>NRP</th>
                     <th>Nama</th>
                     <th>Department</th>
+                    <th>Tanggal Lahir</th>
                     <th style="width: 280px">Action</th>
                 </tr>
             </thead>
@@ -98,17 +102,29 @@
                 @foreach ($students as $student)
                 <tr>
                     <td>{{ $student->nrp }}</td>
-                    <td>{{ $student->name }}</td>
                     <td>{{ $student->department }}</td>
-                    <td>
-                        <form action="{{ route('students.destroy', $student->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
+                    <td>{{ $student->name }}</td>
+
+                    <td>{{ date('d M Y'  ,strtotime($student->birthdate)) }}</td>
+
+
+                        <td>
+                            @can('delete student')
+                                <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            @endcan
+                            @can('view student')
+                                <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
+                            @endcan
+                            @can('edit student')
+                                <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
+                            @endcan
+
+                        </td>
+
                 </tr>
                 @endforeach
             </tbody>
