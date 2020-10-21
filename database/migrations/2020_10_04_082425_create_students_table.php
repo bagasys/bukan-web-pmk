@@ -24,9 +24,9 @@ class CreateStudentsTable extends Migration
             $table->string('department');
             $table->date('birthdate');
             $table->integer('year_entry');
-            $table->integer('year_end');
-            $table->string('guardian_name');
-            $table->string('guardian_phone');
+            $table->integer('year_end')->nullable();
+            $table->string('guardian_name')->nullable();
+            $table->string('guardian_phone')->nullable();
             $table->string('sex');
 
             $table->timestamps();
