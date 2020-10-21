@@ -6,9 +6,10 @@ use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
+use App\Http\Controllers\RoleManagementController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\RoleManagementController;
+use App\Http\Controllers\UserManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,11 +45,20 @@ Route::prefix('admin')->group(function () {
     Route::resource('/students', StudentController::class);
     Route::resource('/transactions', TransactionController::class);
     Route::resource('/prayer-requests', PrayerRequestController::class);
-    Route::resource('/roles', RoleManagementController::class);
-});
 
-Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
-Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
+    Route::resource('/roles', RoleManagementController::class);
+
+    Route::get('/users', [UserManagementController::class, 'index'])->name('users.index');
+    Route::get('/users/create', [UserManagementController::class, 'create'])->name('users.create');
+    Route::post('/users', [UserManagementController::class, 'store'])->name('users.store');
+
+    Route::get('/roles', [RoleManagementController::class, 'index'])->name('roles.index');
+    Route::get('/roles/create', [RoleManagementController::class, 'create'])->name('roles.create');
+    Route::get('/roles', [RoleManagementController::class, 'create'])->name('roles.create');
+
+    Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
+    Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
+});
 
 //Landing Page
 Route::get('/about', function () {

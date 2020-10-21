@@ -20,7 +20,16 @@ class UserManagementController extends Controller
         return '';
     }
 
-    public function update(Request $request)
+    public function create()
+    {
+        $users = User::all();
+        $roles = Role::all();
+
+        return view('users.create')
+            ->with(['users' => $users, 'roles' => $roles]);
+    }
+
+    public function store(Request $request)
     {
         $user = User::find($request->user_id);
         $role = Role::find($request->role_id);
