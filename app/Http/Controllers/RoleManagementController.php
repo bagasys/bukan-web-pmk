@@ -13,9 +13,11 @@ class RoleManagementController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles = Role::all();
+        $pageNumber = $request->query('page');
+        $roles = Role::paginate(5, ['*'], 'page', $pageNumber);
+        
         return view('roles.index', compact('roles'));
     }
 
