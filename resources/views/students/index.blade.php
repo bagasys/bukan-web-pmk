@@ -48,7 +48,7 @@
                 IMPORT EXCEL
             </button>
 
-            <a href="/students/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+
             <!-- Import Excel -->
             <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -76,6 +76,7 @@
                 </div>
             </div>
         @endcan
+        <a href="/students/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
             @can('add student')

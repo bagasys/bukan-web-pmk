@@ -26,10 +26,19 @@
 
 <div class="card">
     <div class="card-header">
+
+        @can('edit student')
+            <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
+                IMPORT EXCEL
+            </button>
+        @endcan
+        <a href="/students/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
         <div class="card-tools">
-            <div class="">
-                <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
-            </div>
+            @can('add student')
+                <div class="">
+                    <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
+                </div>
+            @endcan
         </div>
     </div>
 
