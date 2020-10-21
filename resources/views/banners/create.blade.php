@@ -75,13 +75,3 @@
     </div>
 @endsection
 
-@push('scripts')
-
-    <script src="{{asset('/adminlte/plugins/moment/moment.min.js')}}"></script>
-    <script src="{{asset('/adminlte/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
-
-
-    <script>
-        $('#datemask').inputmask('dd-mm-yyyy', { 'placeholder': 'dd-mm-yyyy' })
-    </script>
-@endpush
