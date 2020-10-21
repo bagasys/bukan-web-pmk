@@ -13,6 +13,7 @@ class LecturerController extends Controller
         $this->middleware('permission:add lecturer')->only('create');
         $this->middleware('permission:view detail lecturer')->only('show');
         $this->middleware('permission:edit lecturer')->only('edit');
+        $this->middleware('permission:edit lecturer')->only('import_excel');
         $this->middleware('permission:delete lecturer')->only('destroy');
     }
 

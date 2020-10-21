@@ -82,7 +82,6 @@
                                         <td>{{ $alumni->year_end }}</td>
                                     </tr>
                                 @endcan
-
                             </tbody>
                         </table>
 

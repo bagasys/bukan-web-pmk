@@ -26,8 +26,7 @@
 
 <div class="card">
     <div class="card-header">
-
-        @can('edit student')
+        @can('edit lecturer')
             <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
                 IMPORT EXCEL
             </button>
