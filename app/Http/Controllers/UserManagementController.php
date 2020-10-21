@@ -49,12 +49,11 @@ class UserManagementController extends Controller
         $selected_roles = $user->roles;
         $unselected_roles = Role::all()->diff($selected_roles);
 
-
         return view('users.edit')
             ->with([
                 'user' => $user,
                 'selected_roles' => $selected_roles,
-                'unselected_roles' => $unselected_roles
+                'unselected_roles' => $unselected_roles,
             ]);
     }
 
@@ -63,7 +62,16 @@ class UserManagementController extends Controller
         $user->email = $request->email;
         $user->save();
         $user->syncRoles($request->role_ids);
+
         return redirect()->route('users.edit', $user->id)
             ->with('success', 'User berhasil diubah.');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('users.index')
+            ->with('success', 'Data user berhasil dihapus');
     }
 }
