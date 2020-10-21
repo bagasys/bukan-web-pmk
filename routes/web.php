@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\LecturerController;
@@ -41,6 +42,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/prayer-requests', PrayerRequestController::class);
     Route::resource('/roles', RoleManagementController::class);
     Route::resource('/users', UserManagementController::class);
+    Route::resource('/banners', BannerController::class);
     Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
     Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
 });
