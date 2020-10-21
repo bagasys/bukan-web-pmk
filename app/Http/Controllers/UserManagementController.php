@@ -44,26 +44,26 @@ class UserManagementController extends Controller
             ->with('success', 'User berhasil dimodifikasi');
     }
 
-    public function edit()
+    public function edit(User $user)
     {
-        $users = User::all();
-        $roles = Role::all();
+        $selected_roles = $user->roles;
+        $unselected_roles = Role::all()->diff($selected_roles);
 
-        return view('users.create')
-            ->with(['users' => $users, 'roles' => $roles]);
+
+        return view('users.edit')
+            ->with([
+                'user' => $user,
+                'selected_roles' => $selected_roles,
+                'unselected_roles' => $unselected_roles
+            ]);
     }
 
-    public function update()
+    public function update(Request $request, User $user)
     {
-    }
-
-    public function remove(Request $request)
-    {
-        $user = User::find($request->user_id);
-        $role = Role::find($request->role_id);
-
-        $user->removeRole($role);
-
-        return '';
+        $user->email = $request->email;
+        $user->save();
+        $user->syncRoles($request->role_ids);
+        return redirect()->route('users.edit', $user->id)
+            ->with('success', 'User berhasil diubah.');
     }
 }
