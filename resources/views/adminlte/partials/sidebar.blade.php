@@ -9,11 +9,11 @@
     <div class="sidebar">
       <!-- Sidebar Menu -->
       <nav class="mt-3">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-tabs" data-widget="treeview" role="menu tablist" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
           <h2 class="text-center font-weight-bold mb-4"><span style="color:red;"><i class="nav-icon fas fa-cross "></i>PMK</span> <span style="color:#3366ff;">ITS</span></h2>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-users"></i>
               <p>
@@ -23,25 +23,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route ('lecturers.index')}}" class="nav-link active">
+                <a href="{{route ('lecturers.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dosen</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./../../admin/students" class="nav-link">
+                <a href="{{route ('students.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mahasiswa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./../../admin/alumnis" class="nav-link">
+                <a href="{{route ('alumnis.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>ALumni</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./../../admin/counselors" class="nav-link">
+                <a href="{{route ('counselors.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Konselor</p>
                 </a>
@@ -49,13 +49,11 @@
             </ul>
           </li>
         </ul>
-      </nav>
-
-      <nav class="mt-2">
+      
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-handshake"></i>
               <p>
@@ -65,19 +63,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./../../admin/counselings" class="nav-link active">
+                <a href="{{route ('counselings.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Konseling</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./../../admin/meetings" class="nav-link">
+                <a href="{{route ('meetings.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Meeting</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="prayerRequests" class="nav-link">
+                <a href="{{route ('prayerRequests.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pray Request</p>
                 </a>
@@ -85,13 +83,11 @@
             </ul>
           </li>
         </ul>
-      </nav>
-
-      <nav class="mt-2">
+    
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-money-check-alt"></i>
               <p>
@@ -102,7 +98,7 @@
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./../../admin/transactions" class="nav-link active">
+                <a href="{{route ('transactions.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Transaksi</p>
                 </a>
@@ -115,3 +111,4 @@
   </aside>
 
 </aside>
+
