@@ -47,10 +47,11 @@ Route::prefix('admin')->group(function () {
     Route::resource('/prayer-requests', PrayerRequestController::class);
 
     Route::resource('/roles', RoleManagementController::class);
+    Route::resource('/users', UserManagementController::class);
 
-    Route::get('/users', [UserManagementController::class, 'index'])->name('users.index');
-    Route::get('/users/create', [UserManagementController::class, 'create'])->name('users.create');
-    Route::post('/users', [UserManagementController::class, 'store'])->name('users.store');
+    // Route::get('/users', [UserManagementController::class, 'index'])->name('users.index');
+    // Route::get('/users/create', [UserManagementController::class, 'create'])->name('users.create');
+    // Route::post('/users', [UserManagementController::class, 'store'])->name('users.store');
 
     // Route::get('/roles', [RoleManagementController::class, 'index'])->name('roles.index');
     // Route::get('/roles/create', [RoleManagementController::class, 'create'])->name('roles.create');
