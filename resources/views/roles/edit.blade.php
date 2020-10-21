@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Create New Role</h1>
+                    <h1>Edit Role: {{$role->name}}</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,8 +33,9 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-primary">
-                <form role="form" method="POST" action="{{ route('roles.store')  }}">
+                <form role="form" method="POST" action="{{ route('roles.update', $role->id)  }}">
                     @csrf
+                    @method('PUT')
                     <div class="card-body">
 
 
@@ -44,14 +45,17 @@
                                 <div class="form-group">
                                     <label for="name">Nama Role</label>
                                     <input type="text" class="form-control" id="name" name="name"
-                                           placeholder="Masukkan Nama Role" required>
+                                           placeholder="Masukkan Nama Role" value="{{$role->name}}" required>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Permissions:</label>
                                     <select class="duallistbox" multiple="multiple" name="permission_ids[]">
-                                        @foreach($permissions as $permission)
+                                        @foreach($selected_permissions as $permission)
+                                            <option value="{{$permission->id}}" selected>{{$permission->name}}</option>
+                                        @endforeach
+                                        @foreach($unselected_permissions as $permission)
                                             <option value="{{$permission->id}}">{{$permission->name}}</option>
                                         @endforeach
                                     </select>
