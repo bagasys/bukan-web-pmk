@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\LandingPage\EventController;
 use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
@@ -24,10 +25,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return redirect('/index');
-});
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -64,7 +61,7 @@ Route::prefix('admin')->group(function () {
 });
 
 //Landing Page
-Route::get('/index', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/about', function () {
     return view('landing-page/about');
@@ -82,9 +79,7 @@ Route::get('/contact', function () {
     return view('landing-page/contact');
 });
 
-Route::get('/events', function () {
-    return view('landing-page/events');
-});
+Route::get('/events', [EventController::class, 'index']);
 
 Route::get('/ministries', function () {
     return view('landing-page/ministries');
