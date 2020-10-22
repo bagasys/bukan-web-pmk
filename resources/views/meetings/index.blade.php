@@ -116,9 +116,6 @@
             </table>
         </div>
         <div class="card-footer">
-            {{$posts->links("pagination::bootstrap-4")}}
-
-
         </div>
     </div>
 @endsection
