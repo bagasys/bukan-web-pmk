@@ -30,12 +30,10 @@ class StudentController extends Controller
         return view('students.index', compact('students'));
     }
 
-
     public function create()
     {
         return view('students.create');
     }
-
 
     public function store(StudentRequest $request)
     {
@@ -58,18 +56,15 @@ class StudentController extends Controller
             ->with('success', 'Data mahasiswa berhasil ditambahkan');
     }
 
-
     public function show(Student $student)
     {
         return view('students.show', compact('student'));
     }
 
-
     public function edit(Student $student)
     {
         return view('students.edit', compact('student'));
     }
-
 
     public function update(StudentRequest $request, Student $student)
     {
@@ -90,7 +85,6 @@ class StudentController extends Controller
         return redirect()->route('students.index')
             ->with('success', 'Data mahasiswa berhasil diubah');
     }
-
 
     public function destroy(Student $student)
     {

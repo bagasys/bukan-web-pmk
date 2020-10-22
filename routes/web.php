@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\LandingPage\EventController;
+use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
@@ -23,17 +26,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/index');
-});
-
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin');
     });
 
     Route::get('/lecturers/export_excel', [LecturerController::class, 'export_excel'])->name('lecturers.export_excel');
-    Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel'])->name('lecturers.import_excel');;
+    Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel'])->name('lecturers.import_excel');
     Route::resource('/lecturers', LecturerController::class);
 
     Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel'])->name('meetings.export_excel');
@@ -43,7 +42,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/counselings/export_excel', [CounselingController::class, 'export_excel'])->name('counselings.export_excel');
     Route::post('/counselings/import_excel', [CounselingController::class, 'import_excel'])->name('counselings.import_excel');
     Route::resource('/counselings', CounselingController::class);
-
 
     Route::get('/counselors/export_excel', [CounselorController::class, 'export_excel'])->name('counselors.export_excel');
     Route::post('/counselors/import_excel', [CounselorController::class, 'import_excel'])->name('counselors.import_excel');
@@ -61,7 +59,6 @@ Route::prefix('admin')->group(function () {
     Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel'])->name('transactions.import_excel');
     Route::resource('/transactions', TransactionController::class);
 
-
     Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayerRequests.export_excel');
     Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayerRequests.import_excel');
     Route::resource('/prayer-requests', PrayerRequestController::class);
@@ -69,17 +66,12 @@ Route::prefix('admin')->group(function () {
     Route::resource('/roles', RoleManagementController::class);
 
     Route::resource('/users', UserManagementController::class);
-
-
-
-
-
-
-
-
-
+    Route::resource('/banners', BannerController::class);
 });
+
 //Landing Page
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/about', function () {
     return view('landing-page/about');
 });
@@ -96,13 +88,7 @@ Route::get('/contact', function () {
     return view('landing-page/contact');
 });
 
-Route::get('/events', function () {
-    return view('landing-page/events');
-});
-
-Route::get('/index', function () {
-    return view('landing-page/index');
-});
+Route::get('/events', [EventController::class, 'index']);
 
 Route::get('/ministries', function () {
     return view('landing-page/ministries');
