@@ -16,7 +16,6 @@ class CreateCounselorsTable extends Migration
         Schema::create('counselors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('nrp')->unique()->nullable();
             $table->string('nid')->unique()->nullable();
             $table->timestamps();
         });

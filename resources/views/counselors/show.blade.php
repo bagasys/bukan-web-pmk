@@ -61,10 +61,6 @@
                                     <td>{{ $counselor->nid }}</td>
                                 </tr>
                                 <tr>
-                                    <td>NRP</td>
-                                    <td>{{ $counselor->nrp }}</td>
-                                </tr>
-                                <tr>
                                     <td>Nama</td>
                                     <td>{{ $counselor->name }}</td>
                                 </tr>

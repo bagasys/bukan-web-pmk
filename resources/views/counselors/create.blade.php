@@ -51,17 +51,12 @@
                                 <input type="text" class="form-control" id="nid" name="nid" placeholder="Masukkan NID" required>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label for="nrp">NRP</label>
-                                <input type="text" class="form-control" id="nrp" name="nrp" placeholder="Masukkan NRP" required>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>
