@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CounselingExport;
 use App\Http\Requests\CounselingRequest;
+use App\Imports\CounselingImport;
 use App\Models\Counseling;
 use App\Models\Counselor;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Session;
 
 class CounselingController extends Controller
 {
@@ -104,5 +109,36 @@ class CounselingController extends Controller
 
         return redirect()->route('counselings.index')
             ->with('success', 'Data counseling berhasil dihapus');
+    }
+
+    public function export_excel()
+    {
+        return Excel::download(new CounselingExport, 'counseling.xlsx');
+    }
+
+    public function import_excel(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx',
+        ]);
+
+        // menangkap file excel
+        $file = $request->file('file');
+
+        // membuat nama file unik
+        $nama_file = rand().$file->getClientOriginalName();
+
+        // upload ke folder file_siswa di dalam folder public
+        $file->move('file_counseling', $nama_file);
+
+        // import data
+        Excel::import(new CounselingImport, public_path('/file_counseling/'.$nama_file));
+
+        // notifikasi dengan session
+        Session::flash('sukses', 'Data Konseling Berhasil Diimport!');
+
+        // alihkan halaman kembali
+        return redirect('/admin/counselings');
     }
 }
