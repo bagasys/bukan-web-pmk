@@ -36,13 +36,14 @@ Route::prefix('admin')->group(function () {
     Route::resource('/counselings', CounselingController::class);
     Route::resource('/counselors', CounselorController::class);
     Route::resource('/alumnis', AlumniController::class);
+    Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
+    Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
     Route::resource('/students', StudentController::class);
     Route::resource('/transactions', TransactionController::class);
     Route::resource('/prayer-requests', PrayerRequestController::class);
     Route::resource('/roles', RoleManagementController::class);
     Route::resource('/users', UserManagementController::class);
-    Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
-    Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
+
 });
 
 //Landing Page
