@@ -137,7 +137,7 @@
                                         </div>
                                         <input name="year_entry" id="year_entry" type="text" class="datemask form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}"
                                                data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy"
-                                               data-mask>
+                                               data-mask  value="{{old('year_entry')}}">
                                         @error('year_entry')
                                             <span class="error invalid-feedback">{{$message}}</span>
                                         @enderror
@@ -149,15 +149,15 @@
                             <div class="col-md-6">
                                 <!-- Date dd/mm/yyyy -->
                                 <div class="form-group">
-                                    <label for="year_exit">Tahun Lulus</label>
+                                    <label for="year_end">Tahun Lulus</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                         </div>
-                                        <input name="year_exit" id="year_exit" type="text" class="datemask form-control {{$errors->has('year_exit') ? 'is-invalid' : ''}}"
+                                        <input name="year_end" id="year_end" type="text" class="datemask form-control {{$errors->has('year_exit') ? 'is-invalid' : ''}}"
                                                data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy"
-                                               data-mask>
-                                        @error('year_exit')
+                                               data-mask value="{{old('year_end')}}">
+                                        @error('year_end')
                                         <span class="error invalid-feedback">{{$message}}</span>
                                         @enderror
                                     </div>
@@ -165,9 +165,7 @@
                                 </div>
                                 <!-- /.form group -->
                             </div>
-
-
-
+                            
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="guardian_name">Nama Wali</label>
