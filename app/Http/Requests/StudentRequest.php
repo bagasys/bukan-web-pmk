@@ -32,9 +32,6 @@ class StudentRequest extends FormRequest
             'department' => 'required',
             'birthdate' => 'required',
             'year_entry' => 'required',
-            'year_end' => 'required',
-            'guardian_name' => 'required',
-            'guardian_phone' => 'required',
             'sex' => 'required',
         ];
     }

@@ -16,7 +16,7 @@ class StudentController extends Controller
     {
         $this->middleware('permission:view student')->only('index');
         $this->middleware('permission:add student')->only('create');
-        $this->middleware('permission:view student')->only('view');
+        $this->middleware('permission:view detail student')->only('show');
         $this->middleware('permission:edit student')->only('edit');
         $this->middleware('permission:edit student')->only('import_excel');
         $this->middleware('permission:delete student')->only('delete');
@@ -25,17 +25,15 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $pageNumber = $request->query('page');
-        $students = Student::paginate(1, ['*'], 'page', $pageNumber);
+        $students = Student::paginate(10, ['*'], 'page', $pageNumber);
 
         return view('students.index', compact('students'));
     }
-
 
     public function create()
     {
         return view('students.create');
     }
-
 
     public function store(StudentRequest $request)
     {
@@ -58,18 +56,15 @@ class StudentController extends Controller
             ->with('success', 'Data mahasiswa berhasil ditambahkan');
     }
 
-
     public function show(Student $student)
     {
         return view('students.show', compact('student'));
     }
 
-
     public function edit(Student $student)
     {
         return view('students.edit', compact('student'));
     }
-
 
     public function update(StudentRequest $request, Student $student)
     {
@@ -90,7 +85,6 @@ class StudentController extends Controller
         return redirect()->route('students.index')
             ->with('success', 'Data mahasiswa berhasil diubah');
     }
-
 
     public function destroy(Student $student)
     {
