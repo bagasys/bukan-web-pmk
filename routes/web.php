@@ -60,7 +60,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel']);
     Route::get('/transactions/export_excel', [TransactionController::class, 'export_excel']);
     Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel']);
-}
+});
 //Landing Page
 Route::get('/about', function () {
     return view('landing-page/about');
