@@ -27,7 +27,7 @@
                         <img class="profile-user-img img-fluid img-circle" src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="User profile picture">
                     </div>
                     <h3 class="profile-username text-center">{{$student->name}}</h3>
-                    
+
                 </div>
                 <!-- /.card-body -->
             </div>
