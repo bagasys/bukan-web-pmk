@@ -4,6 +4,7 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
@@ -50,6 +51,8 @@ Route::prefix('admin')->group(function () {
 });
 
 //Landing Page
+Route::get('/index', [HomeController::class, 'index']);
+
 Route::get('/about', function () {
     return view('landing-page/about');
 });
@@ -68,12 +71,6 @@ Route::get('/contact', function () {
 
 Route::get('/events', function () {
     return view('landing-page/events');
-});
-
-Route::get('/index', function () {
-    $banners = \App\Models\Banner::all();
-
-    return view('landing-page/index', compact('banners'));
 });
 
 Route::get('/ministries', function () {
