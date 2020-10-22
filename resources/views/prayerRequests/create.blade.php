@@ -35,7 +35,7 @@
             <div class="card-header">
                 <h3 class="card-title">Masukkan Data Pray Request </h3>
             </div>
-            <form role="form" method="POST" action="{{ route('prayerRequests.store')  }}">
+            <form role="form" method="POST" action="{{ route('prayer-requests.store')  }}">
                 @csrf
                 <div class="card-body">
                     <div class="row">

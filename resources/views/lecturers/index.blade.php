@@ -22,6 +22,7 @@
             </div>
         </div>
     </div><!-- /.container-fluid -->
+
 </section>
 
 <div class="card">
@@ -42,6 +43,9 @@
         </div>
         @endif
 
+        
+
+        @can('edit lecturer')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -72,13 +76,14 @@
                 </form>
             </div>
         </div>
-
+        @endcan
         <a href="/lecturers/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
         <div class="card-tools">
+            @can('add lecturer')
             <div class="">
                 <a class="btn btn-success" href="{{ route('lecturers.create') }}"> Tambah data dosen</a>
             </div>
+            @endcan
         </div>
     </div>
 

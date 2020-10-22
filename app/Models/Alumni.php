@@ -14,6 +14,7 @@ class Alumni extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'username',
         'department',
         'job',
         'sex',
@@ -48,5 +49,10 @@ class Alumni extends Model
     public function attendedMeetings()
     {
         return $this->morphMany(Attendant::class, 'attendees');
+    }
+
+    public function profileId()
+    {
+        return $this->morphOne('App\Models\ProfileId', 'model');
     }
 }

@@ -42,6 +42,10 @@
         </div>
         @endif
 
+        
+
+        
+        @can('edit lecturer')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -72,12 +76,14 @@
                 </form>
             </div>
         </div>
-
+        @endcan
         <a href="/alumnis/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
         <div class="card-tools">
-            <div class="">
-                <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
-            </div>
+            @can('add student')
+                <div class="">
+                    <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
+                </div>
+            @endcan
         </div>
     </div>
 
@@ -88,6 +94,8 @@
                 <tr>
                     <th>Nama</th>
                     <th>Department</th>
+                    <th>Tahun Masuk</th>
+                    <th>Tahun Lulus</th>
                     <th style="width: 280px">Action</th>
                 </tr>
             </thead>
@@ -96,6 +104,8 @@
                 <tr>
                     <td>{{ $alumni->name }}</td>
                     <td>{{ $alumni->department }}</td>
+                    <td>{{ $alumni->year_entry }}</td>
+                    <td>{{ $alumni->year_exit }}</td>
                     <td>
                         <form action="{{ route('alumnis.destroy', $alumni->id) }}" method="POST">
                             @csrf

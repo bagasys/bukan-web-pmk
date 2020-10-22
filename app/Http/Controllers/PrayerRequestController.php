@@ -9,16 +9,30 @@ use App\Models\PrayerRequest;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
+use Spatie\Permission\Models\Role;
 
 class PrayerRequestController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:view prayer request')->only('index');
+        $this->middleware('permission:add prayer request')->only('create');
+        $this->middleware('permission:view prayer request')->only('view');
+        $this->middleware('permission:edit prayer request')->only('edit');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
+
         $prayerRequests = PrayerRequest::all();
 
         return view('prayerRequests.index', compact('prayerRequests'));

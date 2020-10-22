@@ -45,6 +45,12 @@
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Alumni" required>
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username" required>
+                            </div>
+                        </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="department">Department</label>

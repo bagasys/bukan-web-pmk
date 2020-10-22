@@ -6,8 +6,10 @@ use App\Http\Controllers\CounselorController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
+use App\Http\Controllers\RoleManagementController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/index');
 });
 
 Route::prefix('admin')->group(function () {
@@ -34,28 +36,31 @@ Route::prefix('admin')->group(function () {
     Route::resource('/counselings', CounselingController::class);
     Route::resource('/counselors', CounselorController::class);
     Route::resource('/alumnis', AlumniController::class);
+    Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
+    Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
     Route::resource('/students', StudentController::class);
     Route::resource('/transactions', TransactionController::class);
-    Route::resource('/prayerRequests', PrayerRequestController::class);
-});
+    Route::resource('/prayer-requests', PrayerRequestController::class);
+    Route::resource('/roles', RoleManagementController::class);
+    Route::resource('/users', UserManagementController::class);
 
-Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
-Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
-Route::get('/alumnis/export_excel', [AlumniController::class, 'export_excel']);
-Route::post('/alumnis/import_excel', [AlumniController::class, 'import_excel']);
-Route::get('/counselors/export_excel', [CounselorController::class, 'export_excel']);
-Route::post('/counselors/import_excel', [CounselorController::class, 'import_excel']);
-Route::get('/counselings/export_excel', [CounselingController::class, 'export_excel']);
-Route::post('/counselings/import_excel', [CounselingController::class, 'import_excel']);
-Route::get('/lecturers/export_excel', [LecturerController::class, 'export_excel']);
-Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel']);
-Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel']);
-Route::post('/meetings/import_excel', [MeetingController::class, 'import_excel']);
-Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel']);
-Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel']);
-Route::get('/transactions/export_excel', [TransactionController::class, 'export_excel']);
-Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel']);
-
+    Route::get('/students/export_excel', [StudentController::class, 'export_excel']);
+    Route::post('/students/import_excel', [StudentController::class, 'import_excel']);
+    Route::get('/alumnis/export_excel', [AlumniController::class, 'export_excel']);
+    Route::post('/alumnis/import_excel', [AlumniController::class, 'import_excel']);
+    Route::get('/counselors/export_excel', [CounselorController::class, 'export_excel']);
+    Route::post('/counselors/import_excel', [CounselorController::class, 'import_excel']);
+    Route::get('/counselings/export_excel', [CounselingController::class, 'export_excel']);
+    Route::post('/counselings/import_excel', [CounselingController::class, 'import_excel']);
+    Route::get('/lecturers/export_excel', [LecturerController::class, 'export_excel']);
+    Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel']);
+    Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel']);
+    Route::post('/meetings/import_excel', [MeetingController::class, 'import_excel']);
+    Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel']);
+    Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel']);
+    Route::get('/transactions/export_excel', [TransactionController::class, 'export_excel']);
+    Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel']);
+}
 //Landing Page
 Route::get('/about', function () {
     return view('landing-page/about');

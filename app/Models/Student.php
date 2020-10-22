@@ -46,4 +46,9 @@ class Student extends Model
     {
         return $this->morphMany(Attendant::class, 'attendee');
     }
+
+    public function profileId()
+    {
+        return $this->morphOne('App\Models\ProfileId', 'model');
+    }
 }
