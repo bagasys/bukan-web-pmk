@@ -88,7 +88,6 @@
                 <tr>
                     <th>NID</th>
                     <th>Nama</th>
-                    <th>NRP</th>
                     <th style="width: 280px">Action</th>
                 </tr>
             </thead>
@@ -96,7 +95,6 @@
                 @foreach ($counselors as $counselor)
                 <tr>
                     <td>{{ $counselor->nid }}</td>
-                    <td>{{ $counselor->nrp }}</td>
                     <td>{{ $counselor->name }}</td>
                     <td>
                         <form action="{{ route('counselors.destroy', $counselor->id) }}" method="POST">

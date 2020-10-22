@@ -44,7 +44,6 @@ class CounselorController extends Controller
     {
         Counselor::create([
             'name' => $request['name'],
-            'nrp' => $request['nrp'],
             'nid' => $request['nid'],
         ]);
 
@@ -84,7 +83,6 @@ class CounselorController extends Controller
     public function update(CounselorRequest $request, Counselor $counselor)
     {
         $counselor->name = $request['name'];
-        $counselor->nrp = $request['nrp'];
         $counselor->nid = $request['nid'];
         $counselor->save();
 

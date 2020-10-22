@@ -19,7 +19,7 @@ class CounselorExport implements FromCollection, WithHeadings, WithEvents, WithM
     public function collection()
     {
         return Counselor::get([
-            'name', 'nrp', 'nid',
+            'name', 'nid',
         ]);
     }
 
@@ -27,7 +27,6 @@ class CounselorExport implements FromCollection, WithHeadings, WithEvents, WithM
     {
         return [
             'name',
-            'nrp',
             'nid',
         ];
     }
@@ -39,7 +38,7 @@ class CounselorExport implements FromCollection, WithHeadings, WithEvents, WithM
     {
         return [
             AfterSheet::class   =>  function (AfterSheet $event) {
-                $event->sheet->getDelegate()->getStyle('A1:C1')
+                $event->sheet->getDelegate()->getStyle('A1:B1')
                     ->getFill()->setFillType(Fill::FILL_SOLID)
                     ->getStartColor()->setARGB(Color::COLOR_YELLOW);
             },
@@ -55,7 +54,6 @@ class CounselorExport implements FromCollection, WithHeadings, WithEvents, WithM
     {
         return [
             $row->name,
-            $row->nrp,
             $row->nid,
         ];
     }

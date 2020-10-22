@@ -3,28 +3,44 @@
 namespace App\Imports;
 
 use App\Models\Alumni;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Row;
 
-class Alumniimport implements ToModel, WithHeadingRow
+class Alumniimport implements OnEachRow, WithHeadingRow
 {
-    /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
-    public function model(array $row)
+    public function onRow(Row $row)
     {
-        return new Alumni([
-            'name' => $row['name'],
-            'department' => $row['department'],
-            'job' => $row['job'],
-            'sex' => $row['sex'],
-            'address' => $row['address'],
-            'avatar' => $row['avatar'],
-            'year_entry' => $row['year_entry'],
-            'year_exit' => $row['year_exit'],
-            'year_end' => $row['year_end'],
-        ]);
+        $row = $row->toArray();
+
+        $alumni = Alumni::firstOrCreate(
+            [
+                'name' => $row['name'],
+            ],
+            [
+                'department' => $row['department'],
+                'job' => $row['job'],
+                'sex' => $row['sex'],
+                'address' => $row['address'],
+                'avatar' => $row['avatar'],
+                'year_entry' => $row['year_entry'],
+                'year_exit' => $row['year_exit'],
+                'year_end' => $row['year_end'],
+            ]
+        );
+
+        if (! $alumni->wasRecentlyCreated) {
+            $alumni->update([
+                'name' => $row['name'],
+                'department' => $row['department'],
+                'job' => $row['job'],
+                'sex' => $row['sex'],
+                'address' => $row['address'],
+                'avatar' => $row['avatar'],
+                'year_entry' => $row['year_entry'],
+                'year_exit' => $row['year_exit'],
+                'year_end' => $row['year_end'],
+            ]);
+        }
     }
 }

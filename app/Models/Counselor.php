@@ -13,7 +13,6 @@ class Counselor extends Model
 
     protected $fillable = [
         'name',
-        'nrp',
         'nid',
     ];
 

@@ -3,22 +3,30 @@
 namespace App\Imports;
 
 use App\Models\Counselor;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Row;
 
-class Counselorimport implements ToModel, WithHeadingRow
+class Counselorimport implements OnEachRow, WithHeadingRow
 {
-    /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
-    public function model(array $row)
+    public function onRow(Row $row)
     {
-        return new Counselor([
-            'name' => $row['name'],
-            'nrp' => $row['nrp'],
-            'nid' => $row['nid'],
-        ]);
+        $row = $row->toArray();
+
+        $counselor = Counselor::firstOrCreate(
+            [
+                'nid' => $row['nid'],
+            ],
+            [
+                'name' => $row['name'],
+            ]
+        );
+
+        if (! $counselor->wasRecentlyCreated) {
+            $counselor->update([
+                'name' => $row['name'],
+                'nid' => $row['nid'],
+            ]);
+        }
     }
 }
