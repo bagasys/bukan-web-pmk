@@ -16,7 +16,7 @@ class RoleManagementController extends Controller
     public function index(Request $request)
     {
         $pageNumber = $request->query('page');
-        $roles = Role::paginate(5, ['*'], 'page', $pageNumber);
+        $roles = Role::paginate(10, ['*'], 'page', $pageNumber);
 
         return view('roles.index', compact('roles'));
     }

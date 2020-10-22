@@ -69,12 +69,12 @@
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
                                 @can('view role')
-                                    <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a>
+                                    <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}"><i class="fa fa-eye"></i></a>
                                 @endcan
                             </div>
                             <div style="margin-right: 5px;">
                                 @can('edit role')
-                                    <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                                    <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}"><i class="fa fa-edit"></i></a>
                                 @endcan
                             </div>
                             <div style="margin-right: 5px;">
@@ -82,7 +82,7 @@
                                     <form action="{{ route('roles.destroy', $role->id) }}" method="POST" class="display: inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     </form>
                                 @endcan
                             </div>
