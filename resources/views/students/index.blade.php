@@ -109,27 +109,37 @@
                     <td>{{ date('d M Y'  ,strtotime($student->birthdate)) }}</td>
 
 
-                        <td>
-                            @can('delete student')
-                                <form action="{{ route('students.destroy', $student->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            @endcan
-                            @can('view student')
-                                <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
-                            @endcan
-                            @can('edit student')
-                                <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
-                            @endcan
-
-                        </td>
+                    <td>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                @can('view student')
+                                    <a class="btn btn-info" href="{{ route('students.show',$student->id) }}"><i class="fa fa-eye"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('edit student')
+                                    <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('delete student')
+                                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                @endcan
+                            </div>
+                        </div>
+                    </td>
 
                 </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        {{$students->links("pagination::bootstrap-4")}}
     </div>
 </div>
 
