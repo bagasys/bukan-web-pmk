@@ -107,7 +107,7 @@
                             <form action="{{ route('counselors.destroy', $counselor->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger" id="deleteData"><i class="fa fa-trash"></i></button>
                             </form>
                         </div>
                     </td>
@@ -117,7 +117,7 @@
         </table>
     </div>
     <div class="card-footer">
-        {{$counselings->links("pagination::bootstrap-4")}}
+        {{$counselors->links("pagination::bootstrap-4")}}
     </div>
 </div>
 
