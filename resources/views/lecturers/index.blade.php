@@ -28,7 +28,7 @@
 <div class="card">
     <div class="card-header">
 
-    {{-- notifikasi form validasi --}}
+        {{-- notifikasi form validasi --}}
         @if ($errors->has('file'))
         <span class="invalid-feedback" role="alert">
             <strong>{{ $errors->first('file') }}</strong>
@@ -43,7 +43,7 @@
         </div>
         @endif
 
-        
+
 
         @can('edit lecturer')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
@@ -53,7 +53,7 @@
         <!-- Import Excel -->
         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form method="post" action="/lecturers/import_excel" enctype="multipart/form-data">
+                <form method="post" action="{{route('lecturers.import_excel')}}" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -77,7 +77,7 @@
             </div>
         </div>
         @endcan
-        <a href="/lecturers/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        <a href="{{route('lecturers.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
         <div class="card-tools">
             @can('add lecturer')
             <div class="">
@@ -105,18 +105,27 @@
                     <td>{{ $lecturer->name }}</td>
                     <td>{{ $lecturer->department }}</td>
                     <td>
-                        <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-info" href="{{ route('lecturers.show',$lecturer->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('lecturers.edit',$lecturer->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                <a class="btn btn-info" href="{{ route('lecturers.show',$lecturer->id) }}"><i class="fa fa-eye"></i></a>
+                            </div>
+                            <div style="margin-right: 5px;">
+                                <a class="btn btn-primary" href="{{ route('lecturers.edit',$lecturer->id) }}"><i class="fa fa-edit"></i></a>
+                            </div>
+                            <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" id="deleteData"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        {{$lecturers->links("pagination::bootstrap-4")}}
     </div>
 </div>
 
