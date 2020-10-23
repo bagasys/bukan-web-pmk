@@ -99,49 +99,6 @@
         }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
     </script>
 
-    <script type="text/javascript">
-        const data = document.getElementById('data').value
-        $(function() {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000
-            });
-
-            $('.swalDefaultSuccess').click(function() {
-                Toast.fire({
-                    icon: 'success',
-                    title: data + ' berhasil diinput'
-                })
-            });
-            $('.swalDefaultInfo').click(function() {
-                Toast.fire({
-                    icon: 'info',
-                    title: data + ' berhasil diupdate'
-                })
-            });
-            $('.swalDefaultError').click(function() {
-                Toast.fire({
-                    icon: 'error',
-                    title: data + ' gagal diinput'
-                })
-            });
-            $('.swalDefaultWarning').click(function() {
-                Toast.fire({
-                    icon: 'warning',
-                    title: data + ' berhasil dihapus'
-                });
-                $('.swalDefaultQuestion').click(function() {
-                    Toast.fire({
-                        icon: 'question',
-                        title: data + ' berhasil dihapus'
-                    })
-                });
-            });
-        });
-    </script>
-
     <script>
         $('#deleteData').on('click', function(e) {
             const swalWithBootstrapButtons = Swal.mixin({

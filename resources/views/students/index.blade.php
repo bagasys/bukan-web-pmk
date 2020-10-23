@@ -1,6 +1,11 @@
 @extends('adminlte.master')
 
 @section('content')
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -24,14 +29,17 @@
 
         {{-- notifikasi form validasi --}}
         @if ($errors->has('file'))
-        <span class="swalDefaultError" value="Data Mahasiswa" id="data">
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $errors->first('file') }}</strong>
         </span>
         @endif
 
         {{-- notifikasi sukses --}}
         @if ($sukses = Session::get('sukses'))
-        <span class="swalDefaultSuccess" value="Data Mahasiswa" id="data">
-        </span>
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $sukses }}</strong>
+        </div>
         @endif
 
         @can('edit student')
