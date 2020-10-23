@@ -25,7 +25,6 @@ class AlumniRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'username' => 'required|string',
             'department' => 'required|string',
             'job' => 'required|string',
             'sex' => 'required',

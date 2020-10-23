@@ -1,6 +1,11 @@
 @extends('adminlte.master')
 
 @section('content')
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -116,7 +121,7 @@
                                 <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" id="deleteData"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
                                 @endcan
                             </div>

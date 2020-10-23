@@ -33,7 +33,7 @@ Route::prefix('admin')->group(function () {
     });
 
     Route::get('/lecturers/export_excel', [LecturerController::class, 'export_excel'])->name('lecturers.export_excel');
-    Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel'])->name('lecturers.import_excel');;
+    Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel'])->name('lecturers.import_excel');
     Route::resource('/lecturers', LecturerController::class);
 
     Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel'])->name('meetings.export_excel');
@@ -43,7 +43,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/counselings/export_excel', [CounselingController::class, 'export_excel'])->name('counselings.export_excel');
     Route::post('/counselings/import_excel', [CounselingController::class, 'import_excel'])->name('counselings.import_excel');
     Route::resource('/counselings', CounselingController::class);
-
 
     Route::get('/counselors/export_excel', [CounselorController::class, 'export_excel'])->name('counselors.export_excel');
     Route::post('/counselors/import_excel', [CounselorController::class, 'import_excel'])->name('counselors.import_excel');
@@ -61,23 +60,13 @@ Route::prefix('admin')->group(function () {
     Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel'])->name('transactions.import_excel');
     Route::resource('/transactions', TransactionController::class);
 
-
-    Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayerRequests.export_excel');
-    Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayerRequests.import_excel');
+    Route::get('/prayer-requests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayer-requests.export_excel');
+    Route::post('/prayer-requests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayer-requests.import_excel');
     Route::resource('/prayer-requests', PrayerRequestController::class);
 
     Route::resource('/roles', RoleManagementController::class);
 
     Route::resource('/users', UserManagementController::class);
-
-
-
-
-
-
-
-
-
 });
 //Landing Page
 Route::get('/about', function () {

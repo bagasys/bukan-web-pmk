@@ -55,7 +55,7 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="job">Pekerjaan</label>
-                                <input type="text" name="job" id="job" class="form-control" placeholder="Masukkan Nama Pekerjaan" required>
+                                <input type="text" name="job" id="job" class="form-control" placeholder="Masukkan Nama Pekerjaan" value="{{ $alumni->job }}" required>
                             </div>
                         </div>
                         <div class="col-sm-12">
