@@ -142,5 +142,6 @@
         });
     </script>
     @stack('scripts')
+</body>
 
-    < /body> < /html>
+</html>
