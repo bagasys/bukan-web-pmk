@@ -2,13 +2,14 @@
 
 @section('content')
 @if ($errors->any())
-<span class="swalDefaultError" value="Data Mahasiswa" id="data">
-</span>
-@endif
-
-@if ($sukses = Session::get('sukses'))
-<span class="swalDefaultSuccess" value="Data Mahasiswa" id="data">
-</span>
+<div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
 @endif
 
 <!-- Content Header (Page header) -->

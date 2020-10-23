@@ -125,7 +125,7 @@
                     form.submit();
                     swalWithBootstrapButtons.fire(
                         'Deleted!',
-                        'Data Mahasiswa has been deleted.',
+                        'Data has been deleted.',
                         'success'
                     );
                 } else if (
@@ -134,7 +134,7 @@
                 ) {
                     swalWithBootstrapButtons.fire(
                         'Cancelled',
-                        'Data Mahasiswa tidak jadi dihapus',
+                        'Data tidak jadi dihapus',
                         'error'
                     )
                 }
