@@ -18,6 +18,8 @@ class PrayerRequestController extends Controller
         $this->middleware('permission:add prayer request')->only('create');
         $this->middleware('permission:view detail prayer request')->only('show');
         $this->middleware('permission:edit prayer request')->only('edit');
+        $this->middleware('permission:edit prayer request')->only('import_excel');
+        $this->middleware('permission:delete prayer request')->only('delete');
     }
 
     /**
@@ -25,9 +27,10 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $prayerRequests = PrayerRequest::all();
+        $pageNumber = $request->query('page');
+        $prayerRequests = PrayerRequest::paginate(10, ['*'], 'page', $pageNumber);
 
         return view('prayer-requests.index', compact('prayerRequests'));
     }
@@ -66,10 +69,6 @@ class PrayerRequestController extends Controller
      * @param  \App\Models\PrayerRequest  $prayerRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(PrayerRequest $prayerRequest)
-    {
-        return view('prayer-requests.show', compact('prayerRequest'));
-    }
 
     /**
      * Show the form for editing the specified resource.

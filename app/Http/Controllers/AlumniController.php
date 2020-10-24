@@ -27,9 +27,10 @@ class AlumniController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $alumnis = Alumni::all();
+        $pageNumber = $request->query('page');
+        $alumnis = Alumni::paginate(10, ['*'], 'page', $pageNumber);
 
         return view('alumnis.index', compact('alumnis'));
     }
@@ -54,6 +55,7 @@ class AlumniController extends Controller
     {
         alumni::create([
             'name' => $request['name'],
+            'username' => $request['username'],
             'department' => $request['department'],
             'job' => $request['job'],
             'sex' => $request['sex'],
@@ -100,6 +102,7 @@ class AlumniController extends Controller
     public function update(AlumniRequest $request, Alumni $alumni)
     {
         $alumni->name = $request['name'];
+        $alumni->username = $request['username'];
         $alumni->department = $request['department'];
         $alumni->job = $request['job'];
         $alumni->sex = $request['sex'];

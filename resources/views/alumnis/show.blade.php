@@ -1,7 +1,6 @@
 @extends('adminlte.master')
 
 @section('content')
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -21,7 +20,6 @@
 
 <div class="row">
     <div class="col-md-3">
-
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
@@ -38,8 +36,7 @@
         <div class="card">
             <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#data-diri" data-toggle="tab">Data
-                            Diri</a>
+                    <li class="nav-item"><a class="nav-link active" href="#data-diri" data-toggle="tab">Data Diri</a>
                     </li>
                 </ul>
             </div><!-- /.card-header -->
@@ -55,6 +52,10 @@
                                 <tr>
                                     <td>Nama</td>
                                     <td>{{ $alumni->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>{{ $alumni->username }}</td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Kelamin</td>

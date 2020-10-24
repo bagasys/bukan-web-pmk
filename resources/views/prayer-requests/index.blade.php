@@ -7,22 +7,6 @@
 </div>
 @endif
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Prayer Requests</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Prayer Requests</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -58,6 +42,7 @@
         </div>
         @endif
 
+        @can('edit prayer request')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -88,13 +73,16 @@
                 </form>
             </div>
         </div>
+        @endcan
 
         <a href="{{route('prayer-requests.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
+            @can('add prayer request')
             <div class="">
                 <a class="btn btn-success" href="{{ route('prayer-requests.create') }}"> Tambah data pray request</a>
             </div>
+            @endcan
         </div>
     </div>
 
@@ -116,17 +104,30 @@
                     <td>{{ $prayerRequest->prayer_content }}</td>
                     <td>{{ $prayerRequest->status }}</td>
                     <td>
-                        <form action="{{ route('prayer-requests.destroy', $prayerRequest->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-primary" href="{{ route('prayer-requests.edit',$prayerRequest->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                @can('edit prayer request')
+                                <a class="btn btn-primary" href="{{ route('prayer-requests.edit',$prayerRequest->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('delete prayer request')
+                                <form action="{{ route('prayer-requests.destroy', $prayerRequest->id) }}" method="POST" class="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData" ><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        {{$prayerRequests->links("pagination::bootstrap-4")}}
     </div>
 </div>
 

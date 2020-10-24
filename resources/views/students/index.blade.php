@@ -103,9 +103,7 @@
                     <td>{{ $student->nrp }}</td>
                     <td>{{ $student->department }}</td>
                     <td>{{ $student->name }}</td>
-
                     <td>{{ date('d M Y'  ,strtotime($student->birthdate)) }}</td>
-
 
                     <td>
                         <div style="display: flex">

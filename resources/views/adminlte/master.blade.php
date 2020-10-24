@@ -100,7 +100,7 @@
     </script>
 
     <script>
-        $('#deleteData').on('click', function(e) {
+        $('.deleteData').on('click', function(e) {
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                     confirmButton: 'ml-3 btn btn-success',
@@ -134,7 +134,7 @@
                 ) {
                     swalWithBootstrapButtons.fire(
                         'Cancelled',
-                        'Data tidak jadi dihapus',
+                        'Data is not deleted',
                         'error'
                     )
                 }
