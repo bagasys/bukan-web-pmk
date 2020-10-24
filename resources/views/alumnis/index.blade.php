@@ -26,7 +26,7 @@
 
 <div class="card">
     <div class="card-header">
-    
+
         {{-- notifikasi form validasi --}}
         @if ($errors->has('file'))
         <span class="invalid-feedback" role="alert">
@@ -77,9 +77,9 @@
         <a href="{{route('alumnis.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
         <div class="card-tools">
             @can('add alumni')
-                <div class="">
-                    <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
-                </div>
+            <div class="">
+                <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
+            </div>
             @endcan
         </div>
     </div>
@@ -120,7 +120,7 @@
                                 <form action="{{ route('alumnis.destroy', $alumni->id) }}" method="POST" class="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger deleteData" ><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
                                 </form>
                                 @endcan
                             </div>

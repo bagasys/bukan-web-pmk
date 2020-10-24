@@ -122,7 +122,7 @@
                                 <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" id="deleteData"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
                                 </form>
                                 @endcan
                             </div>
