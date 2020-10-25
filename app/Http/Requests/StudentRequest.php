@@ -26,13 +26,8 @@ class StudentRequest extends FormRequest
         return [
             'name' => 'required|string',
             'nrp' => 'required|string',
-            'current_address' => 'required|string',
-            'origin_address' => 'required',
-            'phone' => 'required',
             'department' => 'required',
-            'birthdate' => 'required',
             'year_entry' => 'required',
-            'sex' => 'required',
         ];
     }
 
