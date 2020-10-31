@@ -26,7 +26,6 @@ class StudentController extends Controller
     {
         $pageNumber = $request->query('page');
         $students = Student::paginate(10, ['*'], 'page', $pageNumber);
-
         return view('students.index', compact('students'));
     }
 

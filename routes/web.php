@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\LandingPage\EventController;
+use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
@@ -22,10 +25,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return redirect('/index');
-});
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -62,13 +61,20 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/prayer-requests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayer-requests.export_excel');
     Route::post('/prayer-requests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayer-requests.import_excel');
+
     Route::resource('/prayer-requests', PrayerRequestController::class);
 
     Route::resource('/roles', RoleManagementController::class);
 
     Route::resource('/users', UserManagementController::class);
+
+    Route::resource('/banners', BannerController::class);
+
 });
+
 //Landing Page
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/about', function () {
     return view('landing-page/about');
 });
@@ -85,13 +91,7 @@ Route::get('/contact', function () {
     return view('landing-page/contact');
 });
 
-Route::get('/events', function () {
-    return view('landing-page/events');
-});
-
-Route::get('/index', function () {
-    return view('landing-page/index');
-});
+Route::get('/events', [EventController::class, 'index']);
 
 Route::get('/ministries', function () {
     return view('landing-page/ministries');

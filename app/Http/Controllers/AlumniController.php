@@ -15,8 +15,8 @@ class AlumniController extends Controller
     public function __construct()
     {
         $this->middleware('permission:view alumni')->only('index');
+        $this->middleware('permission:view alumni')->only('show');
         $this->middleware('permission:add alumni')->only('create');
-        $this->middleware('permission:view detail alumni')->only('view');
         $this->middleware('permission:edit alumni')->only('edit');
         $this->middleware('permission:edit alumni')->only('import_excel');
         $this->middleware('permission:delete alumni')->only('delete');

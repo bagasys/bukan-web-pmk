@@ -45,7 +45,7 @@
         <div class="card-tools">
             @can('add student')
                 <div class="">
-                    <a class="btn btn-success" href="{{ route('students.create') }}">Tambah Role Baru</a>
+                    <a class="btn btn-success" href="{{ route('users.create') }}">Tambah Role Baru</a>
                 </div>
             @endcan
         </div>

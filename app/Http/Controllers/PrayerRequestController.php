@@ -27,6 +27,7 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
         $pageNumber = $request->query('page');
