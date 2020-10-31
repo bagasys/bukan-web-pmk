@@ -59,14 +59,17 @@ Route::prefix('admin')->group(function () {
     Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel'])->name('transactions.import_excel');
     Route::resource('/transactions', TransactionController::class);
 
-    Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayerRequests.export_excel');
-    Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayerRequests.import_excel');
+    Route::get('/prayer-requests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayer-requests.export_excel');
+    Route::post('/prayer-requests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayer-requests.import_excel');
+
     Route::resource('/prayer-requests', PrayerRequestController::class);
 
     Route::resource('/roles', RoleManagementController::class);
 
     Route::resource('/users', UserManagementController::class);
+
     Route::resource('/banners', BannerController::class);
+
 });
 
 //Landing Page

@@ -25,7 +25,6 @@ class CounselorRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'nrp' => 'required|string',
             'nid' => 'required|string',
         ];
     }

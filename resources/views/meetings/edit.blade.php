@@ -1,11 +1,38 @@
 @extends('adminlte.master')
+
 @section('content')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit Meeting: {{$meeting->title}}</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Meeting</li>
+                        <li class="breadcrumb-item active">Add</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Edit Meeting: {{$meeting->title}}</h3>
-                </div>
                 <form role="form" method="POST" action="{{ route('meetings.update', $meeting->id)  }}">
                     @csrf
                     @method('PUT')
@@ -55,6 +82,9 @@
                                         </div>
                                         <input type="text" class="form-control float-right" name="reservationtime"
                                                id="reservationtime" value="{{$meeting->start}} - {{$meeting->end}}">
+                                        @error('reservationtime')
+                                        <span class="error invalid-feedback">{{$message}}</span>
+                                        @enderror
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -63,7 +93,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>Submit</button>
                     </div>
                 </form>
             </div>
