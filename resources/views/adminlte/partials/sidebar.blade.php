@@ -157,7 +157,7 @@
                         </ul>
                     </li>
                 </ul>
-
+                </ul>
             </nav>
         </div>
     </aside>

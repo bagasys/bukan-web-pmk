@@ -12,9 +12,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all();
+        $pageNumber = $request->query('page');
+        $posts = Post::paginate(1, ['*'], 'page', $pageNumber);
 
         return view('posts.index', compact('posts'));
     }
