@@ -33,14 +33,14 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card card-primary">
-            <form role="form" method="POST" action="{{ route('students.store')  }}">
+            <form role="form" method="POST" action="{{ route('students.store')  }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="name">Nama Mahasiswa</label>
-                                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan nama mahasiswa" value="{{old('name')}}">
+                                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan nama mahasiswa" value="{{old('name')}}" required>
                                 @error('name')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -49,7 +49,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="department">Department</label>
-                                <input type="text" class="form-control {{$errors->has('department') ? 'is-invalid' : ''}}" id="department" name="department" placeholder="Masukkan department mahasiswa" value="{{old('department')}}">
+                                <input type="text" class="form-control {{$errors->has('department') ? 'is-invalid' : ''}}" id="department" name="department" placeholder="Masukkan department mahasiswa" value="{{old('department')}}" required>
                                 @error('department')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -58,7 +58,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="nrp">NRP</label>
-                                <input type="text" class="form-control {{$errors->has('nrp') ? 'is-invalid' : ''}}" id="nrp" name="nrp" placeholder="Masukkan NRP mahasiswa" value="{{old('nrp')}}">
+                                <input type="text" class="form-control {{$errors->has('nrp') ? 'is-invalid' : ''}}" id="nrp" name="nrp" placeholder="Masukkan NRP mahasiswa" value="{{old('nrp')}}" required>
                                 @error('nrp')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -68,7 +68,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="birthdate">Tanggal lahir</label>
-                                <input type="date" name="birthdate" id="birthdate" class="form-control {{$errors->has('birthdate') ? 'is-invalid' : ''}}" value="{{old('birthdate')}}" required>
+                                <input type="date" name="birthdate" id="birthdate" class="form-control {{$errors->has('birthdate') ? 'is-invalid' : ''}}" value="{{old('birthdate')}}">
                                 @error('birthdate')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -108,7 +108,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="phone">Nomor Telepon</label>
-                                <input type="text" name="phone" id="phone" class="form-control" required>
+                                <input type="text" name="phone" id="phone" class="form-control" value="{{old('phone')}}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -119,7 +119,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                     </div>
-                                    <input name="year_entry" id="year_entry" type="text" class="datemask form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{old('year_entry')}}">
+                                    <input name="year_entry" id="year_entry" type="text" class="datemask form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{old('year_entry')}}" required>
                                     @error('year_entry')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror

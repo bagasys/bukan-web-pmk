@@ -83,7 +83,7 @@
 
         <!-- /.card-header -->
         <div class="card-body p-0">
-            <table class="table table-hover table-striped">
+            <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th style="">Pengirim</th>
@@ -102,9 +102,9 @@
                             <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a class="btn btn-info" href="{{ route('transactions.show',$transaction->id) }}">Show</a>
-                                <a class="btn btn-primary" href="{{ route('transactions.edit',$transaction->id) }}">Edit</a>
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <a class="btn btn-info" href="{{ route('transactions.show',$transaction->id) }}"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-primary" href="{{ route('transactions.edit',$transaction->id) }}"><i class="fa fa-edit"></i></a>
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -115,3 +115,19 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <!-- Datatables -->
+    <script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true,
+          "autoWidth": false,
+        });
+      });
+    </script>
+@endpush

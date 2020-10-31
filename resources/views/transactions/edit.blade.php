@@ -12,13 +12,27 @@
         </div>
     @endif
 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Edit Transaksi: </h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Transaksi</li>
+                        <li class="breadcrumb-item active">Edit</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
     <div class="row">
         <div class="col-sm-12">
             <div class="card ">
-                <div class="card-header">
-                    <h3 class="card-title">Edit Data Transaksi </h3>
-                </div>
                 <form role="form" method="POST" action="{{ route('transactions.update',$transaction->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -28,7 +42,7 @@
                                 <div class="form-group">
                                     <label for="sender_name">Nama Pengirim</label>
                                     <input type="text" class="form-control" id="sender_name" name="sender_name"
-                                           placeholder="Masukkan nama pengirim" value="{{ $transaction->sender_name }}">
+                                           placeholder="Masukkan nama pengirim" value="{{ $transaction->sender_name }}" required>
                                     @error('sender_name')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
@@ -39,7 +53,7 @@
                                     <label for="sender_account">Rekening Pengirim</label>
                                     <input type="text" class="form-control" id="sender_account" name="sender_account"
                                            placeholder="Masukkan rekening pengirim"
-                                           value="{{ $transaction->sender_account }}">
+                                           value="{{ $transaction->sender_account }}" required>
                                     @error('sender_account')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
@@ -50,7 +64,7 @@
                                     <label for="send_date">Tanggal transaksi</label>
                                     <input type="date" class="form-control" id="send_date" name="send_date"
                                            placeholder="Masukkan tanggal"
-                                           value="{{ date('Y-m-d'  ,strtotime($transaction->send_date)) }}">
+                                           value="{{ date('Y-m-d'  ,strtotime($transaction->send_date)) }}" required>
                                     @error('send_date')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
@@ -62,7 +76,7 @@
                                     <input type="text" class="form-control" id="receiver_account"
                                            name="receiver_account"
                                            placeholder="Masukkan rekening penerima"
-                                           value="{{ $transaction->receiver_account }}">
+                                           value="{{ $transaction->receiver_account }}" required>
                                     @error('receiver_account')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
@@ -153,3 +167,14 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+<script src="{{asset('/adminlte/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('/adminlte/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
+
+<script>
+    $('.datemask').inputmask('yyyy', {
+        'placeholder': 'yyyy'
+    })
+</script>
+@endpush

@@ -27,13 +27,7 @@ class AlumniRequest extends FormRequest
             'name' => 'required|string',
             'username' => 'required|string',
             'department' => 'required|string',
-            'job' => 'required|string',
             'sex' => 'required',
-            'address' => 'required|string',
-            'avatar' => 'required|string',
-            'year_entry' => 'required',
-            'year_exit' => 'required',
-            'year_end' => 'required',
         ];
     }
 }

@@ -23,7 +23,7 @@
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">Mahasiswa</li>
-                    <li class="breadcrumb-item active">Add</li>
+                    <li class="breadcrumb-item active">Edit</li>
                 </ol>
             </div>
         </div>
@@ -33,7 +33,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card card-primary">
-            <form role="form" method="POST" action="{{ route('students.update', $student->id)  }}">
+            <form role="form" method="POST" action="{{ route('students.update', $student->id)  }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
@@ -41,7 +41,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="name">Nama Mahasiswa</label>
-                                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan nama mahasiswa" value="{{$student->name}}">
+                                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan nama mahasiswa" value="{{$student->name}}" required>
                                 @error('name')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -50,7 +50,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="department">Department</label>
-                                <input type="text" class="form-control {{$errors->has('department') ? 'is-invalid' : ''}}" id="department" name="department" placeholder="Masukkan department mahasiswa" value="{{$student->department}}">
+                                <input type="text" class="form-control {{$errors->has('department') ? 'is-invalid' : ''}}" id="department" name="department" placeholder="Masukkan department mahasiswa" value="{{$student->department}}" required>
                                 @error('department')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -59,7 +59,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="nrp">NRP</label>
-                                <input type="text" class="form-control {{$errors->has('nrp') ? 'is-invalid' : ''}}" id="nrp" name="nrp" placeholder="Masukkan NRP mahasiswa" value="{{$student->nrp}}">
+                                <input type="text" class="form-control {{$errors->has('nrp') ? 'is-invalid' : ''}}" id="nrp" name="nrp" placeholder="Masukkan NRP mahasiswa" value="{{$student->nrp}}" required>
                                 @error('nrp')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -69,7 +69,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="birthdate">Tanggal lahir</label>
-                                <input type="date" name="birthdate" id="birthdate" class="form-control {{$errors->has('birthdate') ? 'is-invalid' : ''}}" value="{{$student->birthdate}}" required>
+                                <input type="date" name="birthdate" id="birthdate" class="form-control {{$errors->has('birthdate') ? 'is-invalid' : ''}}" value="{{$student->birthdate}}" >
                                 @error('birthdate')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -123,7 +123,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                     </div>
-                                    <input name="year_entry" id="year_entry" type="text" class="datemask form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{$student->year_entry}}">
+                                    <input name="year_entry" id="year_entry" type="text" class="datemask form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{$student->year_entry}}" required>
                                     @error('year_entry')
                                     <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror

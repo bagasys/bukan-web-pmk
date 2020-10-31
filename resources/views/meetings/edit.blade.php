@@ -23,7 +23,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Meeting</li>
-                        <li class="breadcrumb-item active">Add</li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
             </div>
@@ -114,14 +114,4 @@
             }
         })
     </script>
-    {{--    <script>--}}
-    {{--        function doSomething(e){--}}
-    {{--            alert(e.target.value);--}}
-
-    {{--        }--}}
-    {{--        var $el = $('#reservationtime');--}}
-    {{--        $el.on('change', doSomething);--}}
-    {{--    </script>--}}
 @endpush
-
-

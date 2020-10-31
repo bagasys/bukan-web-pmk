@@ -40,7 +40,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="name">Nama </label>
-                                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan Nama" required>
+                                <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan Nama" value="{{old('name')}}" required>
                                 @error('name')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -49,7 +49,7 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="prayer_content">Content doa</label>
-                                <input type="text" class="form-control {{$errors->has('prayer_content') ? 'is-invalid' : ''}}" id="prayer_content" name="prayer_content" placeholder="Masukkan Content doa" required>
+                                <input type="text" class="form-control {{$errors->has('prayer_content') ? 'is-invalid' : ''}}" id="prayer_content" name="prayer_content" placeholder="Masukkan Content doa" value="{{old('prayer_content')}}" required>
                                 @error('prayer_content')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -58,7 +58,7 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="status">Status</label>
-                                <input type="text" class="form-control {{$errors->has('status') ? 'is-invalid' : ''}}" id="status" name="status" placeholder="Masukkan Status" required>
+                                <input type="text" class="form-control {{$errors->has('status') ? 'is-invalid' : ''}}" id="status" name="status" placeholder="Masukkan Status" value="{{old('status')}}" required>
                                 @error('status')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -79,4 +79,11 @@
 @push('scripts')
 <script src="{{asset('/adminlte/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('/adminlte/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
+
+<script>
+    $('.datemask').inputmask('yyyy', {
+        'placeholder': 'yyyy'
+    })
+</script>
+
 @endpush

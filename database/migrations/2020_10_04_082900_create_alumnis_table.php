@@ -18,13 +18,13 @@ class CreateAlumnisTable extends Migration
             $table->string('username');
             $table->string('name');
             $table->string('department');
-            $table->string('job');
+            $table->string('job')->nullable();
             $table->string('sex');
-            $table->string('address');
-            $table->string('avatar');
-            $table->integer('year_entry');
-            $table->integer('year_exit');
-            $table->integer('year_end');
+            $table->string('address')->nullable();
+            $table->string('avatar')->nullable();
+            $table->integer('year_entry')->nullable();
+            $table->integer('year_exit')->nullable();
+            $table->integer('year_end')->nullable();
             $table->timestamps();
 
         });

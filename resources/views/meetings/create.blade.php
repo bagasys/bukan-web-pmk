@@ -107,7 +107,6 @@
     <!-- date-range-picker -->
     <script src="{{ asset('/adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
-
     <script>
         $('#reservationtime').daterangepicker({
             timePicker: true,
@@ -127,6 +126,11 @@
     {{--        $el.on('change', doSomething);--}}
     {{--    </script>--}}
 
+    <script>
+    $('.datemask').inputmask('yyyy', {
+        'placeholder': 'yyyy'
+    })
+    </script>
 
 @endpush
 

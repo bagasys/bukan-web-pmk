@@ -33,7 +33,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card ">
-            <form role="form" method="POST" action="{{ route('alumnis.update',$alumni->id) }}">
+            <form role="form" method="POST" action="{{ route('alumnis.update',$alumni->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
@@ -68,7 +68,7 @@
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="job">Pekerjaan</label>
-                                <input type="text" name="job" id="job" class="form-control {{$errors->has('job') ? 'is-invalid' : ''}}" placeholder="Masukkan Nama Pekerjaan" value="{{ $alumni->job }}" required>
+                                <input type="text" name="job" id="job" class="form-control {{$errors->has('job') ? 'is-invalid' : ''}}" placeholder="Masukkan Nama Pekerjaan" value="{{ $alumni->job }}">
                                 @error('job')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -92,7 +92,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="address">Alamat</label>
-                                <input type="text" name="address" id="address" class="form-control {{$errors->has('address') ? 'is-invalid' : ''}}" value="{{ $alumni->address }}" required>
+                                <input type="text" name="address" id="address" class="form-control {{$errors->has('address') ? 'is-invalid' : ''}}" value="{{ $alumni->address }}">
                                 @error('address')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -101,41 +101,65 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="avatar">Avatar</label>
-                                <input type="text" name="avatar" id="avatar" class="form-control" value="{{ $alumni->avatar }}" required>
+                                <input type="file" name="avatar" id="avatar" class="form-control" value="{{ $alumni->avatar }}">
                                 @error('avatar')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
                             </div>
                         </div>
 
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-md-6">
+                            <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
                                 <label for="year_entry">Tahun Masuk</label>
-                                <input type="text" name="year_entry" id="year_entry" class="form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}" value="{{ $alumni->year_entry }}" required>
-                                @error('year_entry')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                                @enderror
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input name="year_entry" id="year_entry" type="text" class="datemask form-control {{$errors->has('year_entry') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{$alumni->year_entry}}">
+                                    @error('year_entry')
+                                    <span class="error invalid-feedback">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <!-- /.input group -->
                             </div>
+                            <!-- /.form group -->
                         </div>
 
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-md-6">
+                            <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
                                 <label for="year_exit">Tahun Keluar</label>
-                                <input type="text" name="year_exit" id="year_exit" class="form-control {{$errors->has('year_exit') ? 'is-invalid' : ''}}" value="{{ $alumni->year_exit }}" required>
-                                @error('year_exit')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                                @enderror
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input name="year_exit" id="year_exit" type="text" class="datemask form-control {{$errors->has('year_exit') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{$alumni->year_exit}}">
+                                    @error('year_exit')
+                                    <span class="error invalid-feedback">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <!-- /.input group -->
                             </div>
+                            <!-- /.form group -->
                         </div>
 
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-md-6">
+                            <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
                                 <label for="year_end">Tahun Meninggal</label>
-                                <input type="text" name="year_end" id="year_end" class="form-control {{$errors->has('year_end') ? 'is-invalid' : ''}}" value="{{ $alumni->year_end }}" required>
-                                @error('year_end')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                                @enderror
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input name="year_end" id="year_end" type="text" class="datemask form-control {{$errors->has('year_end') ? 'is-invalid' : ''}}" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy" data-mask value="{{$alumni->year_end}}">
+                                    @error('year_end')
+                                    <span class="error invalid-feedback">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <!-- /.input group -->
                             </div>
+                            <!-- /.form group -->
                         </div>
                     </div>
 
