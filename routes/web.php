@@ -87,6 +87,7 @@ Route::get('/blog-single', function () {
 });
 
 Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/prayer-request', [PrayerRequestController::class, 'index']);
 
 Route::get('/contact', function () {
     return view('landing-page/contact');

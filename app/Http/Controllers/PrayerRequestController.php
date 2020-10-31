@@ -144,4 +144,6 @@ class PrayerRequestController extends Controller
         // alihkan halaman kembali
         return redirect('/admin/prayerRequests');
     }
+
+
 }
