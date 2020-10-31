@@ -17,16 +17,16 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nrp')->unique();
-            $table->string('current_address');
-            $table->string('origin_address');
-            $table->string('phone');
+            $table->string('current_address')->nullable();
+            $table->string('origin_address')->nullable();
+            $table->string('phone')->nullable();
             $table->string('department');
-            $table->date('birthdate');
+            $table->date('birthdate')->nullable();
             $table->integer('year_entry');
             $table->integer('year_end')->nullable();
             $table->string('guardian_name')->nullable();
             $table->string('guardian_phone')->nullable();
-            $table->string('sex');
+            $table->string('sex')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

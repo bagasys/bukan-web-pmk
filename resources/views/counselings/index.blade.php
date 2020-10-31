@@ -48,7 +48,7 @@
         <!-- Import Excel -->
         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form method="post" action="/counselings/import_excel" enctype="multipart/form-data">
+                <form method="post" action="{{route('counselings.import_excel')}}" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <a href="/counselings/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        <a href="{{route('counselings.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
             <div class="">
@@ -99,17 +99,24 @@
                     <td>{{ $counseling->counselee_contact }}</td>
                     <td>{{ $counseling->counselor->name}}</td>
                     <td>
-                        <form action="{{ route('counselings.destroy', $counseling->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-primary" href="{{ route('counselings.edit',$counseling->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                <a class="btn btn-primary" href="{{ route('counselings.edit',$counseling->id) }}"><i class="fa fa-edit"></i></a>
+                            </div>
+                            <form action="{{ route('counselings.destroy', $counseling->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        {{$counselings->links("pagination::bootstrap-4")}}
     </div>
 </div>
 

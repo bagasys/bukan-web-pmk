@@ -17,9 +17,10 @@ class CounselorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $counselors = Counselor::all();
+        $pageNumber = $request->query('page');
+        $counselors = Counselor::paginate(10, ['*'], 'page', $pageNumber);
 
         return view('counselors.index', compact('counselors'));
     }

@@ -26,7 +26,7 @@
 
 <div class="card">
     <div class="card-header">
-    
+
         {{-- notifikasi form validasi --}}
         @if ($errors->has('file'))
         <span class="invalid-feedback" role="alert">
@@ -42,10 +42,8 @@
         </div>
         @endif
 
-        
+        @can('edit alumni')
 
-        
-        @can('edit lecturer')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -53,7 +51,7 @@
         <!-- Import Excel -->
         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form method="post" action="/alumnis/import_excel" enctype="multipart/form-data">
+                <form method="post" action="{{route('alumnis.import_excel')}}" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -77,19 +75,19 @@
             </div>
         </div>
         @endcan
-        <a href="/alumnis/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        <a href="{{route('alumnis.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
         <div class="card-tools">
-            @can('add student')
-                <div class="">
-                    <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
-                </div>
+            @can('add alumni')
+            <div class="">
+                <a class="btn btn-success" href="{{ route('alumnis.create') }}"> Tambah data alumni</a>
+            </div>
             @endcan
         </div>
     </div>
 
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <table class="table table-hover table-striped">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Nama</th>
@@ -107,19 +105,50 @@
                     <td>{{ $alumni->year_entry }}</td>
                     <td>{{ $alumni->year_exit }}</td>
                     <td>
-                        <form action="{{ route('alumnis.destroy', $alumni->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-info" href="{{ route('alumnis.show',$alumni->id) }}">Show</a>
-                            <a class="btn btn-primary" href="{{ route('alumnis.edit',$alumni->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                @can('view alumni')
+                                <a class="btn btn-info" href="{{ route('alumnis.show',$alumni->id) }}"><i class="fa fa-eye"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('edit alumni')
+                                <a class="btn btn-primary" href="{{ route('alumnis.edit',$alumni->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('delete alumni')
+                                <form action="{{ route('alumnis.destroy', $alumni->id) }}" method="POST" class="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    <div class="card-footer">
+        {{$alumnis->links("pagination::bootstrap-4")}}
+    </div>
 </div>
-
 @endsection
+@push('scripts')
+    <!-- Datatables -->
+    <script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true,
+          "autoWidth": false,
+        });
+      });
+    </script>
+@endpush

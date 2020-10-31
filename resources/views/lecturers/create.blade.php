@@ -46,23 +46,6 @@
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Dosen" required>
                             </div>
                         </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sex" value="laki-laki"
-                                               id="laki-laki">
-                                        <label class="form-check-label" for="laki-laki">Laki-Laki</label>
-                                    </div>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="sex" value="perempuan"
-                                               id="perempuan">
-                                        <label class="form-check-label" for="perempuan">Perempuan</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="nid">NID</label>
@@ -78,12 +61,12 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="form-check">
+                                    <div class="form-check ml-2">
                                         <input class="form-check-input" type="radio" name="sex" value="laki-laki" id="laki-laki">
                                         <label class="form-check-label" for="laki-laki">Laki-Laki</label>
                                     </div>
 
-                                    <div class="form-check">
+                                    <div class="form-check ml-3">
                                         <input class="form-check-input" type="radio" name="sex" value="perempuan" id="perempuan">
                                         <label class="form-check-label" for="perempuan">Perempuan</label>
                                     </div>
@@ -93,20 +76,20 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="address">Alamat</label>
-                                <input type="text" name="address" id="address" class="form-control" required>
+                                <input type="text" placeholder="Masukkan Alamat" name="address" id="address" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" id="email" class="form-control">
+                                <input type="email" placeholder="Masukkan Email" name="email" id="email" class="form-control">
                             </div>
                         </div>
 
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="phone">Nomor Telepon</label>
-                                <input type="text" name="phone" id="phone" class="form-control" required>
+                                <input type="text" placeholder="Nomor Telepon" name="phone" id="phone" class="form-control" required>
                             </div>
                         </div>
                     </div>

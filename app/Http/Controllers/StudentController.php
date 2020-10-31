@@ -16,7 +16,7 @@ class StudentController extends Controller
     {
         $this->middleware('permission:view student')->only('index');
         $this->middleware('permission:add student')->only('create');
-        $this->middleware('permission:view student')->only('view');
+        $this->middleware('permission:view detail student')->only('show');
         $this->middleware('permission:edit student')->only('edit');
         $this->middleware('permission:edit student')->only('import_excel');
         $this->middleware('permission:delete student')->only('delete');
@@ -24,9 +24,8 @@ class StudentController extends Controller
 
     public function index(Request $request)
     {
-        $pageNumber = $request->query('page');
-        $students = Student::paginate(1, ['*'], 'page', $pageNumber);
 
+        $students = Student::all();
         return view('students.index', compact('students'));
     }
 
