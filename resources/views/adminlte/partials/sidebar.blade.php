@@ -68,7 +68,7 @@
                 <li class="nav-item">
                     <a href="{{route ('alumnis.index')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>ALumni</p>
+                        <p>Alumni</p>
                     </a>
                 </li>
                 <li class="nav-item">
