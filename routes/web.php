@@ -4,10 +4,14 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\FridayServiceReportController;
+use App\Http\Controllers\LandingPage\BlogController;
 use App\Http\Controllers\LandingPage\EventController;
 use App\Http\Controllers\LandingPage\HomeController;
+use App\Http\Controllers\LandingPage\SermonController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PrayerRequestController;
 use App\Http\Controllers\RoleManagementController;
 use App\Http\Controllers\StudentController;
@@ -69,7 +73,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('/users', UserManagementController::class);
 
     Route::resource('/banners', BannerController::class);
-
+    Route::resource('/posts', PostController::class);
+    Route::resource('/fridayservicereports', FridayServiceReportController::class);
 });
 
 //Landing Page
@@ -83,9 +88,8 @@ Route::get('/blog-single', function () {
     return view('landing-page/blog-single');
 });
 
-Route::get('/blog', function () {
-    return view('landing-page/blog');
-});
+Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/prayer-request', [PrayerRequestController::class, 'index']);
 
 Route::get('/contact', function () {
     return view('landing-page/contact');
@@ -97,6 +101,4 @@ Route::get('/ministries', function () {
     return view('landing-page/ministries');
 });
 
-Route::get('/sermons', function () {
-    return view('landing-page/sermons');
-});
+Route::get('/sermons', [SermonController::class, 'index']);
