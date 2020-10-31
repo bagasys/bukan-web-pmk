@@ -14,8 +14,11 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <div class="card card-primary">
-                <form role="form" method="POST" action="{{ route('posts.store')  }}" enctype="multipart/form-data">
+            <div class="card ">
+                <div class="card-header">
+                    <h3 class="card-title">Create New Post</h3>
+                </div>
+                    <form role="form" method="POST" action="{{ route('posts.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -23,9 +26,9 @@
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" id="title" name="title"
-                                           placeholder="Masukkan judul" value="{{old('title')}}">
+                                    placeholder="Masukkan judul" value="{{old('title')}}">
                                     @error('title')
-                                        <span class="error invalid-feedback">{{$message}}</span>
+                                    <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
@@ -56,11 +59,11 @@
                                 <div class="form-group">
                                     <label for="author">Author</label>
                                     <input type="text" class="form-control {{$errors->has('author') ? 'is-invalid' : ''}}" id="author" name="author"
-                                           placeholder="Masukkan nama penulis" value="{{old('author')}}">
+                                    placeholder="Masukkan nama penulis" value="{{old('author')}}">
                                     @error('author')
                                         <span class="error invalid-feedback">{{$message}}</span>
-                                    @enderror
-                                </div>
+                                        @enderror
+                                    </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
@@ -68,14 +71,14 @@
                                     <input type="file" class="form-control {{$errors->has('image') ? 'is-invalid' : ''}}" id="image" name="image"
                                     >
                                     @error('image')
-                                        <span class="error invalid-feedback">{{$message}}</span>
+                                    <span class="error invalid-feedback">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
-
+                            
                         </div>
                     </div>
-
+                    
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -83,4 +86,4 @@
             </div>
         </div>
     </div>
-@endsection
+    @endsection
