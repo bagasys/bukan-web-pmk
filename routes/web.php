@@ -4,9 +4,11 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\FridayServiceReportController;
 use App\Http\Controllers\LandingPage\BlogController;
 use App\Http\Controllers\LandingPage\EventController;
 use App\Http\Controllers\LandingPage\HomeController;
+use App\Http\Controllers\LandingPage\SermonController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PostController;
@@ -70,6 +72,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('/users', UserManagementController::class);
     Route::resource('/banners', BannerController::class);
     Route::resource('/posts', PostController::class);
+    Route::resource('/fridayservicereports', FridayServiceReportController::class);
 });
 
 //Landing Page
@@ -95,6 +98,4 @@ Route::get('/ministries', function () {
     return view('landing-page/ministries');
 });
 
-Route::get('/sermons', function () {
-    return view('landing-page/sermons');
-});
+Route::get('/sermons', [SermonController::class, 'index']);
