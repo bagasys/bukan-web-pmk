@@ -24,8 +24,7 @@ class MeetingController extends Controller
 
     public function index(Request $request)
     {
-        $pageNumber = $request->query('page');
-        $meetings = Meeting::paginate(10, ['*'], 'page', $pageNumber);
+        $meetings = Meeting::all();
 
         return view('meetings.index', compact('meetings'));
     }

@@ -132,9 +132,6 @@
             </tbody>
         </table>
     </div>
-    <div class="card-footer">
-        {{$alumnis->links("pagination::bootstrap-4")}}
-    </div>
 </div>
 @endsection
 @push('scripts')

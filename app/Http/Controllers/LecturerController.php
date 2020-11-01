@@ -29,8 +29,7 @@ class LecturerController extends Controller
      */
     public function index(Request $request)
     {
-        $pageNumber = $request->query('page');
-        $lecturers = Lecturer::paginate(10, ['*'], 'page', $pageNumber);
+        $lecturers = Lecturer::all();
 
         return view('lecturers.index', compact('lecturers'));
     }

@@ -17,6 +17,15 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('permission:view transaction')->only('index');
+        $this->middleware('permission:add transaction')->only('create');
+        $this->middleware('permission:edit transaction')->only('edit');
+        $this->middleware('permission:edit transaction')->only('import_excel');
+        $this->middleware('permission:delete transaction')->only('delete');
+    }
+
     public function index()
     {
         $transactions = Transaction::all();

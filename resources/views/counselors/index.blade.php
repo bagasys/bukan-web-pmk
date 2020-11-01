@@ -41,6 +41,7 @@
         </div>
         @endif
 
+        @can('edit counselor')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -71,12 +72,15 @@
                 </form>
             </div>
         </div>
+        @endcan
 
         <a href="{{route('counselors.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
             <div class="">
+                @can('add counselor')
                 <a class="btn btn-success" href="{{ route('counselors.create') }}"> Tambah data konselor</a>
+                @endcan
             </div>
         </div>
     </div>
@@ -96,28 +100,34 @@
                 <tr>
                     <td>{{ $counselor->nid }}</td>
                     <td>{{ $counselor->name }}</td>
+
                     <td>
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
+                                @can('view counselor')
                                 <a class="btn btn-info" href="{{ route('counselors.show',$counselor->id) }}"><i class="fa fa-eye"></i></a>
+                                @endcan
                             </div>
                             <div style="margin-right: 5px;">
+                                @can('edit counselor')
                                 <a class="btn btn-primary" href="{{ route('counselors.edit',$counselor->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
                             </div>
-                            <form action="{{ route('counselors.destroy', $counselor->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <div style="margin-right: 5px;">
+                                @can('delete counselor')
+                                <form action="{{ route('counselors.destroy', $counselor->id) }}" method="POST" class="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
                         </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-    <div class="card-footer">
-        {{$counselors->links("pagination::bootstrap-4")}}
     </div>
 </div>
 

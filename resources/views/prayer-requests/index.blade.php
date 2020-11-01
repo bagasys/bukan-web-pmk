@@ -126,9 +126,9 @@
             </tbody>
         </table>
     </div>
-    <div class="card-footer">
+    {{-- <div class="card-footer">
         {{$prayerRequests->links("pagination::bootstrap-4")}}
-    </div>
+    </div> --}}
 </div>
 
 @endsection

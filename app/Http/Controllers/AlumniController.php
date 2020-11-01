@@ -29,8 +29,7 @@ class AlumniController extends Controller
      */
     public function index(Request $request)
     {
-        $pageNumber = $request->query('page');
-        $alumnis = Alumni::paginate(10, ['*'], 'page', $pageNumber);
+        $alumnis = Alumni::all();
 
         return view('alumnis.index', compact('alumnis'));
     }

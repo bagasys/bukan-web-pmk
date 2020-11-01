@@ -41,6 +41,7 @@
         </div>
         @endif
 
+        @can('edit transaction')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -71,13 +72,15 @@
                 </form>
             </div>
         </div>
-
+        @endcan
         <a href="/transactions/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
             <div class="card-tools">
+                @can('add transaction')
                 <div class="">
                     <a class="btn btn-success" href="{{ route('transactions.create') }}"> Tambah data transaksi</a>
                 </div>
+                @endcan
             </div>
         </div>
 
@@ -99,13 +102,27 @@
                         <td>{{ $transaction->wallet }}</td>
                         <td>{{ $transaction->status }}</td>
                         <td>
-                            <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a class="btn btn-info" href="{{ route('transactions.show',$transaction->id) }}"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-primary" href="{{ route('transactions.edit',$transaction->id) }}"><i class="fa fa-edit"></i></a>
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <div style="display: flex">
+                                <div style="margin-right: 5px;">
+                                    @can('view transaction')
+                                    <a class="btn btn-info" href="{{ route('transactions.show',$transaction->id) }}"><i class="fa fa-eye"></i></a>
+                                    @endcan
+                                </div>
+                                <div style="margin-right: 5px;">
+                                    @can('edit transaction')
+                                    <a class="btn btn-primary" href="{{ route('transactions.edit',$transaction->id) }}"><i class="fa fa-edit"></i></a>
+                                    @endcan
+                                </div>
+                                <div style="margin-right: 5px;">
+                                    @can('delete transaction')
+                                    <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST" class="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                    @endcan
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

@@ -27,11 +27,9 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index(Request $request)
     {
-        $pageNumber = $request->query('page');
-        $prayerRequests = PrayerRequest::paginate(10, ['*'], 'page', $pageNumber);
+        $prayerRequests = PrayerRequest::all();
 
         return view('prayer-requests.index', compact('prayerRequests'));
     }
@@ -144,6 +142,4 @@ class PrayerRequestController extends Controller
         // alihkan halaman kembali
         return redirect('/admin/prayer-requests');
     }
-
-
 }

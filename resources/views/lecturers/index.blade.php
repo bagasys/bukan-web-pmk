@@ -107,25 +107,30 @@
                     <td>
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
+                                @can('view lecturer')
                                 <a class="btn btn-info" href="{{ route('lecturers.show',$lecturer->id) }}"><i class="fa fa-eye"></i></a>
+                                @endcan
                             </div>
                             <div style="margin-right: 5px;">
+                                @can('edit lecturer')
                                 <a class="btn btn-primary" href="{{ route('lecturers.edit',$lecturer->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
                             </div>
-                            <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <div style="margin-right: 5px;">
+                                @can('delete lecturer')
+                                <form action="{{ route('lecturers.destroy', $lecturer->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
                         </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-    <div class="card-footer">
-        {{$lecturers->links("pagination::bootstrap-4")}}
     </div>
 </div>
 

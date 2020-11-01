@@ -41,6 +41,7 @@
         </div>
         @endif
 
+        @can('edit counseling')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -71,12 +72,15 @@
                 </form>
             </div>
         </div>
+        @endcan
 
         <a href="{{route('counselings.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
             <div class="">
+                @can('add counseling')
                 <a class="btn btn-success" href="{{ route('counselings.create') }}"> Tambah data Counseling</a>
+                @endcan
             </div>
         </div>
     </div>
@@ -101,22 +105,26 @@
                     <td>
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
+                                @can('edit counseling')
                                 <a class="btn btn-primary" href="{{ route('counselings.edit',$counseling->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
                             </div>
-                            <form action="{{ route('counselings.destroy', $counseling->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <div style="margin-right: 5px;">
+                                @can('delete counseling')
+                                <form action="{{ route('counselings.destroy', $counseling->id) }}" method="POST" class="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
                         </div>
                     </td>
+
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-    <div class="card-footer">
-        {{$counselings->links("pagination::bootstrap-4")}}
     </div>
 </div>
 
