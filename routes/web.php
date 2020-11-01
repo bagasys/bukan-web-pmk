@@ -39,8 +39,12 @@ Route::prefix('admin')->group(function () {
     Route::post('/lecturers/import_excel', [LecturerController::class, 'import_excel'])->name('lecturers.import_excel');
     Route::resource('/lecturers', LecturerController::class);
 
-    Route::get('/meetings/{meeting}/checkin', [MeetingController::class, 'export_excel'])->name('meetings.export_excel');
-    Route::post('/meetings/{meeting}/checkin', [MeetingController::class, 'import_excel'])->name('meetings.import_excel');
+    Route::get('/meetings/{meeting}/checkin', [AttendantController::class, 'create'])->name('meetings.checkin');
+    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storeStudent'])->name('meetings.checkin');
+    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storeAlumni'])->name('meetings.checkin');
+    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storeLecturer'])->name('meetings.checkin');
+    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storePublic'])->name('meetings.checkin');
+
     Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel'])->name('meetings.export_excel');
     Route::post('/meetings/import_excel', [MeetingController::class, 'import_excel'])->name('meetings.import_excel');
     Route::resource('/meetings', MeetingController::class);
