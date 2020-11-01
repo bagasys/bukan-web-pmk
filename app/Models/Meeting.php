@@ -54,7 +54,7 @@ class Meeting extends Model
 
     public function countAttendant()
     {
-        $meeting_attendant = Meeting::where(['id' => $this->id])->count();
+        $meeting_attendant = Attendant::where(['meeting_id' => $this->id])->count();
 
         return $meeting_attendant;
     }

@@ -20,6 +20,12 @@
 </head>
 <body class="hold-transition login-page">
 
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
 <div class="login-box">
     <div class="login-logo">
         <span>{{$meeting->title}}</span>
