@@ -64,6 +64,37 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
+                                <label for="location">Lokasi</label>
+                                <input type="text" name="location" id="location" class="form-control {{$errors->has('location') ? 'is-invalid' : ''}}"
+                                       placeholder="Masukkan Lokasi" value="{{old('location')}}" required>
+                                @error('location')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- checkbox -->
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="forStudent" id="forStudent">
+                                    <label class="form-check-label" for="forStudent">Untuk Mahasiswa</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="forLecturer" id="forLecturer">
+                                    <label class="form-check-label" for="forLecturer">Untuk Dosen</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="forAlumni" id="forAlumni">
+                                    <label class="form-check-label" for="forAlumni">Untuk Alumni</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="forPublic" id="forPublic">
+                                    <label class="form-check-label" for="forPublic">Untuk Umum</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
                                 <label for="type">Type</label>
                                 <input type="text" name="type" id="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}"
                                         placeholder="Masukkan Tipe Acara" value="{{old('type')}}" required>
