@@ -43,6 +43,7 @@ class AttendantController extends Controller
     {
         $meeting = Meeting::find($id);
         $student = Student::where('nrp', $request['nrp'])->first();
+
         Attendant::create([
             'meeting_id' => $meeting->id,
             'nrp' => $request['nrp'],

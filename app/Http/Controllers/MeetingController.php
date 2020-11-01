@@ -56,16 +56,21 @@ class MeetingController extends Controller
         if ($request->hasFile('image')) {
             $img = $request->file('image');
             $ext = $img->getClientOriginalExtension();
-            $imgName = time().str_replace(' ', '', $request['title'].'.'.$ext);
+            $imgName = time() . str_replace(' ', '', $request['title'] . '.' . $ext);
             $imgPath = $img->storeAs('public/meetings', $imgName);
         }
 
         $user = Auth::user();
-        if ($user->profileIds) {
+        $name = '';
+        $type = '';
+        if (count($user->profileIds) > 0) {
             $name = $user->profileIds[0]->model->name;
             $type = $user->profileIds[0]->model_type;
         }
-
+        $request['forStudent'] = $request['forStudent'] === 'on' ? true : false;
+        $request['forLecturer'] = $request['forLecturer'] === 'on' ? true : false;
+        $request['forAlumni'] = $request['forAlumni'] === 'on' ? true : false;
+        $request['forPublic'] = $request['forPublic'] === 'on' ? true : false;
 
         Meeting::create([
             'title' => $request['title'],
@@ -113,7 +118,7 @@ class MeetingController extends Controller
      * Update the specified resource in storage.
      *
      * @param \app\Http\Requests\MeetingRequest
-     * @param  Meeting $meeting
+     * @param Meeting $meeting
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(MeetingRequest $request, Meeting $meeting)
@@ -126,7 +131,7 @@ class MeetingController extends Controller
         if ($request->hasFile('image')) {
             $img = $request->file('image');
             $ext = $img->getClientOriginalExtension();
-            $imgName = time().str_replace(' ', '', $request['title'].'.'.$ext);
+            $imgName = time() . str_replace(' ', '', $request['title'] . '.' . $ext);
             $imgPath = $img->storeAs('public/meetings', $imgName);
         }
 
@@ -179,13 +184,13 @@ class MeetingController extends Controller
         $file = $request->file('file');
 
         // membuat nama file unik
-        $nama_file = rand().$file->getClientOriginalName();
+        $nama_file = rand() . $file->getClientOriginalName();
 
         // upload ke folder file_siswa di dalam folder public
         $file->move('file_meeting', $nama_file);
 
         // import data
-        Excel::import(new MeetingImport, public_path('/file_meeting/'.$nama_file));
+        Excel::import(new MeetingImport, public_path('/file_meeting/' . $nama_file));
 
         // notifikasi dengan session
         Session::flash('sukses', 'Data meeting Berhasil Diimport!');

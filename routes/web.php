@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\AttendantController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
@@ -40,10 +41,10 @@ Route::prefix('admin')->group(function () {
     Route::resource('/lecturers', LecturerController::class);
 
     Route::get('/meetings/{meeting}/checkin', [AttendantController::class, 'create'])->name('meetings.checkin');
-    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storeStudent'])->name('meetings.checkin');
-    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storeAlumni'])->name('meetings.checkin');
-    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storeLecturer'])->name('meetings.checkin');
-    Route::post('/meetings/{meeting}/checkin', [AttendantController::class, 'storePublic'])->name('meetings.checkin');
+    Route::post('/meetings/{meeting}/student-checkin', [AttendantController::class, 'storeStudent'])->name('meetings.student-checkin');
+    Route::post('/meetings/{meeting}/alumni-checkin', [AttendantController::class, 'storeAlumni'])->name('meetings.alumni-checkin');
+    Route::post('/meetings/{meeting}/lecturer-checkin', [AttendantController::class, 'storeLecturer'])->name('meetings.lecturer-checkin');
+    Route::post('/meetings/{meeting}/public-checkin', [AttendantController::class, 'storePublic'])->name('meetings.public-checkin');
 
     Route::get('/meetings/export_excel', [MeetingController::class, 'export_excel'])->name('meetings.export_excel');
     Route::post('/meetings/import_excel', [MeetingController::class, 'import_excel'])->name('meetings.import_excel');
