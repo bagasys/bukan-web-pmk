@@ -226,5 +226,10 @@ class RoleSeeder extends Seeder
         $bph_dope->givePermissionTo($view_prayer_request);
         $bph_dope->givePermissionTo($view_detail_prayer_request);
         $bph_dope->givePermissionTo($edit_prayer_request);
+
+        /*
+            Mahasiswa
+        */
+        $mahasiswa->givePermissionTo($view_student);
     }
 }
