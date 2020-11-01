@@ -31,6 +31,7 @@ class CreateMeetingsTable extends Migration
             $table->boolean('forPublic');
             $table->string('location')->nullable();
             $table->string('image')->nullable();
+            $table->json('attendants');
 
             $table->foreign('user_id')
                 ->references('id')

@@ -41,47 +41,64 @@ class AttendantController extends Controller
      */
     public function storeStudent(Request $request, $id)
     {
-        $meeting = Meeting::find($id);
+        $meeting = Meeting::find($id)->first();
         $student = Student::where('nrp', $request['nrp'])->first();
-
+        $name = '';
+        if ($student == null) {
+            $name = '';
+        } else {
+            $name = $student->name;
+        }
         Attendant::create([
             'meeting_id' => $meeting->id,
             'nrp' => $request['nrp'],
             'origin' => 'ITS',
-            'name' => $student->name,
+            'name' => $name,
         ]);
 
-        return redirect()->route('attendants.create')
+        return redirect()->route('meetings.checkin', $meeting->id)
             ->with('success', 'Berhasil absen.');
     }
 
     public function storeAlumni(Request $request, $id)
     {
-        $meeting = Meeting::find($id);
+        $meeting = Meeting::find($id)->first();
         $alumni = Alumni::where('username', $request['username'])->first();
+        $name = '';
+        if ($alumni == null) {
+            $name = '';
+        } else {
+            $name = $alumni->name;
+        }
         Attendant::create([
             'meeting_id' => $meeting->id,
             'username' => $request['username'],
             'origin' => 'ITS',
-            'name' => $alumni->name,
+            'name' => $name,
         ]);
 
-        return redirect()->route('attendants.create')
+        return redirect()->route('meetings.checkin', $meeting->id)
             ->with('success', 'Berhasil absen.');
     }
 
     public function storeLecturer(Request $request, $id)
     {
-        $meeting = Meeting::find($id);
+        $meeting = Meeting::find($id)->first();
         $lecturer = Lecturer::where('nid', $request['nid'])->first();
+        $name = '';
+        if ($lecturer == null) {
+            $name = '';
+        } else {
+            $name = $lecturer->name;
+        }
         Attendant::create([
             'meeting_id' => $meeting->id,
             'nid' => $request['nid'],
             'origin' => 'ITS',
-            'name' => $lecturer->name,
+            'name' => $name,
         ]);
 
-        return redirect()->route('attendants.create')
+        return redirect()->route('meetings.checkin', $meeting->id)
             ->with('success', 'Berhasil absen.');
     }
 
@@ -94,8 +111,12 @@ class AttendantController extends Controller
             'name' => $request['name'],
         ]);
 
-        return redirect()->route('attendants.create')
+        return redirect()->route('meetings.checkin', $meeting->id)
             ->with('success', 'Berhasil absen.');
+    }
+
+    public function countAttendant()
+    {
     }
 
     /**

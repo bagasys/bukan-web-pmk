@@ -51,4 +51,11 @@ class Meeting extends Model
             return asset('/images/default-avatar.jpg');
         }
     }
+
+    public function countAttendant()
+    {
+        $meeting_attendant = Meeting::where(['id' => $this->id])->count();
+
+        return $meeting_attendant;
+    }
 }

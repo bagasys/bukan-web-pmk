@@ -24,6 +24,9 @@
     <div class="login-logo">
         <span>{{$meeting->title}}</span>
     </div>
+    <div style="margin: auto">
+        <span>Total kehadiran : {{$meeting->countAttendant()}}</span>
+    </div>
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">

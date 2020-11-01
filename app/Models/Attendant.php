@@ -13,6 +13,7 @@ class Attendant extends Model
 
     protected $fillable = [
         'event_id',
+        'meeting_id',
         'origin',
         'name',
         'nrp',
