@@ -33,7 +33,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card card-primary">
-            <form role="form" method="POST" action="{{ route('meetings.store')  }}">
+            <form role="form" method="POST" action="{{ route('meetings.store')  }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -99,6 +99,15 @@
                                 <input type="text" name="type" id="type" class="form-control {{$errors->has('type') ? 'is-invalid' : ''}}"
                                         placeholder="Masukkan Tipe Acara" value="{{old('type')}}" required>
                                 @error('type')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="image">Gambar</label>
+                                <input type="file" class="form-control {{$errors->has('image') ? 'is-invalid' : ''}}" id="image" name="image">
+                                @error('image')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
                             </div>
