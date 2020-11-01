@@ -23,10 +23,20 @@ class CreateMeetingsTable extends Migration
             $table->string('slug')->nullable()->unasigned();
             $table->integer('attendant_count')->default(0);
             $table->text('report')->nullable();
-            $table->unsignedBigInteger('creator_id')->nullable()->unasigned();
-            $table->string('creator_type')->nullable()->unasigned();
-            $table->timestamps();
+            $table->foreignId('user_id')->nullable()->unasigned();
+            $table->string('creator_name');
+            $table->boolean('forStudent');
+            $table->boolean('forAlumni');
+            $table->boolean('forLecturer');
+            $table->boolean('forPublic');
+            $table->string('location')->nullable();
+            $table->string('image')->nullable();
 
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
+
+            $table->timestamps();
         });
     }
 

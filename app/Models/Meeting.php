@@ -20,8 +20,14 @@ class Meeting extends Model
         'slug',
         'attendant_count',
         'report',
-        'creator_id',
-        'creator_type',
+        'user_id',
+        'creator_name',
+        'forStudent',
+        'forAlumni',
+        'forLecturer',
+        'forPublic',
+        'location',
+        'image',
     ];
 
     /**
@@ -30,5 +36,19 @@ class Meeting extends Model
     public function creator()
     {
         return $this->morphTo();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getImageAttribute($value)
+    {
+        if ($value) {
+            return asset('storage/meetings/'.$value);
+        } else {
+            return asset('/images/default-avatar.jpg');
+        }
     }
 }

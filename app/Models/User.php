@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProfileId::class);
     }
+
+    public function meetings()
+    {
+        return $this->hasMany(Meeting::class);
+    }
 }

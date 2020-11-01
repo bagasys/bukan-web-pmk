@@ -7,6 +7,7 @@ use App\Http\Requests\MeetingRequest;
 use App\Imports\MeetingImport;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
 
@@ -51,12 +52,32 @@ class MeetingController extends Controller
         $request['start'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][0]));
         $request['end'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][1]));
 
+        $imgName = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $ext = $img->getClientOriginalExtension();
+            $imgName = time().str_replace(' ', '', $request['title'].'.'.$ext);
+            $imgPath = $img->storeAs('public/meetings', $imgName);
+        }
+
+        $user = Auth::user();
+        $name = $user->profileIds[0]->model->name;
+        $type = $user->profileIds[0]->model_type;
+
         Meeting::create([
             'title' => $request['title'],
             'description' => $request['description'],
             'type' => $request['type'],
             'start' => $request['start'],
             'end' => $request['end'],
+            'user_id' => $user->id,
+            'creator_name' => $name,
+            'forStudent' => $request['forStudent'],
+            'forAlumni' => $request['forAlumni'],
+            'forLecturer' => $request['forLecturer'],
+            'forPublic' => $request['forPublic'],
+            'location' => $request['location'],
+            'image' => $imgName,
         ]);
 
         return redirect()->route('meetings.index')
@@ -98,11 +119,26 @@ class MeetingController extends Controller
         $request['start'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][0]));
         $request['end'] = date('Y-m-d H:i:s', strtotime($request['reservationtime'][1]));
 
+        $imgName = null;
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $ext = $img->getClientOriginalExtension();
+            $imgName = time().str_replace(' ', '', $request['title'].'.'.$ext);
+            $imgPath = $img->storeAs('public/meetings', $imgName);
+        }
+
         $meeting->title = $request['title'];
         $meeting->description = $request['description'];
         $meeting->type = $request['type'];
         $meeting->start = $request['start'];
         $meeting->end = $request['end'];
+        $meeting->report = $request['report'];
+        $meeting->forStudent = $request['forStudent'];
+        $meeting->forAlumni = $request['forAlumni'];
+        $meeting->forLecturer = $request['forLecturer'];
+        $meeting->forPublic = $request['forPublic'];
+        $meeting->location = $request['location'];
+        $meeting->location = $imgName;
 
         $meeting->save();
 
