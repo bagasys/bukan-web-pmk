@@ -9,6 +9,7 @@ use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PrayerRequestController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleManagementController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
@@ -67,6 +68,8 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('/users', UserManagementController::class);
     Route::resource('/banners', BannerController::class);
+
+    Route::get('/profile', [ProfileController::class, 'index']);
 });
 
 //Landing Page

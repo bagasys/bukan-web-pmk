@@ -20,5 +20,12 @@ class SuperAdminSeeder extends Seeder
         ]);
 
         $user->assignRole('super admin');
+
+        $mahasiswa = User::create([
+            'email' => 'kevin@pmk.its.ac.id',
+            'password' => bcrypt('kevin123'),
+        ]);
+
+        $mahasiswa->assignRole('mahasiswa');
     }
 }
