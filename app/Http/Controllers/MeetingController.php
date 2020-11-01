@@ -61,8 +61,11 @@ class MeetingController extends Controller
         }
 
         $user = Auth::user();
-        $name = $user->profileIds[0]->model->name;
-        $type = $user->profileIds[0]->model_type;
+        if ($user->profileIds) {
+            $name = $user->profileIds[0]->model->name;
+            $type = $user->profileIds[0]->model_type;
+        }
+
 
         Meeting::create([
             'title' => $request['title'],
