@@ -16,13 +16,11 @@ class CreateAttendantsTable extends Migration
         Schema::create('attendants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('meeting_id');
-            $table->unsignedBigInteger('attendee_id')->nullable();
-            $table->string('attendee_type')->nullable();
             $table->string('origin')->nullable();
             $table->string('name')->nullable();
             $table->string('nrp')->nullable();
             $table->string('nid')->nullable();
-            $table->string('email')->nullable();
+            $table->string('username')->nullable();
             $table->timestamps();
         });
     }

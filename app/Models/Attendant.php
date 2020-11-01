@@ -13,13 +13,11 @@ class Attendant extends Model
 
     protected $fillable = [
         'event_id',
-        'attendee_id',
-        'attendee_type',
         'origin',
         'name',
         'nrp',
         'nid',
-        'email',
+        'username',
     ];
 
     public function attendee()
