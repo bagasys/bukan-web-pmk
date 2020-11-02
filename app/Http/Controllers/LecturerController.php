@@ -58,6 +58,7 @@ class LecturerController extends Controller
             'department' => $request['department'],
             'address' => $request['address'],
             'sex' => $request['sex'],
+            'avatar' => $request['avatar'],
             'email' => $request['email'],
             'phone' => $request['phone'],
         ]);
@@ -102,6 +103,7 @@ class LecturerController extends Controller
         $lecturer->department = $request['department'];
         $lecturer->address = $request['address'];
         $lecturer->sex = $request['sex'];
+        $lecturer->avatar = $request['avatar'];
         $lecturer->email = $request['email'];
         $lecturer->phone = $request['phone'];
         $lecturer->save();

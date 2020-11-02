@@ -26,8 +26,18 @@ class ProfileController extends Controller
         return view('profile.index', compact('profile'));
     }
 
-    public function edit(ProfileId $profile)
+    public function editStudent(Student $student)
     {
-        return view('profile.edit', compact('profile'));
+        return view('students.edit', compact('student'));
+    }
+
+    public function editLecturer(Lecturer $lecturer)
+    {
+        return view('lecturers.edit', compact('lecturer'));
+    }
+
+    public function editAlumni(Alumni $alumni)
+    {
+        return view('alumnis.edit', compact('alumni'));
     }
 }

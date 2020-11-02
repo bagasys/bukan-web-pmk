@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('current_address')->nullable();
             $table->string('origin_address')->nullable();
             $table->string('phone')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('department');
             $table->date('birthdate')->nullable();
             $table->integer('year_entry');

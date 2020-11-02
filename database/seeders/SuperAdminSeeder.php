@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProfileId;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -41,5 +43,67 @@ class SuperAdminSeeder extends Seeder
         ]);
 
         $alumni->assignRole('alumni');
+
+        // $student = Student::create([
+        //     'name' => 'adrian',
+        //     'nrp' => '123245',
+        //     'origin_address' => 'Surabaya',
+        //     'current_address' => 'Surabaya',
+        //     'phone' => '0895383',
+        //     'department' => 'inf',
+        //     'birthdate' => '2001-05-24',
+        //     'year_entry' => 2019,
+        //     'year_end' => 2023,
+        //     'guardian_name' => 'irfan',
+        //     'guardian_phone' => '08938934',
+        //     'sex' => 'L',
+        // ]);
+
+        // $lecturer = Student::create([
+        //     'name' => 'adrian',
+        //     'nrp' => '123245',
+        //     'origin_address' => 'Surabaya',
+        //     'current_address' => 'Surabaya',
+        //     'phone' => '0895383',
+        //     'department' => 'inf',
+        //     'birthdate' => '2001-05-24',
+        //     'year_entry' => 2019,
+        //     'year_end' => 2023,
+        //     'guardian_name' => 'irfan',
+        //     'guardian_phone' => '08938934',
+        //     'sex' => 'L',
+        // ]);
+
+        // $student = Student::create([
+        //     'name' => 'adrian',
+        //     'nrp' => '123245',
+        //     'origin_address' => 'Surabaya',
+        //     'current_address' => 'Surabaya',
+        //     'phone' => '0895383',
+        //     'department' => 'inf',
+        //     'birthdate' => '2001-05-24',
+        //     'year_entry' => 2019,
+        //     'year_end' => 2023,
+        //     'guardian_name' => 'irfan',
+        //     'guardian_phone' => '08938934',
+        //     'sex' => 'L',
+        // ]);
+
+        // $profile = ProfileId::create([
+        //     'profile_id' => '1',
+        //     'user_id' => 3,
+        //     'model_id' => 1,
+        //     'model_type' => 'App\Models\Student',
+        // ],[
+        //     'profile_id' => '2',
+        //     'user_id' => 2,
+        //     'model_id' => 1,
+        //     'model_type' => 'App\Models\Lecturer',
+        // ],[
+        //     'profile_id' => '3',
+        //     'user_id' => 4,
+        //     'model_id' => 1,
+        //     'model_type' => 'App\Models\Alumni',
+        // ]);
     }
 }

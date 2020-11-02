@@ -55,12 +55,13 @@
 
             <div class="card">
                 <div class="card-header p-2">
+                    @role('mahasiswa')
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#data-diri" data-toggle="tab">Data
-                                Diri</a>
+                        <li class="nav-item"><a class="nav-link active fas fa-user-cog" href="{{ route('profiles.editStudent',$profile->model->id) }}" ></a>
                         </li>
-
                     </ul>
+
+
                 </div><!-- /.card-header -->
                 <div class="card-body">
                     <div class="tab-content">
@@ -82,7 +83,6 @@
                                     <td>{{ $profile->model->sex }}</td>
                                 </tr>
 
-                                @role('mahasiswa')
                                 <tr>
                                     <td>NRP</td>
                                     <td>{{ $profile->model->nrp }}</td>
@@ -124,8 +124,32 @@
 
                                 @endrole
 
-                                @role('dosen')
+                @role('dosen')
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active fas fa-user-cog" href="{{ route('profiles.editLecturer',$profile->model->id) }}" ></a>
+                    </li>
+                </ul>
 
+                </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+
+                            <div class="active tab-pane" id="data-diri">
+
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>{{ $profile->model->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Department</td>
+                                        <td>{{ $profile->model->department }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenis Kelamin</td>
+                                        <td>{{ $profile->model->sex }}</td>
+                                    </tr>
                                     <tr>
                                         <td>NID</td>
                                         <td>{{ $profile->model->nid }}</td>
@@ -143,30 +167,58 @@
                                         <td>{{ $profile->model->email }}</td>
                                     </tr>
 
-                                @endrole
+                @endrole
 
-                                @role('alumni')
-                                    <tr>
-                                        <td>Tahun Masuk</td>
-                                        <td>{{ $profile->model->year_entry }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tahun Keluar</td>
-                                        <td>{{ $profile->model->year_exit }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pekerjaan</td>
-                                        <td>{{ $profile->model->job }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>{{ $profile->model->address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tahun Meninggal</td>
-                                        <td>{{ $profile->model->year_end }}</td>
-                                    </tr>
-                                @endrole
+
+                @role('alumni')
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link active fas fa-user-cog" href="{{ route('profiles.editAlumni',$profile->model->id) }}" ></a>
+                    </li>
+                </ul>
+
+
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content">
+
+                        <div class="active tab-pane" id="data-diri">
+
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>{{ $profile->model->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Department</td>
+                                    <td>{{ $profile->model->department }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jenis Kelamin</td>
+                                    <td>{{ $profile->model->sex }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Tahun Masuk</td>
+                                    <td>{{ $profile->model->year_entry }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun Keluar</td>
+                                    <td>{{ $profile->model->year_exit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pekerjaan</td>
+                                    <td>{{ $profile->model->job }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat</td>
+                                    <td>{{ $profile->model->address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun Meninggal</td>
+                                    <td>{{ $profile->model->year_end }}</td>
+                                </tr>
+                @endrole
                             </tbody>
                             </table>
 

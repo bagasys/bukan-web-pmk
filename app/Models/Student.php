@@ -17,6 +17,7 @@ class Student extends Model
         'current_address',
         'origin_address',
         'phone',
+        'avatar',
         'department',
         'birthdate',
         'year_entry',

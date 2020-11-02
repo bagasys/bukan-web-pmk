@@ -42,6 +42,7 @@ class StudentController extends Controller
             'origin_address' => $request['origin_address'],
             'current_address' => $request['current_address'],
             'phone' => $request['phone'],
+            'avatar' => $request['avatar'],
             'department' => $request['department'],
             'birthdate' => $request['birthdate'],
             'year_entry' => $request['year_entry'],

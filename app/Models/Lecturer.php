@@ -15,6 +15,7 @@ class Lecturer extends Model
         'name',
         'nid',
         'department',
+        'avatar',
         'sex',
         'address',
         'email',
