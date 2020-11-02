@@ -9,11 +9,21 @@
     <div class="sidebar">
       <!-- Sidebar Menu -->
       <nav class="mt-3">
-        @if(auth()->user()->hasRole('super admin'))
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                               with font-awesome or any other icon font library -->
           <h2 class="text-center font-weight-bold mb-4"><span style="color:red;"><i class="nav-icon fas fa-cross "></i>PMK</span> <span style="color:#3366ff;">ITS</span></h2>
+          <li class="mb-1">
+            <a href="{{route ('profiles.index')}}" class="nav-link active">
+              <i class="pl-1 nav-icon far fa-user-circle fa-lg"></i>
+              <p class="pl-1">
+                Profile
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+          </li>
+
+          @if(auth()->user()->hasRole('super admin'))
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-users"></i>
@@ -37,8 +47,8 @@
               </li>
             </ul>
           </li>
+          @endif
         </ul>
-        @endif
 
 
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -149,7 +159,6 @@
               </li>
             </ul>
           </li>
-        </ul>
         </ul>
       </nav>
     </div>
