@@ -99,6 +99,16 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="avatar">Avatar</label>
+                                <input type="file" name="avatar" id="avatar" class="form-control" value="{{ $lecturer->avatar }}">
+                                @error('avatar')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="phone">Nomor Telepon</label>
@@ -112,9 +122,9 @@
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input {{$errors->has('name') ? 'is-invalid' : ''}}" id="is_tpkk_admin" name="is_tpkk_admin">
                         <label class="form-check-label" for="is_tpkk_admin">Pengurus TPKK</label>
-                                @error('name')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                                @enderror
+                        @error('name')
+                        <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
                     </div>
                 </div>
 

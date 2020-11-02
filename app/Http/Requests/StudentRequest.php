@@ -28,6 +28,7 @@ class StudentRequest extends FormRequest
             'nrp' => 'required|string',
             'department' => 'required',
             'year_entry' => 'required',
+            'avatar' => 'file|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 

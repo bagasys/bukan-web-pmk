@@ -16,7 +16,7 @@
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-        <div class="col-sm-6">
+            <div class="col-sm-6">
                 <h1>Add New Lecturer</h1>
             </div>
             <div class="col-sm-6">
@@ -34,7 +34,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card card-primary">
-            <form role="form" method="POST" action="{{ route('lecturers.store')  }}">
+            <form role="form" method="POST" action="{{ route('lecturers.store')  }}" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="row">
@@ -122,9 +122,9 @@
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input {{$errors->has('is_tpkk_admin') ? 'is-invalid' : ''}}" id="is_tpkk_admin" name="is_tpkk_admin">
                         <label class="form-check-label" for="is_tpkk_admin">Pengurus TPKK</label>
-                            @error('is_tpkk_admin')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                            @enderror
+                        @error('is_tpkk_admin')
+                        <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
                     </div>
                 </div>
 

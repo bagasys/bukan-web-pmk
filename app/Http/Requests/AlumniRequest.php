@@ -28,6 +28,7 @@ class AlumniRequest extends FormRequest
             'username' => 'required|string',
             'department' => 'required|string',
             'sex' => 'required',
+            'avatar' => 'file|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 }
