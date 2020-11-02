@@ -19,9 +19,9 @@ class CreateLecturersTable extends Migration
             $table->string('nid')->unique();
             $table->string('department');
             $table->string('sex');
-            $table->string('address');
-            $table->string('email')->unique();
-            $table->string('phone');
+            $table->string('address')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('phone')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

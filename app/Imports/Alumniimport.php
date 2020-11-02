@@ -18,6 +18,7 @@ class Alumniimport implements OnEachRow, WithHeadingRow
                 'name' => $row['name'],
             ],
             [
+                'username' => $row['username'],
                 'department' => $row['department'],
                 'job' => $row['job'],
                 'sex' => $row['sex'],
@@ -32,6 +33,7 @@ class Alumniimport implements OnEachRow, WithHeadingRow
         if (! $alumni->wasRecentlyCreated) {
             $alumni->update([
                 'name' => $row['name'],
+                'username' => $row['username'],
                 'department' => $row['department'],
                 'job' => $row['job'],
                 'sex' => $row['sex'],

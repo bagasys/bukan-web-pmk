@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Meeting</h1>
+                    <h1>Meeting PMK ITS</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -41,6 +41,7 @@
             </div>
             @endif
 
+            @can('edit meeting')
             <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
                 IMPORT EXCEL
             </button>
@@ -48,7 +49,7 @@
             <!-- Import Excel -->
             <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <form method="post" action="/meetings/import_excel" enctype="multipart/form-data">
+                    <form method="post" action="{{route('meetings.import_excel')}}" enctype="multipart/form-data">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -71,16 +72,21 @@
                     </form>
                 </div>
             </div>
+            @endcan
+            <a href="{{route('meetings.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
-            <a href="/meetings/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
-            <a class="btn btn-info float-right bg-success" href="{{ route('meetings.create') }}">
-            <i class="fa fa-plus"></i> Meeting Baru</a>
+            <div class="card-tools">
+            @can('add student')
+            <div class="">
+                <a class="btn btn-success" href="{{ route('meetings.create') }}"> Tambah data meeting</a>
+            </div>
+            @endcan
+        </div>
         </div>
 
         <!-- /.card-header -->
         <div class="card-body p-0">
-            <table class="table table-hover table-striped">
+            <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th style="">Acara</th>
@@ -99,15 +105,27 @@
                         <td>{{ $meeting->end }}</td>
 
                         <td>
-                            <form action="{{ route('meetings.destroy', $meeting->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <a class="btn btn-info" href="{{ route('meetings.show',$meeting->id) }}"><i
-                                        class="fa fa-eye"></i></a>
-                                <a class="btn btn-primary" href="{{ route('meetings.edit',$meeting->id) }}"><i
-                                        class="fa fa-edit"></i></a>
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <div style="display: flex">
+                                <div style="margin-right: 5px;">
+                                    @can('view meeting')
+                                    <a class="btn btn-info" href="{{ route('meetings.show',$meeting->id) }}"><i class="fa fa-eye"></i></a>
+                                    @endcan
+                                </div>
+                                <div style="margin-right: 5px;">
+                                    @can('edit meeting')
+                                    <a class="btn btn-primary" href="{{ route('meetings.edit',$meeting->id) }}"><i class="fa fa-edit"></i></a>
+                                    @endcan
+                                </div>
+                                <div style="margin-right: 5px;">
+                                    @can('delete meeting')
+                                    <form action="{{ route('meetings.destroy', $meeting->id) }}" method="POST" class="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger deleteData" ><i class="fa fa-trash"></i></button>
+                                    </form>
+                                    @endcan
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
@@ -115,7 +133,21 @@
 
             </table>
         </div>
-        <div class="card-footer">
-        </div>
     </div>
 @endsection
+
+@push('scripts')
+    <!-- Datatables -->
+    <script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true,
+          "autoWidth": false,
+        });
+      });
+    </script>
+@endpush

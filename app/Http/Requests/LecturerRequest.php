@@ -27,9 +27,9 @@ class LecturerRequest extends FormRequest
             'name' => 'required|string',
             'nid' => 'required|string',
             'department' => 'required|string',
-            'sex' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            // 'sex' => 'required',
+            // 'email' => 'required',
+            // 'phone' => 'required',
         ];
     }
 

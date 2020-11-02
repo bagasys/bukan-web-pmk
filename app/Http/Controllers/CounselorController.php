@@ -12,12 +12,17 @@ use Session;
 
 class CounselorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
+    {
+        $this->middleware('permission:view counselor')->only('index');
+        $this->middleware('permission:add counselor')->only('create');
+        $this->middleware('permission:view detail counselor')->only('show');
+        $this->middleware('permission:edit counselor')->only('edit');
+        $this->middleware('permission:edit counselor')->only('import_excel');
+        $this->middleware('permission:delete counselor')->only('delete');
+    }
+
+    public function index(Request $request)
     {
         $counselors = Counselor::all();
 

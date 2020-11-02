@@ -7,22 +7,6 @@
 </div>
 @endif
 
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Prayer Requests</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Prayer Requests</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -58,6 +42,7 @@
         </div>
         @endif
 
+        @can('edit prayer request')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -65,7 +50,7 @@
         <!-- Import Excel -->
         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form method="post" action="/prayerRequests/import_excel" enctype="multipart/form-data">
+                <form method="post" action="{{route('prayer-requests.import_excel')}}" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -88,19 +73,22 @@
                 </form>
             </div>
         </div>
+        @endcan
 
-        <a href="/prayerRequests/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        <a href="{{route('prayer-requests.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
+            @can('add prayer request')
             <div class="">
                 <a class="btn btn-success" href="{{ route('prayer-requests.create') }}"> Tambah data pray request</a>
             </div>
+            @endcan
         </div>
     </div>
 
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <table class="table table-hover table-striped">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Nama</th>
@@ -116,18 +104,47 @@
                     <td>{{ $prayerRequest->prayer_content }}</td>
                     <td>{{ $prayerRequest->status }}</td>
                     <td>
-                        <form action="{{ route('prayer-requests.destroy', $prayerRequest->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-primary" href="{{ route('prayer-requests.edit',$prayerRequest->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                @can('edit prayer request')
+                                <a class="btn btn-primary" href="{{ route('prayer-requests.edit',$prayerRequest->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('delete prayer request')
+                                <form action="{{ route('prayer-requests.destroy', $prayerRequest->id) }}" method="POST" class="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData" ><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    {{-- <div class="card-footer">
+        {{$prayerRequests->links("pagination::bootstrap-4")}}
+    </div> --}}
 </div>
 
 @endsection
+
+@push('scripts')
+    <!-- Datatables -->
+    <script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true,
+          "autoWidth": false,
+        });
+      });
+    </script>
+@endpush

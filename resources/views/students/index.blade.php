@@ -87,7 +87,7 @@
 
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <table class="table table-hover table-striped">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>NRP</th>
@@ -103,9 +103,7 @@
                     <td>{{ $student->nrp }}</td>
                     <td>{{ $student->department }}</td>
                     <td>{{ $student->name }}</td>
-
                     <td>{{ date('d M Y'  ,strtotime($student->birthdate)) }}</td>
-
 
                     <td>
                         <div style="display: flex">
@@ -124,7 +122,7 @@
                                 <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
                                 </form>
                                 @endcan
                             </div>
@@ -136,9 +134,22 @@
             </tbody>
         </table>
     </div>
-    <div class="card-footer">
-        {{$students->links("pagination::bootstrap-4")}}
-    </div>
 </div>
 
 @endsection
+
+@push('scripts')
+<!-- Datatables -->
+<script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script>
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+    });
+</script>
+@endpush

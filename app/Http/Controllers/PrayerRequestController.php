@@ -16,8 +16,10 @@ class PrayerRequestController extends Controller
     {
         $this->middleware('permission:view prayer request')->only('index');
         $this->middleware('permission:add prayer request')->only('create');
-        $this->middleware('permission:view prayer request')->only('view');
+        $this->middleware('permission:view detail prayer request')->only('show');
         $this->middleware('permission:edit prayer request')->only('edit');
+        $this->middleware('permission:edit prayer request')->only('import_excel');
+        $this->middleware('permission:delete prayer request')->only('delete');
     }
 
     /**
@@ -25,11 +27,11 @@ class PrayerRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $prayerRequests = PrayerRequest::all();
 
-        return view('prayerRequests.index', compact('prayerRequests'));
+        return view('prayer-requests.index', compact('prayerRequests'));
     }
 
     /**
@@ -39,7 +41,7 @@ class PrayerRequestController extends Controller
      */
     public function create()
     {
-        return view('prayerRequests.create');
+        return view('prayer-requests.create');
     }
 
     /**
@@ -56,7 +58,7 @@ class PrayerRequestController extends Controller
             'status' => $request['status'],
         ]);
 
-        return redirect()->route('prayerRequests.index')
+        return redirect()->route('prayer-requests.index')
             ->with('success', 'Data request doa berhasil ditambahkan');
     }
 
@@ -66,10 +68,6 @@ class PrayerRequestController extends Controller
      * @param  \App\Models\PrayerRequest  $prayerRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(PrayerRequest $prayerRequest)
-    {
-        return view('prayerRequests.show', compact('prayerRequest'));
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -79,7 +77,7 @@ class PrayerRequestController extends Controller
      */
     public function edit(PrayerRequest $prayerRequest)
     {
-        return view('prayerRequests.edit', compact('prayerRequest'));
+        return view('prayer-requests.edit', compact('prayerRequest'));
     }
 
     /**
@@ -96,7 +94,7 @@ class PrayerRequestController extends Controller
         $prayerRequest->status = $request['status'];
         $prayerRequest->save();
 
-        return redirect()->route('prayerRequests.index')
+        return redirect()->route('prayer-requests.index')
             ->with('success', 'Data request doa berhasil diubah');
     }
 
@@ -110,7 +108,7 @@ class PrayerRequestController extends Controller
     {
         $prayerRequest->delete();
 
-        return redirect()->route('prayerRequests.index')
+        return redirect()->route('prayer-requests.index')
             ->with('success', 'Data request doa berhasil dihapus');
     }
 
@@ -142,6 +140,6 @@ class PrayerRequestController extends Controller
         Session::flash('sukses', 'Data Pray Request Berhasil Diimport!');
 
         // alihkan halaman kembali
-        return redirect('/admin/prayerRequests');
+        return redirect('/admin/prayer-requests');
     }
 }

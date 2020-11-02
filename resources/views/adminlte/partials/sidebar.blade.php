@@ -12,7 +12,7 @@
         @if(auth()->user()->hasRole('super admin'))
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+                              with font-awesome or any other icon font library -->
           <h2 class="text-center font-weight-bold mb-4"><span style="color:red;"><i class="nav-icon fas fa-cross "></i>PMK</span> <span style="color:#3366ff;">ITS</span></h2>
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link active">
@@ -43,7 +43,7 @@
 
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
+                          with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-handshake"></i>
@@ -65,14 +65,12 @@
                   <p>Mahasiswa</p>
                 </a>
               </li>
-              @can("view alumni")
               <li class="nav-item">
                 <a href="{{route ('alumnis.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ALumni</p>
+                  <p>Alumni</p>
                 </a>
               </li>
-              @endcan
               <li class="nav-item">
                 <a href="{{route ('counselors.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -103,7 +101,7 @@
 
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
+                          with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-money-check-alt"></i>
@@ -121,7 +119,37 @@
                 </a>
               </li>
             </ul>
+
           </li>
+        </ul>
+
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+                          with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-blog"></i>
+              <p>
+                Landing Page
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route ('transactions.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Banner</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route ('transactions.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Post</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
         </ul>
       </nav>
     </div>

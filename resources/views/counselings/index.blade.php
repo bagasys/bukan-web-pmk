@@ -41,6 +41,7 @@
         </div>
         @endif
 
+        @can('edit counseling')
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
             IMPORT EXCEL
         </button>
@@ -48,7 +49,7 @@
         <!-- Import Excel -->
         <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form method="post" action="/counselings/import_excel" enctype="multipart/form-data">
+                <form method="post" action="{{route('counselings.import_excel')}}" enctype="multipart/form-data">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -71,19 +72,22 @@
                 </form>
             </div>
         </div>
+        @endcan
 
-        <a href="/counselings/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        <a href="{{route('counselings.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <div class="card-tools">
             <div class="">
+                @can('add counseling')
                 <a class="btn btn-success" href="{{ route('counselings.create') }}"> Tambah data Counseling</a>
+                @endcan
             </div>
         </div>
     </div>
 
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <table class="table table-hover table-striped">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Nama</th>
@@ -99,13 +103,24 @@
                     <td>{{ $counseling->counselee_contact }}</td>
                     <td>{{ $counseling->counselor->name}}</td>
                     <td>
-                        <form action="{{ route('counselings.destroy', $counseling->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="btn btn-primary" href="{{ route('counselings.edit',$counseling->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        <div style="display: flex">
+                            <div style="margin-right: 5px;">
+                                @can('edit counseling')
+                                <a class="btn btn-primary" href="{{ route('counselings.edit',$counseling->id) }}"><i class="fa fa-edit"></i></a>
+                                @endcan
+                            </div>
+                            <div style="margin-right: 5px;">
+                                @can('delete counseling')
+                                <form action="{{ route('counselings.destroy', $counseling->id) }}" method="POST" class="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger deleteData"><i class="fa fa-trash"></i></button>
+                                </form>
+                                @endcan
+                            </div>
+                        </div>
                     </td>
+
                 </tr>
                 @endforeach
             </tbody>
@@ -114,3 +129,19 @@
 </div>
 
 @endsection
+
+@push('scripts')
+    <!-- Datatables -->
+    <script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script>
+      $(function () {
+        $("#example1").DataTable({
+          "responsive": true,
+          "autoWidth": false,
+        });
+      });
+    </script>
+@endpush

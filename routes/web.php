@@ -4,10 +4,14 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\FridayServiceReportController;
+use App\Http\Controllers\LandingPage\BlogController;
 use App\Http\Controllers\LandingPage\EventController;
 use App\Http\Controllers\LandingPage\HomeController;
+use App\Http\Controllers\LandingPage\SermonController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PrayerRequestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleManagementController;
@@ -60,15 +64,19 @@ Route::prefix('admin')->group(function () {
     Route::post('/transactions/import_excel', [TransactionController::class, 'import_excel'])->name('transactions.import_excel');
     Route::resource('/transactions', TransactionController::class);
 
-    Route::get('/prayerRequests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayerRequests.export_excel');
-    Route::post('/prayerRequests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayerRequests.import_excel');
+    Route::get('/prayer-requests/export_excel', [PrayerRequestController::class, 'export_excel'])->name('prayer-requests.export_excel');
+    Route::post('/prayer-requests/import_excel', [PrayerRequestController::class, 'import_excel'])->name('prayer-requests.import_excel');
+
     Route::resource('/prayer-requests', PrayerRequestController::class);
 
     Route::resource('/roles', RoleManagementController::class);
 
     Route::resource('/users', UserManagementController::class);
+
     Route::resource('/banners', BannerController::class);
     Route::resource('/profiles', ProfileController::class);
+    Route::resource('/posts', PostController::class);
+    Route::resource('/fridayservicereports', FridayServiceReportController::class);
 });
 
 //Landing Page
@@ -82,9 +90,8 @@ Route::get('/blog-single', function () {
     return view('landing-page/blog-single');
 });
 
-Route::get('/blog', function () {
-    return view('landing-page/blog');
-});
+Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/prayer-request', [PrayerRequestController::class, 'index']);
 
 Route::get('/contact', function () {
     return view('landing-page/contact');
@@ -96,6 +103,4 @@ Route::get('/ministries', function () {
     return view('landing-page/ministries');
 });
 
-Route::get('/sermons', function () {
-    return view('landing-page/sermons');
-});
+Route::get('/sermons', [SermonController::class, 'index']);

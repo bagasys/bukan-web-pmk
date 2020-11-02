@@ -12,12 +12,17 @@ use Session;
 
 class MeetingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
+    {
+        $this->middleware('permission:view meeting')->only('index');
+        $this->middleware('permission:add meeting')->only('create');
+        $this->middleware('permission:view detail meeting')->only('show');
+        $this->middleware('permission:edit meeting')->only('edit');
+        $this->middleware('permission:edit meeting')->only('import_excel');
+        $this->middleware('permission:delete meeting')->only('delete');
+    }
+
+    public function index(Request $request)
     {
         $meetings = Meeting::all();
 
