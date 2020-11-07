@@ -150,6 +150,12 @@ class RoleSeeder extends Seeder
         $edit_small_group = Permission::create(['name' => 'edit small group', 'guard_name' => 'web']);
         $delete_small_group = Permission::create(['name' => 'delete small group', 'guard_name' => 'web']);
 
+        $add_counselor = Permission::create(['name' => 'add counselor', 'guard_name' => 'web']);
+        $view_counselor = Permission::create(['name' => 'view counselor', 'guard_name' => 'web']);
+        $view_detail_counselor = Permission::create(['name' => 'view detail counselor', 'guard_name' => 'web']);
+        $edit_counselor = Permission::create(['name' => 'edit counselor', 'guard_name' => 'web']);
+        $delete_counselor = Permission::create(['name' => 'delete counselor', 'guard_name' => 'web']);
+
         // Give Role Permission
         /*
             Ketua
@@ -226,5 +232,24 @@ class RoleSeeder extends Seeder
         $bph_dope->givePermissionTo($view_prayer_request);
         $bph_dope->givePermissionTo($view_detail_prayer_request);
         $bph_dope->givePermissionTo($edit_prayer_request);
+
+        /*
+            Mahasiswa
+        */
+        $mahasiswa->givePermissionTo($view_student);
+        $mahasiswa->givePermissionTo($view_lecturer);
+
+        /*
+            Dosen
+        */
+        $dosen->givePermissionTo($view_student);
+        $dosen->givePermissionTo($view_alumni);
+        $dosen->givePermissionTo($view_lecturer);
+
+        /*
+            Alumni
+        */
+        $alumni->givePermissionTo($view_alumni);
+        $alumni->givePermissionTo($view_lecturer);
     }
 }

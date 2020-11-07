@@ -88,14 +88,16 @@
     </div>
 
     <!-- /.card-header -->
-    <div class="card-body p-0">
+    <div class="card-body p-3">
        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>NID</th>
                     <th>Nama</th>
                     <th>Department</th>
-                    <th style="width: 280px">Action</th>
+                    @can('view detail lecturer')
+                        <th style="width: 280px">Action</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>

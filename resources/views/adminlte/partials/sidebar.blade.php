@@ -58,48 +58,68 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route ('lecturers.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dosen</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route ('students.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Mahasiswa</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route ('alumnis.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Alumni</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route ('counselors.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Konselor</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route ('counselings.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Konseling</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route ('meetings.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Meeting</p>
-                                </a>
-                            </li>
+                            @can('view lecturer')
+                                <li class="nav-item">
+                                    <a href="{{route ('lecturers.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dosen</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view student')
+                                <li class="nav-item">
+                                    <a href="{{route ('students.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mahasiswa</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view lecturer')
+                                <li class="nav-item">
+                                    <a href="{{route ('alumnis.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Alumni</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view counselor')
+                                <li class="nav-item">
+                                    <a href="{{route ('counselors.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Konselor</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view counseling')
+                                <li class="nav-item">
+                                    <a href="{{route ('counselings.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Konseling</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view meeting')
+                                <li class="nav-item">
+                                    <a href="{{route ('meetings.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Meeting</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view prayer request')
                             <li class="nav-item">
                                 <a href="{{route ('prayer-requests.index')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Pray Request</p>
                                 </a>
                             </li>
+                            @endcan
                         </ul>
                     </li>
                 </ul>
@@ -118,12 +138,14 @@
                         </a>
 
                         <ul class="nav nav-treeview">
+                            @can('view transaction')
                             <li class="nav-item">
                                 <a href="{{route ('transactions.index')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Transaksi</p>
                                 </a>
                             </li>
+                            @endcan
                         </ul>
 
                     </li>
@@ -142,18 +164,23 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route ('transactions.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Banner</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route ('transactions.index')}}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Post</p>
-                                </a>
-                            </li>
+                            @can('view banner')
+                                <li class="nav-item">
+                                    <a href="{{route ('transactions.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Banner</p>
+                                    </a>
+                                </li>
+                            @endcan
+
+                            @can('view transaction')
+                                <li class="nav-item">
+                                    <a href="{{route ('posts.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Post</p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 </ul>
