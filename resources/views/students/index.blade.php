@@ -74,7 +74,10 @@
             </div>
         </div>
         @endcan
+
+        @can('view detail student')
         <a href="{{route('students.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        @endcan
 
         <div class="card-tools">
             @can('add student')
@@ -94,7 +97,9 @@
                     <th>Nama</th>
                     <th>Department</th>
                     <th>Tanggal Lahir</th>
-                    <th style="width: 280px">Action</th>
+                    @can('view detail student')
+                        <th style="width: 280px">Action</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -108,7 +113,7 @@
                     <td>
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
-                                @can('view student')
+                                @can('view detail student')
                                 <a class="btn btn-info" href="{{ route('students.show',$student->id) }}"><i class="fa fa-eye"></i></a>
                                 @endcan
                             </div>
@@ -136,21 +141,20 @@
     </div>
 </div>
 
-
 @endsection
 
 @push('scripts')
-    <!-- Datatables -->
-    <script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-    <script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-    <script>
-      $(function () {
+<!-- Datatables -->
+<script src="{{ asset('/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ asset('/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script>
+    $(function() {
         $("#example1").DataTable({
-          "responsive": true,
-          "autoWidth": false,
+            "responsive": true,
+            "autoWidth": false,
         });
-      });
-    </script>
+    });
+</script>
 @endpush

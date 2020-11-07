@@ -52,12 +52,21 @@ class LecturerController extends Controller
      */
     public function store(LecturerRequest $request)
     {
+        $file = $request['avatar'];
+
+        $nama_file = time().'_'.$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'avatar_dosen';
+        $file->move($tujuan_upload, $nama_file);
+
         Lecturer::create([
             'name' => $request['name'],
             'nid' => $request['nid'],
             'department' => $request['department'],
             'address' => $request['address'],
             'sex' => $request['sex'],
+            'avatar' => $nama_file,
             'email' => $request['email'],
             'phone' => $request['phone'],
         ]);
@@ -97,11 +106,20 @@ class LecturerController extends Controller
      */
     public function update(LecturerRequest $request, Lecturer $lecturer)
     {
+        $file = $request['avatar'];
+
+        $nama_file = time().'_'.$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'avatar_dosen';
+        $file->move($tujuan_upload, $nama_file);
+
         $lecturer->name = $request['name'];
         $lecturer->nid = $request['nid'];
         $lecturer->department = $request['department'];
         $lecturer->address = $request['address'];
         $lecturer->sex = $request['sex'];
+        $lecturer->avatar = $nama_file;
         $lecturer->email = $request['email'];
         $lecturer->phone = $request['phone'];
         $lecturer->save();

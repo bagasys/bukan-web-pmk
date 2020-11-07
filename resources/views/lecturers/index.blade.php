@@ -77,7 +77,11 @@
             </div>
         </div>
         @endcan
+
+        @can('view detail lecturer')
         <a href="{{route('lecturers.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        @endcan
+
         <div class="card-tools">
             @can('add lecturer')
             <div class="">

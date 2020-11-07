@@ -23,7 +23,7 @@
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    <img class="profile-user-img img-fluid img-circle" src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="User profile picture">
+                    <img class="profile-user-img img-fluid img-circle" src="{{ url('/avatar_alumni/'.$alumni->avatar) }}" alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center">{{$alumni->name}}</h3>
             </div>
@@ -70,18 +70,18 @@
                                     <td>{{ $alumni->year_exit }}</td>
                                 </tr>
                                 @can('view detail')
-                                    <tr>
-                                        <td>Pekerjaan</td>
-                                        <td>{{ $alumni->job }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>{{ $alumni->address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tahun Meninggal</td>
-                                        <td>{{ $alumni->year_end }}</td>
-                                    </tr>
+                                <tr>
+                                    <td>Pekerjaan</td>
+                                    <td>{{ $alumni->job }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat</td>
+                                    <td>{{ $alumni->address }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun Meninggal</td>
+                                    <td>{{ $alumni->year_end }}</td>
+                                </tr>
                                 @endcan
                             </tbody>
                         </table>

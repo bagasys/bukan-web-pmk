@@ -75,7 +75,11 @@
             </div>
         </div>
         @endcan
+
+        @can('view detail alumni')
         <a href="{{route('alumnis.export_excel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        @endcan
+
         <div class="card-tools">
             @can('add alumni')
             <div class="">
@@ -94,7 +98,9 @@
                     <th>Department</th>
                     <th>Tahun Masuk</th>
                     <th>Tahun Lulus</th>
-                    <th style="width: 280px">Action</th>
+                    @can('view detail alumni')
+                        <th style="width: 280px">Action</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
