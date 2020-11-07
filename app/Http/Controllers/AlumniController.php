@@ -52,6 +52,14 @@ class AlumniController extends Controller
      */
     public function store(AlumniRequest $request)
     {
+        $file = $request['avatar'];
+
+        $nama_file = time().'_'.$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'avatar_alumni';
+        $file->move($tujuan_upload, $nama_file);
+
         alumni::create([
             'name' => $request['name'],
             'username' => $request['username'],
@@ -59,7 +67,7 @@ class AlumniController extends Controller
             'job' => $request['job'],
             'sex' => $request['sex'],
             'address' => $request['address'],
-            'avatar' => $request['avatar'],
+            'avatar' => $nama_file,
             'year_entry' => $request['year_entry'],
             'year_exit' => $request['year_exit'],
             'year_end' => $request['year_end'],
@@ -100,13 +108,21 @@ class AlumniController extends Controller
      */
     public function update(AlumniRequest $request, Alumni $alumni)
     {
+        $file = $request['avatar'];
+
+        $nama_file = time().'_'.$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'avatar_alumni';
+        $file->move($tujuan_upload, $nama_file);
+
         $alumni->name = $request['name'];
         $alumni->username = $request['username'];
         $alumni->department = $request['department'];
         $alumni->job = $request['job'];
         $alumni->sex = $request['sex'];
         $alumni->address = $request['address'];
-        $alumni->avatar = $request['avatar'];
+        $alumni->avatar = $nama_file;
         $alumni->year_entry = $request['year_entry'];
         $alumni->year_exit = $request['year_exit'];
         $alumni->year_end = $request['year_end'];

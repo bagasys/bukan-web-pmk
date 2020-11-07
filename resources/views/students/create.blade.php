@@ -107,6 +107,15 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
+                                <label for="avatar">Avatar</label>
+                                <input type="file" name="avatar" id="avatar" class="form-control " value="{{old('avatar')}}">
+                                @error('avatar')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
                                 <label for="phone">Nomor Telepon</label>
                                 <input type="text" name="phone" id="phone" class="form-control" value="{{old('phone')}}">
                             </div>

@@ -27,6 +27,7 @@ class LecturerRequest extends FormRequest
             'name' => 'required|string',
             'nid' => 'required|string',
             'department' => 'required|string',
+            'avatar' => 'file|image|mimes:jpeg,png,jpg|max:2048',
             // 'sex' => 'required',
             // 'email' => 'required',
             // 'phone' => 'required',

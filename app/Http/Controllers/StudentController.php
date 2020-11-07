@@ -24,8 +24,8 @@ class StudentController extends Controller
 
     public function index(Request $request)
     {
-
         $students = Student::all();
+
         return view('students.index', compact('students'));
     }
 
@@ -36,12 +36,21 @@ class StudentController extends Controller
 
     public function store(StudentRequest $request)
     {
+        $file = $request['avatar'];
+
+        $nama_file = time().'_'.$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'avatar_mahasiswa';
+        $file->move($tujuan_upload, $nama_file);
+
         Student::create([
             'name' => $request['name'],
             'nrp' => $request['nrp'],
             'origin_address' => $request['origin_address'],
             'current_address' => $request['current_address'],
             'phone' => $request['phone'],
+            'avatar' => $nama_file,
             'department' => $request['department'],
             'birthdate' => $request['birthdate'],
             'year_entry' => $request['year_entry'],
@@ -67,11 +76,20 @@ class StudentController extends Controller
 
     public function update(StudentRequest $request, Student $student)
     {
+        $file = $request['avatar'];
+
+        $nama_file = time().'_'.$file->getClientOriginalName();
+
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'avatar_mahasiswa';
+        $file->move($tujuan_upload, $nama_file);
+
         $student->name = $request['name'];
         $student->nrp = $request['nrp'];
         $student->current_address = $request['current_address'];
         $student->origin_address = $request['origin_address'];
         $student->phone = $request['phone'];
+        $student->avatar = $nama_file;
         $student->department = $request['department'];
         $student->birthdate = $request['birthdate'];
         $student->year_entry = $request['year_entry'];

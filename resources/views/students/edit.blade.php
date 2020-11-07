@@ -69,7 +69,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="birthdate">Tanggal lahir</label>
-                                <input type="date" name="birthdate" id="birthdate" class="form-control {{$errors->has('birthdate') ? 'is-invalid' : ''}}" value="{{$student->birthdate}}" >
+                                <input type="date" name="birthdate" id="birthdate" class="form-control {{$errors->has('birthdate') ? 'is-invalid' : ''}}" value="{{$student->birthdate}}">
                                 @error('birthdate')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
@@ -102,6 +102,15 @@
                                 <label for="origin_address">Alamat Asal</label>
                                 <input type="text" class="form-control {{$errors->has('origin_address') ? 'is-invalid' : ''}}" id="origin_address" name="origin_address" placeholder="Masukkan alamat asal mahasiswa" value="{{$student->origin_address}}">
                                 @error('origin_address')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="avatar">Avatar</label>
+                                <input type="file" name="avatar" id="avatar" class="form-control" value="{{ $student->avatar }}">
+                                @error('avatar')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
                             </div>
