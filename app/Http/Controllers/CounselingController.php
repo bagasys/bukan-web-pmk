@@ -30,7 +30,7 @@ class CounselingController extends Controller
             $counselings = Counseling::all();
         } else {
             $user = Auth::user()->profileIds[0];
-            $counselings = Counseling::where('nrp', $user->model->nrp);
+            $counselings = Counseling::where('nrp', $user->model->nrp)->get();
         }
 
         return view('counselings.index', compact('counselings'));

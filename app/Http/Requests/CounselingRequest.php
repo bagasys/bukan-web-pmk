@@ -24,7 +24,6 @@ class CounselingRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'nrp' => 'required|string',
             'counselee_contact' => 'required|string',
         ];
     }

@@ -12,7 +12,7 @@ class Counseling extends Model
     protected $table = 'counselings';
 
     protected $fillable = [
-        'counselee_name',
+        'nrp',
         'counselee_contact',
         'counselor_id',
     ];
