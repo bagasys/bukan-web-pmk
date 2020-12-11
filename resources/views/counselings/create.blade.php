@@ -37,7 +37,7 @@
                 @csrf
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
+                        {{-- <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="counselee_name">Nama</label>
                                 <input type="text" class="form-control" id="counselee_name" name="counselee_name" placeholder="Masukkan Nama" value="{{old('name')}}" required>
@@ -45,7 +45,7 @@
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="counselee_contact">Contact</label>

@@ -20,7 +20,7 @@ class Counselingimport implements ToModel, WithHeadingRow
         $row['counselor_id'] = $counselor->id;
 
         return new Counseling([
-            'counselee_name' => $row['counselee_name'],
+            // 'nrp' => $row['nrp'],
             'counselee_contact' => $row['counselee_contact'],
             'counselor_id' => $row['counselor_id'],
         ]);

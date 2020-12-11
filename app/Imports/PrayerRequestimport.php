@@ -16,7 +16,7 @@ class PrayerRequestimport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new PrayerRequest([
-            'name' => $row['name'],
+            'nrp' => $row['nrp'],
             'prayer_content' => $row['prayer_content'],
             'status' => $row['status'],
         ]);

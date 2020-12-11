@@ -37,6 +37,13 @@ class SuperAdminSeeder extends Seeder
 
         $mahasiswa->assignRole('mahasiswa');
 
+        $mahasiswa2 = User::create([
+            'email' => 'jeremy2@pmk.its.ac.id',
+            'password' => bcrypt('jeremy123'),
+        ]);
+
+        $mahasiswa2->assignRole('mahasiswa');
+
         $alumni = User::create([
             'email' => 'alumni@pmk.its.ac.id',
             'password' => bcrypt('kevin123'),

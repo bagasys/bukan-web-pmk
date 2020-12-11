@@ -238,6 +238,8 @@ class RoleSeeder extends Seeder
         */
         $mahasiswa->givePermissionTo($view_student);
         $mahasiswa->givePermissionTo($view_lecturer);
+        $mahasiswa->givePermissionTo($view_counseling);
+        $mahasiswa->givePermissionTo($add_counseling);
 
         /*
             Dosen

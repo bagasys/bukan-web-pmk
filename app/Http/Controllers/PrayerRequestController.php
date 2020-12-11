@@ -53,7 +53,7 @@ class PrayerRequestController extends Controller
     public function store(PrayerRequestRequest $request)
     {
         PrayerRequest::create([
-            'name' => $request['name'],
+            'nrp' => $request['nrp'],
             'prayer_content' => $request['prayer_content'],
             'status' => $request['status'],
         ]);
@@ -89,7 +89,7 @@ class PrayerRequestController extends Controller
      */
     public function update(PrayerRequestRequest $request, PrayerRequest $prayerRequest)
     {
-        $prayerRequest->name = $request['name'];
+        $prayerRequest->nrp = $request['nrp'];
         $prayerRequest->prayer_content = $request['prayer_content'];
         $prayerRequest->status = $request['status'];
         $prayerRequest->save();

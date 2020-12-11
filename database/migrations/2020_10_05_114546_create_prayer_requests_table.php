@@ -15,7 +15,7 @@ class CreatePrayerRequestsTable extends Migration
     {
         Schema::create('prayer_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nrp');
             $table->string('prayer_content');
             $table->string('status');
             $table->timestamps();

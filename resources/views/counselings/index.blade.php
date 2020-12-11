@@ -99,7 +99,7 @@
             <tbody>
                 @foreach ($counselings as $counseling)
                 <tr>
-                    <td>{{ $counseling->counselee_name }}</td>
+                    <td>{{ $counseling->nrp }}</td>
                     <td>{{ $counseling->counselee_contact }}</td>
                     <td>{{ $counseling->counselor->name}}</td>
                     <td>

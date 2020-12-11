@@ -13,15 +13,20 @@
           <!-- Add icons to the links using the .nav-icon class
                               with font-awesome or any other icon font library -->
           <h2 class="text-center font-weight-bold mb-4"><span style="color:red;"><i class="nav-icon fas fa-cross "></i>PMK</span> <span style="color:#3366ff;">ITS</span></h2>
+
+          @unlessrole('super admin')
           <li class="mb-1">
             <a href="{{route ('profiles.index')}}" class="nav-link active">
               <i class="pl-1 nav-icon far fa-user-circle fa-lg"></i>
-              <p class="pl-1">
-                Profile
-                <i class="right fas fa-angle-left"></i>
-              </p>
+
+                <p class="pl-1">
+                    Profile
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+
             </a>
           </li>
+          @endunlessrole
 
           @if(auth()->user()->hasRole('super admin'))
           <li class="nav-item has-treeview ">

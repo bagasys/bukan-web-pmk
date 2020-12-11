@@ -7,6 +7,7 @@ use App\Http\Requests\CounselingRequest;
 use App\Imports\CounselingImport;
 use App\Models\Counseling;
 use App\Models\Counselor;
+use Auth;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
@@ -24,7 +25,13 @@ class CounselingController extends Controller
 
     public function index(Request $request)
     {
-        $counselings = Counseling::all();
+        // dd($user);
+        if (Auth::user()->hasRole('super admin')) {
+            $counselings = Counseling::all();
+        } else {
+            $user = Auth::user()->profileIds[0];
+            $counselings = Counseling::where('nrp', $user->model->nrp);
+        }
 
         return view('counselings.index', compact('counselings'));
     }
@@ -49,8 +56,10 @@ class CounselingController extends Controller
      */
     public function store(CounselingRequest $request)
     {
+        $nrp = Auth::user()->profileIds[0]->model->nrp;
+        // dd($user->model->nrp);
         Counseling::create([
-            'counselee_name' => $request['counselee_name'],
+            'nrp' => $nrp,
             'counselee_contact' => $request['counselee_contact'],
             'counselor_id' => $request['counselor_id'],
         ]);
@@ -92,7 +101,7 @@ class CounselingController extends Controller
      */
     public function update(CounselingRequest $request, Counseling $counseling)
     {
-        $counseling->counselee_name = $request['counselee_name'];
+        $counseling->nrp = $request['nrp'];
         $counseling->counselee_contact = $request['counselee_contact'];
         $counseling->counselor_id = $request['counselor_id'];
         $counseling->save();

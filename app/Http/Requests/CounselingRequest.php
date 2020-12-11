@@ -24,12 +24,12 @@ class CounselingRequest extends FormRequest
     public function rules()
     {
         return [
-            'counselee_name' => 'required|string',
+            // 'nrp' => 'required|string',
             'counselee_contact' => 'required|string',
         ];
     }
 
-    /**
+    /*
      * Get custom attributes for validator errors.
      *
      * @return array

@@ -24,16 +24,15 @@ class PrayerRequestRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'nrp' => 'required|string',
             'prayer_content' => 'required|string',
             'status' => 'required|string',
         ];
     }
 
-    /**
+    /*
      * Get custom attributes for validator errors.
      *
      * @return array
      */
-
 }
