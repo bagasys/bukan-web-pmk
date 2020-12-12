@@ -56,9 +56,10 @@ class CounselingController extends Controller
      */
     public function store(CounselingRequest $request)
     {
+        $user = Auth::user()->profileIds[0];
         // dd($user->model->nrp);
         Counseling::create([
-            'nrp' => $request['nrp'],
+            'nrp' => $user->model->nrp,
             'counselee_name' => $request['counselee_name'],
             'counselee_contact' => $request['counselee_contact'],
             'counselor_id' => $request['counselor_id'],
@@ -101,7 +102,8 @@ class CounselingController extends Controller
      */
     public function update(CounselingRequest $request, Counseling $counseling)
     {
-        $counseling->nrp = $request['nrp'];
+        $user = Auth::user()->profileIds[0];
+        $counseling->nrp = $user->model->nrp;
         $counseling->counselee_name = $request['counselee_name'];
         $counseling->counselee_contact = $request['counselee_contact'];
         $counseling->counselor_id = $request['counselor_id'];

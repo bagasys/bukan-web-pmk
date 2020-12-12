@@ -58,8 +58,9 @@ class PrayerRequestController extends Controller
      */
     public function store(PrayerRequestRequest $request)
     {
+        $user = Auth::user()->profileIds[0];
         PrayerRequest::create([
-            'nrp' => $request['nrp'],
+            'nrp' => $user->model->nrp,
             'name' => $request['name'],
             'prayer_content' => $request['prayer_content'],
             'status' => $request['status'],
@@ -96,7 +97,8 @@ class PrayerRequestController extends Controller
      */
     public function update(PrayerRequestRequest $request, PrayerRequest $prayerRequest)
     {
-        $prayerRequest->nrp = $request['nrp'];
+        $user = Auth::user()->profileIds[0];
+        $prayerRequest->nrp = $user->model->nrp;
         $prayerRequest->name = $request['name'];
         $prayerRequest->prayer_content = $request['prayer_content'];
         $prayerRequest->status = $request['status'];

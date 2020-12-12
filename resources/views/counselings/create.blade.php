@@ -48,15 +48,6 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label for="nrp">NRP</label>
-                                <input type="text" class="form-control" id="nrp" name="nrp" placeholder="Masukkan Contact" value="{{old('nrp')}}" required>
-                                @error('nrp')
-                                <span class="error invalid-feedback">{{$message}}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
                                 <label for="counselee_contact">Contact</label>
                                 <input type="text" class="form-control" id="counselee_contact" name="counselee_contact" placeholder="Masukkan Contact" value="{{old('counselee_contact')}}" required>
                                 @error('counselee_contact')

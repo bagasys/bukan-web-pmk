@@ -24,7 +24,6 @@ class PrayerRequestRequest extends FormRequest
     public function rules()
     {
         return [
-            'nrp' => 'required|string',
             'prayer_content' => 'required|string',
             'status' => 'required|string',
         ];
