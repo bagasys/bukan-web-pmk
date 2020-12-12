@@ -92,6 +92,7 @@
             <thead>
                 <tr>
                     <th>Nama</th>
+                    <th>Nrp</th>
                     <th>Content doa</th>
                     <th>Status</th>
                     <th style="width: 280px">Action</th>
@@ -101,6 +102,7 @@
                 @foreach ($prayerRequests as $prayerRequest)
                 <tr>
                     <td>{{ $prayerRequest->name }}</td>
+                    <td>{{ $prayerRequest->nrp }}</td>
                     <td>{{ $prayerRequest->prayer_content }}</td>
                     <td>{{ $prayerRequest->status }}</td>
                     <td>

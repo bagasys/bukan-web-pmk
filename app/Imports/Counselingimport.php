@@ -21,6 +21,7 @@ class Counselingimport implements ToModel, WithHeadingRow
 
         return new Counseling([
             // 'nrp' => $row['nrp'],
+            'counselee_name' => $row['counselee_name'],
             'counselee_contact' => $row['counselee_contact'],
             'counselor_id' => $row['counselor_id'],
         ]);

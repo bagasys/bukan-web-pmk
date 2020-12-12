@@ -48,6 +48,15 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
+                                <label for="nrp">Nrp</label>
+                                <input type="text" class="form-control {{$errors->has('nrp') ? 'is-invalid' : ''}}" id="nrp" name="nrp" placeholder="Masukkan Content doa" value="{{old('nrp')}}" required>
+                                @error('nrp')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
                                 <label for="prayer_content">Content doa</label>
                                 <input type="text" class="form-control {{$errors->has('prayer_content') ? 'is-invalid' : ''}}" id="prayer_content" name="prayer_content" placeholder="Masukkan Content doa" value="{{old('prayer_content')}}" required>
                                 @error('prayer_content')

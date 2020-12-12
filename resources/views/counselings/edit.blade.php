@@ -49,6 +49,15 @@
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
+                                <label for="nrp">NRP</label>
+                                <input type="text" class="form-control" id="nrp" name="nrp" placeholder="Masukkan Nama" value="{{ $counseling->nrp }}" required>
+                                @error('nrp')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
                                 <label for="counselee_contact">Contact</label>
                                 <input type="text" name="counselee_contact" id="counselee_contact" class="form-control" placeholder="Masukkan Contact" value="{{ $counseling->counselee_contact }}" required>
                                 @error('counselee_contact')

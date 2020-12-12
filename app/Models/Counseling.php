@@ -13,6 +13,7 @@ class Counseling extends Model
 
     protected $fillable = [
         'nrp',
+        'counselee_name',
         'counselee_contact',
         'counselor_id',
     ];

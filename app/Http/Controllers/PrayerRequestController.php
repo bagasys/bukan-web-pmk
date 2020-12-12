@@ -6,6 +6,7 @@ use App\Exports\PrayerRequestExport;
 use App\Http\Requests\PrayerRequestRequest;
 use App\Imports\PrayerRequestImport;
 use App\Models\PrayerRequest;
+use Auth;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
@@ -29,7 +30,12 @@ class PrayerRequestController extends Controller
      */
     public function index(Request $request)
     {
-        $prayerRequests = PrayerRequest::all();
+        if (Auth::user()->hasRole(['super admin', 'bph pemuridan', 'bph dope'])) {
+            $prayerRequests = PrayerRequest::all();
+        } else {
+            $user = Auth::user()->profileIds[0];
+            $prayerRequests = PrayerRequest::where('nrp', $user->model->nrp)->get();
+        }
 
         return view('prayer-requests.index', compact('prayerRequests'));
     }
@@ -54,6 +60,7 @@ class PrayerRequestController extends Controller
     {
         PrayerRequest::create([
             'nrp' => $request['nrp'],
+            'name' => $request['name'],
             'prayer_content' => $request['prayer_content'],
             'status' => $request['status'],
         ]);
@@ -90,6 +97,7 @@ class PrayerRequestController extends Controller
     public function update(PrayerRequestRequest $request, PrayerRequest $prayerRequest)
     {
         $prayerRequest->nrp = $request['nrp'];
+        $prayerRequest->name = $request['name'];
         $prayerRequest->prayer_content = $request['prayer_content'];
         $prayerRequest->status = $request['status'];
         $prayerRequest->save();

@@ -20,36 +20,73 @@ class SuperAdminSeeder extends Seeder
             'email' => 'superadmin@pmk.its.ac.id',
             'password' => bcrypt('superadmin'),
         ]);
-
         $user->assignRole('super admin');
 
-        $dosen = User::create([
-            'email' => 'kevin@pmk.its.ac.id',
-            'password' => bcrypt('kevin123'),
+        $ketua = User::create([
+            'email' => 'ketua@pmk.its.ac.id',
+            'password' => bcrypt('ketua123'),
         ]);
+        $ketua->assignRole('ketua');
 
-        $dosen->assignRole('dosen');
+        $bendahara = User::create([
+            'email' => 'bendahara@pmk.its.ac.id',
+            'password' => bcrypt('bendahara123'),
+        ]);
+        $bendahara->assignRole('bendahara');
+
+        $sekretaris = User::create([
+            'email' => 'sekretaris@pmk.its.ac.id',
+            'password' => bcrypt('sekretaris123'),
+        ]);
+        $sekretaris->assignRole('sekretaris');
+
+        $bph_murid = User::create([
+            'email' => 'bphmurid@pmk.its.ac.id',
+            'password' => bcrypt('bphmurid123'),
+        ]);
+        $bph_murid->assignRole('bph pemuridan');
+
+        $bph_dope = User::create([
+            'email' => 'bphdope@pmk.its.ac.id',
+            'password' => bcrypt('bphdope123'),
+        ]);
+        $bph_dope->assignRole('bph dope');
+
+        $pkk = User::create([
+            'email' => 'pkk@pmk.its.ac.id',
+            'password' => bcrypt('pkk123'),
+        ]);
+        $pkk->assignRole('pkk');
 
         $mahasiswa = User::create([
-            'email' => 'adrian@pmk.its.ac.id',
-            'password' => bcrypt('kevin123'),
+            'email' => 'mahasiswa@pmk.its.ac.id',
+            'password' => bcrypt('mahasiswa123'),
         ]);
-
         $mahasiswa->assignRole('mahasiswa');
 
-        $mahasiswa2 = User::create([
-            'email' => 'jeremy2@pmk.its.ac.id',
-            'password' => bcrypt('jeremy123'),
+        $dosen = User::create([
+            'email' => 'dosen@pmk.its.ac.id',
+            'password' => bcrypt('dosen123'),
         ]);
+        $dosen->assignRole('dosen');
 
-        $mahasiswa2->assignRole('mahasiswa');
+        $pengurustpkk = User::create([
+            'email' => 'pengurustpkk@pmk.its.ac.id',
+            'password' => bcrypt('pengurustpkk123'),
+        ]);
+        $pengurustpkk->assignRole('pengurus tpkk');
 
         $alumni = User::create([
             'email' => 'alumni@pmk.its.ac.id',
-            'password' => bcrypt('kevin123'),
+            'password' => bcrypt('alumni123'),
         ]);
-
         $alumni->assignRole('alumni');
+
+        $pengurusalumni = User::create([
+            'email' => 'pengurusalumni@pmk.its.ac.id',
+            'password' => bcrypt('pengurusalumni123'),
+        ]);
+        $pengurusalumni->assignRole('pengurus alumni');
 
         // $student = Student::create([
         //     'name' => 'adrian',

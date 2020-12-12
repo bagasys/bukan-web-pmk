@@ -39,11 +39,20 @@
                 <div class="card-body">
                     <div class="row">
 
-                    <div class="col-sm-12">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="name">Nama </label>
                                 <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" name="name" placeholder="Masukkan Nama" value="{{ $prayerRequest->name }}" required>
                                 @error('name')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="nrp">Nrp </label>
+                                <input type="text" class="form-control {{$errors->has('nrp') ? 'is-invalid' : ''}}" id="nrp" name="nrp" placeholder="Masukkan Nama" value="{{ $prayerRequest->nrp }}" required>
+                                @error('nrp')
                                 <span class="error invalid-feedback">{{$message}}</span>
                                 @enderror
                             </div>

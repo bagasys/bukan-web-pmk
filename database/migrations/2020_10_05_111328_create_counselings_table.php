@@ -17,6 +17,7 @@ class CreateCounselingsTable extends Migration
             $table->id();
             $table->foreignId('counselor_id')->nullable()->unsigned();
             $table->string('nrp');
+            $table->string('counselee_name');
             $table->string('counselee_contact');
             $table->timestamps();
 

@@ -12,6 +12,7 @@ class PrayerRequest extends Model
     protected $table = 'prayer_requests';
 
     protected $fillable = [
+        'nrp',
         'name',
         'prayer_content',
         'status',
