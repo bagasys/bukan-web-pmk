@@ -6,6 +6,8 @@ use App\Exports\LecturerExport;
 use App\Http\Requests\LecturerRequest;
 use App\Imports\LecturerImport;
 use App\Models\Lecturer;
+use App\Models\ProfileId;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
@@ -69,6 +71,21 @@ class LecturerController extends Controller
             'avatar' => $nama_file,
             'email' => $request['email'],
             'phone' => $request['phone'],
+        ]);
+
+        User::create([
+            'email' => $request['nid'],
+            'password' => bcrypt($request['nid']),
+        ])->assignRole('dosen');
+
+        $model_id = Lecturer::select('id')->where('nid', $request['nid'])->first();
+        $user_id = User::select('id')->where('email', $request['nid'])->first();
+
+        ProfileId::create([
+            'profile_id' => $request['nid'],
+            'user_id' => $user_id->id,
+            'model_id' => $model_id->id,
+            'model_type' => 'App\Models\Lecturer',
         ]);
 
         return redirect()->route('lecturers.index')

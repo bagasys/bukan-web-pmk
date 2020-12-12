@@ -110,10 +110,11 @@
                     <td>{{ $alumni->department }}</td>
                     <td>{{ $alumni->year_entry }}</td>
                     <td>{{ $alumni->year_exit }}</td>
+                    @can('view detail lecturer')
                     <td>
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
-                                @can('view alumni')
+                                @can('view detail alumni')
                                 <a class="btn btn-info" href="{{ route('alumnis.show',$alumni->id) }}"><i class="fa fa-eye"></i></a>
                                 @endcan
                             </div>
@@ -133,6 +134,7 @@
                             </div>
                         </div>
                     </td>
+                    @endcan
                 </tr>
                 @endforeach
             </tbody>

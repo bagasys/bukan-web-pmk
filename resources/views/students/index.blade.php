@@ -109,7 +109,7 @@
                     <td>{{ $student->department }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ date('d M Y'  ,strtotime($student->birthdate)) }}</td>
-
+                    @can('view detail student')
                     <td>
                         <div style="display: flex">
                             <div style="margin-right: 5px;">
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </td>
-
+                    @endcan
                 </tr>
                 @endforeach
             </tbody>

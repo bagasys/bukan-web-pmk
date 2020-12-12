@@ -6,6 +6,8 @@ use App\Exports\AlumniExport;
 use App\Http\Requests\AlumniRequest;
 use App\Imports\AlumniImport;
 use App\Models\Alumni;
+use App\Models\ProfileId;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
@@ -60,7 +62,7 @@ class AlumniController extends Controller
         $tujuan_upload = 'avatar_alumni';
         $file->move($tujuan_upload, $nama_file);
 
-        alumni::create([
+        Alumni::create([
             'name' => $request['name'],
             'username' => $request['username'],
             'department' => $request['department'],
@@ -71,6 +73,21 @@ class AlumniController extends Controller
             'year_entry' => $request['year_entry'],
             'year_exit' => $request['year_exit'],
             'year_end' => $request['year_end'],
+        ]);
+
+        User::create([
+            'email' => $request['username'],
+            'password' => bcrypt($request['username']),
+        ])->assignRole('alumni');
+
+        $model_id = Alumni::select('id')->where('username', $request['username'])->first();
+        $user_id = User::select('id')->where('email', $request['username'])->first();
+
+        ProfileId::create([
+            'profile_id' => $request['username'],
+            'user_id' => $user_id->id,
+            'model_id' => $model_id->id,
+            'model_type' => 'App\Models\Alumni',
         ]);
 
         return redirect()->route('alumnis.index')

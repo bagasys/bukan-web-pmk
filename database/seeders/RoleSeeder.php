@@ -444,7 +444,7 @@ class RoleSeeder extends Seeder
             Mahasiswa
         */
         $mahasiswa->givePermissionTo($view_student);
-        $mahasiswa->givePermissionTo($edit_student);
+        // $mahasiswa->givePermissionTo($edit_student);
         $mahasiswa->givePermissionTo($view_lecturer);
         $mahasiswa->givePermissionTo($view_event);
         $mahasiswa->givePermissionTo($view_detail_event);
