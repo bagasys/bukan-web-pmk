@@ -10,6 +10,7 @@ class ProfileId extends Model
     use HasFactory;
 
     protected $table = 'profile_ids';
+    protected $guarded = [];
 
     public function model()
     {

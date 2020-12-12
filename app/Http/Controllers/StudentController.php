@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Exports\StudentExport;
 use App\Http\Requests\StudentRequest;
 use App\Imports\StudentImport;
+use App\Models\ProfileId;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
@@ -58,6 +60,21 @@ class StudentController extends Controller
             'guardian_name' => $request['guardian_name'],
             'guardian_phone' => $request['guardian_phone'],
             'sex' => $request['sex'],
+        ]);
+
+        User::create([
+            'email' => $request['nrp'],
+            'password' => bcrypt($request['nrp']),
+        ])->assignRole('mahasiswa');
+
+        $model_id = Student::select('id')->where('nrp', $request['nrp'])->first();
+        $user_id = User::select('id')->where('email', $request['nrp'])->first();
+
+        ProfileId::create([
+            'profile_id' => $request['nrp'],
+            'user_id' => $user_id->id,
+            'model_id' => $model_id->id,
+            'model_type' => 'App\Models\Student',
         ]);
 
         return redirect()->route('students.index')

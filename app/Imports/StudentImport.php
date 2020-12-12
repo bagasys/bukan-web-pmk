@@ -2,7 +2,9 @@
 
 namespace App\Imports;
 
+use App\Models\ProfileId;
 use App\Models\Student;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Row;
@@ -29,6 +31,21 @@ class StudentImport implements onEachRow, WithHeadingRow
                 'sex' => $row['sex'],
             ]
         );
+
+        User::firstOrcreate([
+            'email' => $row['nrp'],
+            'password' => bcrypt($row['nrp']),
+        ])->assignRole('mahasiswa');
+
+        $model_id = Student::select('id')->where('nrp', $row['nrp'])->first();
+        $user_id = User::select('id')->where('email', $row['nrp'])->first();
+
+        ProfileId::firstOrcreate([
+            'profile_id' => $row['nrp'],
+            'user_id' => $user_id->id,
+            'model_id' => $model_id->id,
+            'model_type' => 'App\Models\Student',
+        ]);
 
         if (! $student->wasRecentlyCreated) {
             $student->update([
